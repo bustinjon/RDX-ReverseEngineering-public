@@ -1,0 +1,35 @@
+{
+  "artifact": "headunit-diagnostics-0.1.0.apk",
+  "package": "org.rdxresearch.diagnostics",
+  "version": "0.1.0",
+  "minSdk": 21,
+  "targetSdk": 22,
+  "sha256": "6727EA2DBBD93F19E477DC9467573ADFCE50A9081C1B889BE771C31E03718473",
+  "bytes": 16731,
+  "sourceHashes": [
+    {
+      "path": "source/org/rdxresearch/diagnostics/DiagnosticActivity.java",
+      "sha256": "0D4FB154857D02AE1AB24E23CEA9220D0BA1AF3DF1132A6EBB11CCFC54B199BB"
+    },
+    {
+      "path": "AndroidManifest.xml",
+      "sha256": "5C43BB6918D9981EA573279B2D2B9E2F18F34E107066D4D45EC2FF5813EE3B30"
+    }
+  ],
+  "apkEntries": [
+    "AndroidManifest.xml",
+    "classes.dex",
+    "META-INF/PUBLIC-D.SF",
+    "META-INF/PUBLIC-D.RSA",
+    "META-INF/MANIFEST.MF"
+  ],
+  "permissions": [
+    "package: org.rdxresearch.diagnostics"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeLibrariesIncluded": false,
+  "assetsIncluded": false,
+  "protocolCredentialsIncluded": false,
+  "hardwareTested": false
+}

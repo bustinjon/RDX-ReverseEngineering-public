@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 330,
-      "sha256": "b49b0fb7ab153cbcc6f82790d7f69f0d152bbf515dbcdaafc913e6e5f590a720"
+      "bytes": 436,
+      "sha256": "1b25f3b7704ea938df874ecec4cb4b1207e357455be0240c823e112f436db301"
     },
     {
       "path": "analysis/2022-reference-needed.md",
@@ -2444,6 +2444,41 @@
       "sha256": "7758ebd30793bdefb567d0b3db3fb053c5476de4b6dfabf8dc642a13c01698e8"
     },
     {
+      "path": "diagnostic-app/AndroidManifest.xml",
+      "bytes": 770,
+      "sha256": "5c43bb6918d9981ea573279b2d2b9e2f18f34e107066d4d45ec2ff5813ee3b30"
+    },
+    {
+      "path": "diagnostic-app/Build-PublicDiagnostic.ps1",
+      "bytes": 4968,
+      "sha256": "4b51e5e63b614e6092e5cd446c452796eddbd219d5c0670820b1b7a0a34b65a6"
+    },
+    {
+      "path": "diagnostic-app/README.md",
+      "bytes": 4271,
+      "sha256": "9d5270bd59754530d78166c8e198e595ad074545c9595f96b055eba9f251b313"
+    },
+    {
+      "path": "diagnostic-app/source/org/rdxresearch/diagnostics/DiagnosticActivity.java",
+      "bytes": 8794,
+      "sha256": "0d4fb154857d02ae1ab24e23cea9220d0ba1af3df1132a6ebb11ccfc54b199bb"
+    },
+    {
+      "path": "diagnostic-app/VALIDATION.md",
+      "bytes": 3489,
+      "sha256": "5de925e7d67b692713ccb30b3a6fe69e4e4381fb2920ee74afe17090ca51f777"
+    },
+    {
+      "path": "downloads/headunit-diagnostics-0.1.0-build.json",
+      "bytes": 1022,
+      "sha256": "b75a39ee5b75ff899eeaa12fc86abb1de21b4479065d78ee4c0dc251d7d2ac56"
+    },
+    {
+      "path": "downloads/headunit-diagnostics-0.1.0.apk",
+      "bytes": 16731,
+      "sha256": "6727ea2dbbd93f19e477dc9467573adfce50a9081c1b889be771c31e03718473"
+    },
+    {
       "path": "NOTES.md",
       "bytes": 145950,
       "sha256": "857a5fafcde79d93fa7da7b7f91459b0ed16d62b9895a08a6373f512851e6999"
@@ -2455,8 +2490,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3572,
-      "sha256": "f2ccf9de81b460c8eaf8814527cc83b9377bce3c9b643efdef6a9c6edc184211"
+      "bytes": 3839,
+      "sha256": "6c803df9cc023952287c048b3a071dd608198026e8afde957cb7f5eeecf3a4e0"
     },
     {
       "path": "scripts/Analyze-RdxArchives.ps1",
@@ -2947,6 +2982,11 @@
       "path": "scripts/Verify-RdxRecoveryRootReports.ps1",
       "bytes": 4768,
       "sha256": "bc288dbcdfb8fae5e81d8585d52423479ea67a87e58d88a085f9b963d3fb5a24"
+    },
+    {
+      "path": "START-HERE.md",
+      "bytes": 3067,
+      "sha256": "15138fc387df88b1badffd1fd5b945ce0cb8d60cbf5c3fc65b59a0f4ffb0e638"
     },
     {
       "path": "tools/api22/Compare-Api22TlsResults.ps1",

@@ -1,6 +1,6 @@
 # RDX Android Auto fullscreen research
 
-Public research snapshot, 2026-10-30. Start with [current findings](CURRENT-FINDINGS.md), then the [porting guide](PORTING.md). This snapshot has no private-repository history.
+Public research snapshot, 2026-10-30. Start with [START-HERE.md](START-HERE.md) for the public diagnostic APK and Codex handoff, then [current findings](CURRENT-FINDINGS.md) and the [porting guide](PORTING.md). This snapshot has no private-repository history.
 
 The latest bounded experiment on one Honda/Acura Android 5.1.1 head unit displayed Android Auto with corrected geometry, accepted touchpad movement and physical select presses, and played audio while the phone's Bluetooth **Media audio** option was disabled. These are operator-reported outcomes supported by the receiver's input and PCM diagnostics. They do not establish compatibility with another model/year, a production-ready receiver, or an internal hardware audio-route trace.
 
@@ -14,7 +14,7 @@ The latest bounded experiment on one Honda/Acura Android 5.1.1 head unit display
 
 ## What is deliberately absent
 
-No APKs, proprietary native libraries, firmware/framework/APK dumps, bulk decompiled source, protocol credentials, keystores/private keys, signing passwords, raw car/phone logs, photos, or Git history. Report code blocks were omitted because some quote vendor decompilations. Code intended for analysis is supplied in the authored source trees instead. References to local-only evidence may therefore lead to unavailable paths.
+The only included APK is the separately authored, credential-free [public diagnostic app](diagnostic-app/README.md). The working Android Auto receiver APKs remain excluded, along with proprietary native libraries, firmware/framework/APK dumps, bulk decompiled source, protocol credentials, keystores/private keys, signing passwords, raw car/phone logs, photos, and private Git history. Report code blocks were omitted because some quote vendor decompilations. Code intended for analysis is supplied in the authored source trees instead. References to local-only evidence may therefore lead to unavailable paths.
 
 Device serials in exported text/code are dummy values: head unit `00000000`, phone `11111111`. Personal Windows user paths and MAC/LAN addresses were sanitized. These are publication substitutions, not valid target settings. Do not weaken identity or readiness checks to run a different car.
 

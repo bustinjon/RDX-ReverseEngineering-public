@@ -29,3 +29,6 @@ decompiled/
 dumps/
 backups/
 photos/
+
+# The sole reviewed, credential-free public diagnostic binary.
+!downloads/headunit-diagnostics-0.1.0.apk
