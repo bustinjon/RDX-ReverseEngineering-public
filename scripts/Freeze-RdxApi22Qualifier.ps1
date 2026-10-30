@@ -1,0 +1,15 @@
+param([Parameter(Mandatory=$true)][string]$First,[Parameter(Mandatory=$true)][string]$Second)
+$ErrorActionPreference='Stop';$root=Split-Path $PSScriptRoot -Parent;$project=Join-Path $root 'analysis/parallel-aa-receiver/api22-tls-qualifier'
+if(Test-Path "$project/FROZEN.json"){throw 'Qualifier already frozen; no automatic overwrite/rebuild of FINAL'}
+foreach($b in @($First,$Second)){& "$root/tools/api22/Test-QualifierApk.ps1" -Build $b|Out-Null;$r=Get-Content "$b/build-report.json" -Raw|ConvertFrom-Json;foreach($f in $r.sourceHashes){if((Get-FileHash $f.Path).Hash-ne$f.Hash){throw 'APK build input no longer matches source'}}}
+$a=Get-Content "$First/build-report.json" -Raw|ConvertFrom-Json;$b=Get-Content "$Second/build-report.json" -Raw|ConvertFrom-Json
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+function Entries([string]$Path){$z=[IO.Compression.ZipFile]::OpenRead($Path);try{$list=@(foreach($e in $z.Entries){if($e.FullName.EndsWith('/')-or$e.FullName.StartsWith('META-INF/')){continue};$s=$e.Open();$m=[IO.MemoryStream]::new();try{$s.CopyTo($m);[pscustomobject]@{entry=$e.FullName;sha256=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($m.ToArray()))}}finally{$s.Dispose();$m.Dispose()}});return $list}finally{$z.Dispose()}}
+$left=Entries $a.apk;$right=Entries $b.apk;$diff=@(Compare-Object @($left|ForEach-Object {$_.entry+'='+$_.sha256}|Sort-Object) @($right|ForEach-Object {$_.entry+'='+$_.sha256}|Sort-Object))
+$classDiff=@(Compare-Object @((Entries "$First/classes.jar")|ForEach-Object {$_.entry+'='+$_.sha256}|Sort-Object) @((Entries "$Second/classes.jar")|ForEach-Object {$_.entry+'='+$_.sha256}|Sort-Object))
+if($diff.Count-or$classDiff.Count-or$a.DEX-ne$b.DEX){throw 'Qualifier payload reproducibility mismatch'}
+New-Item -ItemType Directory "$project/build/FINAL"|Out-Null;Copy-Item -LiteralPath $b.apk -Destination "$project/build/FINAL/rdx-api22-tls-qualifier.apk"
+$final=(Get-Item "$project/build/FINAL/rdx-api22-tls-qualifier.apk").FullName;$audit=Get-Content "$Second/apk-audit.json" -Raw|ConvertFrom-Json
+[ordered]@{path=$final.Substring($root.Length+1);sha256=(Get-FileHash $final).Hash;package=$b.package;version=$b.version;versionCode=3;minSdk=22;targetSdk=22;permissions=@();component='com.rdx.fullscreen.api22tls/.TlsQualificationActivity';signerSHA256='C001F59B25081DDFC73937155CA3580717E817C45C66E68B9E059737B0B28831';DEX=$b.DEX;externalAPI22Methods=$audit.externalAPI22Methods;definedClasses=$audit.definedClasses;build=$Second;testOnly=$true;runtime='NOT EXECUTED ON ANDROID';assets='PUBLIC TEST MATERIAL; not Honda credentials';noPhysicalDeployment=$true}|ConvertTo-Json -Depth 6|Set-Content "$project/FROZEN.json"
+[ordered]@{PASS=$true;first=$First;second=$Second;DEX=$b.DEX;classPayloadsIdentical=$true;APKManifestAssetsDexPayloadsIdentical=$true;archiveByteIdentical=($a.sha256-eq$b.sha256);ignored='ZIP/signing container timestamps and signature metadata only; no runtime ciphertext compared';entries=$right}|ConvertTo-Json -Depth 6|Set-Content "$project/qualifier-reproducibility.json"
+Get-Content "$project/FROZEN.json"

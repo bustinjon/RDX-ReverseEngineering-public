@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.rdx.fullscreen.m5permission" android:versionCode="2" android:versionName="0.1.1-m5-single-port-180s">
+ <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="22"/>
+ <uses-feature android:name="android.hardware.usb.host" android:required="false"/>
+ <application android:label="M5 DO NOT RUN BEFORE M4 PASS" android:allowBackup="false">
+  <service android:name=".PermissionService" android:exported="true"/>
+ </application>
+</manifest>

@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.rdx.fullscreen.api22tls" android:versionCode="3" android:versionName="0.3.0-final-offline-qualifier">
+ <uses-sdk android:minSdkVersion="22" android:targetSdkVersion="22"/>
+ <application android:label="API22 TLS isolated qualifier" android:debuggable="true" android:testOnly="true" android:allowBackup="false">
+  <activity android:name=".TlsQualificationActivity" android:exported="true"/>
+ </application>
+</manifest>

@@ -1,0 +1,13 @@
+param([Parameter(Mandatory=$true)][string]$Results,[Parameter(Mandatory=$true)][string]$Output)
+$ErrorActionPreference='Stop';$root=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
+$gold=Get-Content "$root/analysis/parallel-aa-receiver/api22-tls-qualifier/golden/desktop-expectations.json" -Raw|ConvertFrom-Json
+$r=Get-Content -LiteralPath $Results -Raw|ConvertFrom-Json
+if($r.schemaVersion-ne1-or$r.complete-ne$true-or$r.suiteVersion-ne$gold.suiteVersion){throw 'Incomplete/incompatible result schema'}
+$missing=@($gold.requiredTests|Where-Object {-not$r.tests.PSObject.Properties[$_]});if($missing.Count){throw "Missing test outcomes: $($missing-join',')"}
+$rows=@(foreach($t in $gold.requiredTests){$value=[string]$r.tests.$t;[pscustomobject]@{test=$t;outcome=$value;classification=if($value-eq'PASS'){'MATCH'}elseif($value-like'LIMITATION:*'){'API22 LIMITATION'}elseif($value-like'FAIL:*'){'CONTRACT FAILURE'}else{'INCONCLUSIVE'}}})
+foreach($p in @(@('protocol','negotiatedProtocol'),@('cipher','negotiatedCipher'))){$actual=[string]$r.metadata.($p[1]);$expected=[string]$gold.($p[0]);$rows+=[pscustomobject]@{test=$p[0];outcome=$actual;classification=if($actual-eq$expected){'MATCH'}elseif($actual){'CONTRACT FAILURE'}else{'INCONCLUSIVE'}}}
+$identityPath=Join-Path (Split-Path $Results -Parent) 'runtime-identity.json';$runtime=$false
+if($r.metadata.androidAPI-eq22-and$r.runtimeScope-eq'ISOLATED ANDROID EMULATOR'-and(Test-Path -LiteralPath $identityPath)){$identity=Get-Content $identityPath -Raw|ConvertFrom-Json;$runtime=$identity.API-eq22-and$identity.qemu-eq'1'-and$identity.serial-match'^emulator-[0-9]{4,5}$'-and$identity.fingerprint-eq$r.metadata.fingerprint-and$identity.apkSHA256-eq$r.metadata.apkSHA256}
+$verdict=if(-not$runtime){'HARNESS FUNCTIONAL TEST ONLY; NOT API22 EVIDENCE'}elseif(@($rows|Where-Object classification -eq 'CONTRACT FAILURE').Count){'CANDIDATE CONTRACT FAILURE: minimize and review cause before platform verdict'}elseif(@($rows|Where-Object classification -ne 'MATCH').Count){'INCONCLUSIVE: provider qualification/completion review required'}else{'RUNTIME CONFORMANCE OBSERVATIONS PASS; MANUAL COMPLETION QUALIFICATION REQUIRED'}
+[ordered]@{schemaVersion=1;runtimeEvidence=$runtime;verdict=$verdict;automaticTargetQualification=$false;rows=$rows;expectedDifferences=@('NEED_TASK/task counts may differ','Provider/session buffer sizes may differ','Partial-consumption and underflow counts may differ','TLS ciphertext is intentionally not compared');completion='No automatic change to production provider profile; inspect frame attribution and close output'}|ConvertTo-Json -Depth 6|Set-Content -LiteralPath $Output
+Write-Output $verdict

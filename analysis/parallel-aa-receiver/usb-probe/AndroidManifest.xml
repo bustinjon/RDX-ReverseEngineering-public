@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.rdx.fullscreen.usbprobe" android:versionCode="3" android:versionName="0.1.2-m4-single-port-300s">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="22"/>
+    <uses-feature android:name="android.hardware.usb.host" android:required="false"/>
+    <application android:label="RDX M4 Passive USB" android:allowBackup="false">
+        <service android:name=".UsbInventoryService" android:exported="true" android:process=":probe"/>
+    </application>
+</manifest>

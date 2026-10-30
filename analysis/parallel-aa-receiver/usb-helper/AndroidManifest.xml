@@ -1,0 +1,43 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.rdx.fullscreen.usbhelper" android:versionCode="1" android:versionName="0.1.0-usb-helper">
+ <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="22"/>
+ <uses-feature android:name="android.hardware.usb.host" android:required="false"/>
+ <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+ <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+ <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
+ <application android:label="RDX USB" android:allowBackup="false" android:theme="@android:style/Theme.Material.NoActionBar">
+  <activity android:name=".HelperActivity" android:exported="true" android:screenOrientation="landscape">
+   <intent-filter>
+    <action android:name="android.intent.action.MAIN"/>
+    <category android:name="android.intent.category.LAUNCHER"/>
+   </intent-filter>
+  </activity>
+  <activity android:name=".UsbAttachActivity" android:exported="true"
+   android:theme="@android:style/Theme.NoDisplay"
+   android:noHistory="true" android:excludeFromRecents="true">
+   <intent-filter>
+    <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"/>
+   </intent-filter>
+   <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+    android:resource="@xml/device_filter"/>
+  </activity>
+  <service android:name=".UsbHelperService" android:exported="true"/>
+  <service android:name=".OverlayTestService" android:exported="true"/>
+  <service android:name=".AaOverlayService" android:exported="true"/>
+  <service android:name=".AaSessionService" android:exported="true"/>
+  <receiver android:name=".BootBlockerReceiver" android:exported="true">
+   <intent-filter>
+    <action android:name="android.intent.action.BOOT_COMPLETED"/>
+   </intent-filter>
+  </receiver>
+  <service android:name=".BootBlockerService" android:exported="false"/>
+  <service android:name=".PermissionClickService"
+   android:exported="false"
+   android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+   <intent-filter>
+    <action android:name="android.accessibilityservice.AccessibilityService"/>
+   </intent-filter>
+   <meta-data android:name="android.accessibilityservice"
+    android:resource="@xml/accessibility_config"/>
+  </service>
+ </application>
+</manifest>

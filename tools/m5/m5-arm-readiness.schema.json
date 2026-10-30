@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:rdx:m5-arm-readiness:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "result", "reasons", "utc", "createdMs", "startedMs", "lastSampleStartMs", "stabilizationSeconds", "serial", "runId", "apkSHA256", "sampleCount", "runtimeGetterQualified", "deviceMutation", "freshInstallInference"],
+  "properties": {
+    "schema": {"const": 1},
+    "result": {"enum": ["READY_TO_ARM", "NOT_READY_TO_ARM"]},
+    "reasons": {"type": "array", "items": {"type": "string"}},
+    "utc": {"type": "string"},
+    "createdMs": {"type": "integer", "minimum": 0},
+    "startedMs": {"type": "integer", "minimum": 0},
+    "lastSampleStartMs": {"type": "integer", "minimum": 0},
+    "stabilizationSeconds": {"type": "integer", "minimum": 5, "maximum": 15},
+    "serial": {"type": "string"},
+    "runId": {"type": "string"},
+    "apkSHA256": {"const": "A22E96490B9557AFF022893A8B8B7A08BB13CEC236E52704CDDAFA90A8EE8F40"},
+    "sampleCount": {"type": "integer", "minimum": 0},
+    "runtimeGetterQualified": {"type": "string"},
+    "deviceMutation": {"const": "NONE"},
+    "freshInstallInference": {"type": "string"}
+  },
+  "allOf": [{"if": {"properties": {"result": {"const": "READY_TO_ARM"}}}, "then": {"properties": {"reasons": {"maxItems": 0}, "sampleCount": {"minimum": 2}, "serial": {"const": "00000000"}, "runId": {"minLength": 1}}}, "else": {"properties": {"reasons": {"minItems": 1}}}}]
+}
