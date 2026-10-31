@@ -2,6 +2,7 @@ package com.google.android.projection.protocol;
 
 import android.os.SystemClock;
 import android.util.Log;
+import com.rdx.fullscreen.usbhelper.InputEvents;
 
 /**
  * JNI facade for the native InputSource in libautoreceiver_jni.so.
@@ -61,7 +62,10 @@ public final class InputSource {
             boolean uiNavigation, boolean uiAbsolute) {
         nativeRegisterTouchPad(width, height, uiNavigation,
             physicalWidthMm, physicalHeightMm, uiAbsolute, false);
-        nativeRegisterKeyCodes(new int[]{4,19,20,21,22,23});
+        nativeRegisterKeyCodes(InputEvents.supportedKeyCodes());
+        nativeRegisterFeedbackEvents(new int[]{1,2});
+        Log.i(TAG,"INPUT_FEEDBACK_OBSERVER_V1 events=[1, 2]");
+        Log.i(TAG,"KEYSET_DIRECTIONAL_V1 keys="+java.util.Arrays.toString(InputEvents.supportedKeyCodes()));
         Log.i(TAG, "Touchpad registered: " + width + "x" + height
             + " phys=" + physicalWidthMm + "x" + physicalHeightMm + "mm"
             + " nav=" + uiNavigation + " abs=" + uiAbsolute);
@@ -98,6 +102,6 @@ public final class InputSource {
 
     @SuppressWarnings("unused")
     public void onInputFeedback(int event) {
-        Log.i(TAG, "Input feedback event=" + event);
+        Log.i(TAG, "INPUT_FEEDBACK event=" + event+" meaning="+(event==1?"SELECT":event==2?"FOCUS_CHANGE":"OTHER"));
     }
 }

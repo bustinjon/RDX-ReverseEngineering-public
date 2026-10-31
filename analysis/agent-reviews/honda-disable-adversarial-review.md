@@ -60,7 +60,7 @@
 **Claim:** After our app sends the AOAP switch control transfers, the phone detaches and re-enumerates. Honda will receive the USB_DEVICE_ATTACHED broadcast for the new AOAP device.
 
 **Evidence:** For AOAP devices with NEVER preference, Honda's `onUsbDeviceConnected` (line 740-753):
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 Honda walks away immediately. It does NOT open the USB device, claim interfaces, or start GAL. The only side effect is VBUS_DATA_CDP_OFF (Attack #3).
 
 **Verdict:** Honda walks away cleanly for AOAP + NEVER. **SAFE — no interference with our app claiming the device.**
@@ -192,7 +192,7 @@ User connects phone normally via USB. When Honda's "Do you want to use Android A
 
 ### Expected Flow
 
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 ### Open Questions
 

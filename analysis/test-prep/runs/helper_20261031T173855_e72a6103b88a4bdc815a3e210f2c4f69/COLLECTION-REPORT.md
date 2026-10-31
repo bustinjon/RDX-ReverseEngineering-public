@@ -1,0 +1,12 @@
+# Long-drive evidence collection — 2026-10-31 17:51 UTC
+
+1. **Files inspected:** current longdrive-latest.json, Collect-LongDrive.ps1, session.json, longdrive-session.json, collection.json and longdrive-manual-cleanup.txt. Collector additionally read pulled logs, capture paths, installed APK and final device state.
+2. **Files changed:** new initial/final evidence copies, hashes, private capture files, installed-posttest.apk, command journal entries, postchecks, collection.json and this report. No application source changed.
+3. **Commands run:** `pwsh -File analysis/test-prep/long-drive-20261031/Collect-LongDrive.ps1`; read-only Get-Content of preparation/collection evidence. All device commands used explicit head-unit serial through the saved collector.
+4. **Tests/results:** collector PASS. Logs pulled before cleanup and again afterward; installed APK hash matched; accessibility matched baseline; helper services/process and owned diagnostics absent after cleanup. Twelve private image/metadata files retrieved; this is a file count, not necessarily an image count.
+5. **Findings:** logs are saved and no further device connection is needed for their analysis. Stability verdict remains UNKNOWN pending the user's update and log review.
+6. **Primary evidence:** collection.json; longdrive-manual-cleanup.txt; longdrive-postchecks.json; commands.jsonl; longdrive-evidence-initial-hashes.json; longdrive-evidence-hashes.json; private-image-hashes.json. Installed APK SHA-256: D1A29B34812B2C3188C57C840DB1DE4F44E1362FF8BD8E3D9A52B1317EDABCE4.
+7. **Assumptions:** user's request authorized evidence retrieval and the previously specified manual cleanup for this run.
+8. **Unresolved uncertainties:** operator experience and AA stability are not assessed yet. Cleanup's accessibility message says its exact prior write was no longer present; independent postchecks nevertheless confirmed the final values equal the session's original baseline. No claim of a settings restoration operation is made.
+9. **Exact diff summary:** evidence/report additions and command-journal append only; no APK/source edits. Own diagnostic processes and helper were stopped on the device as part of manual cleanup.
+10. **Preservation checks:** initial and final pulled files hashed separately; installed APK verified against the run's pinned hash. No frozen artifact rebuilt, key read, milestone advanced, or Git write performed.

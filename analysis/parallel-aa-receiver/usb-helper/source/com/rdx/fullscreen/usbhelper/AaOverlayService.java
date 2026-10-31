@@ -1,7 +1,10 @@
 package com.rdx.fullscreen.usbhelper;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -21,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 /**
  * Fullscreen AA overlay using TYPE_SYSTEM_ERROR.
@@ -71,11 +75,36 @@ public final class AaOverlayService extends Service {
     private VideoGeometry.Projection projection;
     private int decodedWidth, decodedHeight;
     private boolean destroyed;
+    private boolean captureNextSession;
+    private boolean bZoneNextSession;
+    private FocusCapture focusCapture;
 
     private static volatile AaOverlayService instance;
 
     private int touchCount;
+    private int ignoredHoverCount;
     private final InputEvents.SelectPress selectPress = new InputEvents.SelectPress();
+    private final InputEvents.MediaButtons mediaButtons = new InputEvents.MediaButtons();
+    private final VolumeFeedback volumeFeedback = new VolumeFeedback();
+    private TextView volumeHud;
+    private boolean volumeReceiverRegistered;
+    private final Runnable hideVolumeHud = new Runnable() {
+        public void run() { if(volumeHud!=null)volumeHud.setVisibility(View.GONE); }
+    };
+    private final BroadcastReceiver volumeReceiver = new BroadcastReceiver() {
+        @Override public void onReceive(Context context,Intent intent) {
+            if(intent==null || !VolumeFeedback.ACTION.equals(intent.getAction()) || destroyed || container==null)return;
+            try {
+                if(!intent.hasExtra(VolumeFeedback.EXTRA))return;
+                int received=intent.getByteExtra(VolumeFeedback.EXTRA,(byte)-1);
+                boolean changed=volumeFeedback.update(received);
+                Log.i(TAG,"VOLUME_FEEDBACK_RECEIVED level="+received+" changed="+changed);
+                if(changed)showVolumeFeedback();
+            }catch(RuntimeException error){
+                Log.w(TAG,"VOLUME_FEEDBACK_REJECTED type="+error.getClass().getSimpleName());
+            }
+        }
+    };
     private float lastTouchAaX = -1, lastTouchAaY = -1;
     private TouchListener touchListener;
     private SurfaceReadyListener surfaceReadyListener;
@@ -107,6 +136,20 @@ public final class AaOverlayService extends Service {
         String action = intent != null ? intent.getAction() : null;
         Log.i(TAG, "onStartCommand action=" + action);
 
+        if("aa.overlay.BZONE_ARM_ONCE".equals(action)){
+            if(container!=null){Log.w(TAG,"BZONE_ARM_REJECTED activeOverlay");return START_NOT_STICKY;}
+            bZoneNextSession=true;
+            Log.i(TAG,"BZONE_ARMED_ONCE source=257 scans=36,37 releasePairs=true");
+            return START_NOT_STICKY;
+        }
+
+        if("aa.overlay.CAPTURE_ARM_ONCE".equals(action)){
+            if(container!=null){Log.w(TAG,"FOCUS_CAPTURE_ARM_REJECTED activeOverlay");return START_NOT_STICKY;}
+            captureNextSession=true;
+            Log.i(TAG,"FOCUS_CAPTURE_ARMED_ONCE max=12 noUpload=true");
+            return START_NOT_STICKY;
+        }
+
         if ("aa.overlay.STOP".equals(action)) {
             removeOverlay();
             stopSelf();
@@ -123,6 +166,11 @@ public final class AaOverlayService extends Service {
         if ("aa.overlay.VIDEO".equals(action)) {
             testMode = false;
             removeOverlay();
+            if(captureNextSession){
+                captureNextSession=false;
+                try{focusCapture=new FocusCapture(this,handler);}
+                catch(RuntimeException error){Log.w(TAG,"FOCUS_CAPTURE_UNAVAILABLE type="+error.getClass().getSimpleName());}
+            }
             createOverlay();
             return START_NOT_STICKY;
         }
@@ -134,20 +182,64 @@ public final class AaOverlayService extends Service {
         Log.i(TAG, "Creating AA overlay " + OVERLAY_W + "x" + OVERLAY_H
             + " video=" + VIDEO_W + "x" + VIDEO_H + " testMode=" + testMode);
 
+        final InputEvents.HoverContact hoverContact = new InputEvents.HoverContact();
+        final boolean bZoneEnabled = !testMode && bZoneNextSession;
+        if(!testMode)bZoneNextSession=false;
+        final InputEvents.BZoneSwipe bZoneSwipe = new InputEvents.BZoneSwipe();
         container = new FrameLayout(this) {
-            @Override public boolean dispatchKeyEvent(KeyEvent event) {
-                if (!testMode && event.getAction()==KeyEvent.ACTION_DOWN) Log.i(TAG,"INPUT_RAW_KEY code="+event.getKeyCode()+" scan="+event.getScanCode());
-                if (!testMode && touchListener != null && InputEvents.key(event.getKeyCode())
-                        && (event.getAction()==KeyEvent.ACTION_DOWN || event.getAction()==KeyEvent.ACTION_UP)) {
-                    Log.i(TAG,"INPUT_KEY code="+event.getKeyCode()+" action="+event.getAction());
-                    touchListener.onAaKey(InputEvents.keyCode(event.getKeyCode()),event.getAction()==KeyEvent.ACTION_DOWN,event.getEventTime());
-                    return true;
+            private boolean bZoneDeviceLogged;
+            @Override public boolean dispatchKeyEvent(final KeyEvent event) {
+                if (!testMode && event.getAction()==KeyEvent.ACTION_DOWN) Log.i(TAG,"INPUT_RAW_KEY code="+event.getKeyCode()+" scan="+event.getScanCode()+" flags="+event.getFlags()+" repeat="+event.getRepeatCount()+" source="+event.getSource()+" device="+event.getDeviceId());
+                if(!testMode && (event.getKeyCode()==87 || event.getKeyCode()==88 || event.getKeyCode()==138 || event.getKeyCode()==139))
+                    Log.i(TAG,"INPUT_MEDIA_RAW code="+event.getKeyCode()+" scan="+event.getScanCode()+" action="+event.getAction()+" repeat="+event.getRepeatCount()+" source="+event.getSource()+" device="+event.getDeviceId()+" canceled="+event.isCanceled());
+                if(!testMode && event.getAction()==KeyEvent.ACTION_DOWN &&
+                        (event.getKeyCode()==KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode()==KeyEvent.KEYCODE_VOLUME_DOWN))showVolumeFeedback();
+                if(!testMode && touchListener!=null && mediaButtons.dispatch(
+                        event.getKeyCode(),event.getScanCode(),event.getSource(),event.getDeviceId(),
+                        event.getAction(),event.getRepeatCount(),event.isCanceled(),new InputEvents.KeyConsumer(){
+                    public void send(int mappedCode,boolean down){
+                        Log.i(TAG,"INPUT_MEDIA_KEY raw="+event.getKeyCode()+" mapped="+mappedCode+" down="+down);
+                        touchListener.onAaKey(mappedCode,down,event.getEventTime());
+                    }
+                }))return true;
+                if(!testMode && (event.getKeyCode()==38 || event.getKeyCode()==39)){
+                    if(!bZoneDeviceLogged){
+                        bZoneDeviceLogged=true;
+                        android.view.InputDevice inputDevice=event.getDevice();
+                        Log.i(TAG,"INPUT_BZONE_DEVICE "+(inputDevice==null?"unavailable":
+                            "name="+inputDevice.getName()+" descriptor="+inputDevice.getDescriptor()+" vendor="+inputDevice.getVendorId()+" product="+inputDevice.getProductId()));
+                    }
+                    Log.i(TAG,"INPUT_BZONE_RAW code="+event.getKeyCode()+" scan="+event.getScanCode()+" action="+event.getAction()+" repeat="+event.getRepeatCount()+" source="+event.getSource()+" device="+event.getDeviceId()+" enabled="+bZoneEnabled);
+                    if(bZoneEnabled && touchListener!=null && bZoneSwipe.dispatch(
+                            event.getKeyCode(),event.getScanCode(),event.getSource(),event.getDeviceId(),
+                            event.getAction(),event.getRepeatCount(),new InputEvents.KeyConsumer(){
+                        public void send(int mappedCode,boolean down){
+                            Log.i(TAG,"INPUT_BZONE_KEY raw="+event.getKeyCode()+" mapped="+mappedCode+" down="+down);
+                            if(focusCapture!=null)focusCapture.key(event.getKeyCode(),mappedCode,down);
+                            touchListener.onAaKey(mappedCode,down,event.getEventTime());
+                        }
+                    }))return true;
+                }
+                if (!testMode && touchListener != null) {
+                    boolean consumed=InputEvents.dispatchKey(event.getKeyCode(),event.getAction(),new InputEvents.KeyConsumer(){
+                        public void send(int mappedCode,boolean down){
+                            Log.i(TAG,"INPUT_KEY code="+event.getKeyCode()+" mapped="+mappedCode+" action="+event.getAction());
+                            if(focusCapture!=null)focusCapture.key(event.getKeyCode(),mappedCode,down);
+                            touchListener.onAaKey(mappedCode,down,event.getEventTime());
+                        }
+                    });
+                    if(consumed)return true;
                 }
                 return super.dispatchKeyEvent(event);
             }
             @Override public boolean dispatchHoverEvent(MotionEvent event) {
                 int action=InputEvents.hoverAction(event.getActionMasked());
                 if (!testMode && touchListener != null && action>=0) {
+                    action=hoverContact.action(event.getActionMasked());
+                    if(action<0){
+                        Log.i(TAG,"INPUT_HOVER_DUPLICATE_ENTER_DROPPED");
+                        return true;
+                    }
                     MotionEvent mapped=MotionEvent.obtain(event);
                     try { mapped.setAction(action); return handleTouch(mapped); }
                     finally { mapped.recycle(); }
@@ -155,6 +247,10 @@ public final class AaOverlayService extends Service {
                 return super.dispatchHoverEvent(event);
             }
         };
+        if(!testMode){
+            Log.i(TAG,"INPUT_HOVER_DEDUP_V1 hoverForwarded=true directionalKeysUnchanged=true");
+            Log.i(TAG,"INPUT_BZONE_RELEASE_V1 enabled="+bZoneEnabled+" primaryKeysUnchanged=true");
+        }
         container.setFocusable(!testMode);
         container.setFocusableInTouchMode(!testMode);
         container.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
@@ -197,7 +293,7 @@ public final class AaOverlayService extends Service {
             }
 
             @Override
-            public void onSurfaceTextureUpdated(SurfaceTexture st) { }
+            public void onSurfaceTextureUpdated(SurfaceTexture st) { if(focusCapture!=null)focusCapture.firstTextureUpdate(textureView); }
         });
 
         container.addView(textureView, new FrameLayout.LayoutParams(
@@ -263,6 +359,8 @@ public final class AaOverlayService extends Service {
             Log.e(TAG, "Failed to add overlay: " + e);
             return;
         }
+
+        if(!testMode)startVolumeFeedback();
 
         if (testMode) {
             handler.postDelayed(new Runnable() {
@@ -474,7 +572,49 @@ public final class AaOverlayService extends Service {
         this.surfaceReadyListener = listener;
     }
 
+    private void startVolumeFeedback() {
+        volumeHud=new TextView(this);
+        volumeHud.setTextColor(Color.WHITE);
+        volumeHud.setBackgroundColor(0xE6202020);
+        volumeHud.setTextSize(22);
+        volumeHud.setGravity(Gravity.CENTER);
+        volumeHud.setFocusable(false);
+        volumeHud.setFocusableInTouchMode(false);
+        volumeHud.setClickable(false);
+        volumeHud.setLongClickable(false);
+        volumeHud.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        volumeHud.setVisibility(View.GONE);
+        FrameLayout.LayoutParams layout=new FrameLayout.LayoutParams(280,64,Gravity.TOP|Gravity.CENTER_HORIZONTAL);
+        layout.topMargin=12;
+        container.addView(volumeHud,layout);
+        try {
+            registerReceiver(volumeReceiver,new IntentFilter(VolumeFeedback.ACTION));
+            volumeReceiverRegistered=true;
+            Log.i(TAG,"VOLUME_FEEDBACK_REGISTERED source=OEM_AMP_BYTE");
+        }catch(RuntimeException error){
+            Log.w(TAG,"VOLUME_FEEDBACK_UNAVAILABLE type="+error.getClass().getSimpleName());
+        }
+    }
+
+    private void showVolumeFeedback() {
+        if(destroyed || volumeHud==null || volumeFeedback.level()<0)return;
+        volumeHud.setText("Volume "+volumeFeedback.level());
+        volumeHud.setVisibility(View.VISIBLE);
+        volumeHud.bringToFront();
+        handler.removeCallbacks(hideVolumeHud);
+        handler.postDelayed(hideVolumeHud,VolumeFeedback.DISPLAY_MS);
+        Log.i(TAG,"VOLUME_FEEDBACK_SHOWN level="+volumeFeedback.level());
+    }
+
     private void removeOverlay() {
+        if(volumeReceiverRegistered){
+            try{unregisterReceiver(volumeReceiver);}catch(IllegalArgumentException ignored){}
+            volumeReceiverRegistered=false;
+        }
+        mediaButtons.reset();
+        volumeFeedback.reset();
+        volumeHud=null;
+        if(focusCapture!=null){focusCapture.close();focusCapture=null;}
         sendSelectTransition(selectPress.action(MotionEvent.ACTION_CANCEL),android.os.SystemClock.uptimeMillis());
         handler.removeCallbacksAndMessages(null);
         surfaceReady = false;

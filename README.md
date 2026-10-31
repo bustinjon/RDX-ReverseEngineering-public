@@ -1,14 +1,16 @@
 # RDX Android Auto fullscreen research
 
-Public research snapshot, 2026-10-30. Start with [START-HERE.md](START-HERE.md) for the public diagnostic APK and Codex handoff, then [current findings](CURRENT-FINDINGS.md) and the [porting guide](PORTING.md). This snapshot has no private-repository history.
+Public research snapshot, updated 2026-10-31. Start with [START-HERE.md](START-HERE.md) for the public diagnostic APK and Codex handoff, then [current findings](CURRENT-FINDINGS.md) and the [porting guide](PORTING.md). No private-repository history is included.
 
 The latest bounded experiment on one Honda/Acura Android 5.1.1 head unit displayed Android Auto with corrected geometry, accepted touchpad movement and physical select presses, and played audio while the phone's Bluetooth **Media audio** option was disabled. These are operator-reported outcomes supported by the receiver's input and PCM diagnostics. They do not establish compatibility with another model/year, a production-ready receiver, or an internal hardware audio-route trace.
+
+The source now includes the **v6h-media-input-a candidate**, which has passed offline checks but has not been car-tested. It retains a navigation-focus correction and adds track-button forwarding, actual amplifier volume feedback and an experimental factory-style touchpad profile. The preceding untimed session still exhibited the Spotify playback-row problem, hidden volume display, nonworking track buttons and Maps route cancellation; none is claimed resolved on hardware. See [the current candidate and next test](LATEST-TEST-PLAN.md).
 
 ## What is included
 
 - Project-authored Java JNI facades, video geometry/decoder integration, overlay, USB helper, permission click service and PCM playback.
 - PowerShell/shell host tools, readiness checks, cleanup watchdog and host tests.
-- Sanitized research reports and implementation reviews. Reports are historical and may describe superseded approaches; current findings take precedence for the October 30 helper result.
+- Sanitized research reports and implementation reviews. Reports are historical and may describe superseded approaches; current findings distinguish tested results from the latest untested candidate.
 - Latest test instructions and sanitized result reports under `analysis/test-prep/`.
 - [PUBLIC-MANIFEST.json](PUBLIC-MANIFEST.json), with SHA-256 values for exported project files.
 
@@ -26,6 +28,7 @@ Run the portable input/PCM host test (JDK 17 required):
 
 ```powershell
 ./tools/car-test/Test-PublicInputPcm.ps1
+./tools/car-test/Test-PublicReceiverChanges.ps1
 ```
 
 The public copy was tested after export. Other historical scripts retain environment-specific paths and may depend on withheld local evidence. They are provided for analysis, not as an automatic procedure for an unidentified car.

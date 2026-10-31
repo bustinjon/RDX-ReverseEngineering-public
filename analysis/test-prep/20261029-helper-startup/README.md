@@ -12,7 +12,7 @@ Start with these files:
 
 From the repository root, this command only rechecks local files:
 
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 For the deeper research and implementation recommendations, use the existing [Claude resumption handoff](../../agent-reviews/CLAUDE-RESUME-20261102.md) and [laptop-independent alternatives review](../../agent-reviews/codex-20261029-laptop-independent-receiver-alternatives.md). This packet narrows that material to the next test's preparation.
 

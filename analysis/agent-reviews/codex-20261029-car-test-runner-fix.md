@@ -67,7 +67,7 @@ The tests check the expected reason for each rejection, not just that something 
 
 Safe local preparation, from the project root:
 
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 The former invocation interface changes deliberately: omission of the artifact/hash/role no longer selects an APK implicitly, `SkipInstall` is removed, and running the script defaults to local preparation. For any later authorized helper test, the phone must be unplugged during preparation and the operator must already be ready for the swap. Existing M5-only authorization/guard rules are not replaced by this helper runner. This work does not establish safe UI/lock-task state or permission to execute the live branch.
 

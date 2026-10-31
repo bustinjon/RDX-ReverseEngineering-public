@@ -22,7 +22,7 @@ Without the checkbox, only step 1 happens. The permission is transient (cleared 
 When `setDevicePackage(device, ...)` is called, it creates `new DeviceFilter(device)` which captures ALL 8 fields from the live UsbDevice:
 
 For our AOAP device (from v6g-retry logs):
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 On reconnect, the same phone in AOAP+ADB mode produces an identical filter → HashMap lookup succeeds → auto-grant.
 
@@ -54,7 +54,7 @@ The checkbox is a standard `android.widget.CheckBox` (inflated from the system l
 
 Before clicking OK, find and check the "Always use" checkbox. The checkbox likely has text containing "default" or "always" (resource `2131492910`).
 
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 **API 22 compatibility:** `AccessibilityNodeInfo.isChecked()` is available since API 14. `getClassName()` since API 14. `ACTION_CLICK` since API 16. All safe.
 

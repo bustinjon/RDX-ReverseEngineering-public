@@ -9,7 +9,7 @@ Copy this into a new Codex session:
 ```text
 Use https://github.com/bustinjon/RDX-ReverseEngineering-public to learn the research and help me test my own head unit and build an APK locally.
 
-Read START-HERE.md, diagnostic-app/README.md, README.md, CURRENT-FINDINGS.md and PORTING.md first, then the linked v5 test report/procedure. Distinguish historical approaches, primary evidence, operator observations and unknowns.
+Read START-HERE.md, diagnostic-app/README.md, README.md, CURRENT-FINDINGS.md, LATEST-TEST-PLAN.md and PORTING.md first. Distinguish the latest offline-tested candidate from previous car observations and unknowns; the v5 procedure is historical.
 
 Begin with the public diagnostic app. Review DiagnosticActivity.java, AndroidManifest.xml, Build-PublicDiagnostic.ps1 and the distributed build report. It tests local display geometry, raw input and a short tone; it is not an Android Auto receiver. Ask for my car model/year, head-unit firmware/API level, phone model, host OS and installed SDK/JDK tools. Explain what the APK can establish on my target.
 

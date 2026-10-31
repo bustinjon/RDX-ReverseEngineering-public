@@ -1,6 +1,6 @@
 {
-  "snapshotDate": "2026-10-30",
-  "historyIncluded": false,
+  "snapshotDate": "2026-10-31",
+  "privateHistoryIncluded": false,
   "sanitized": true,
   "files": [
     {
@@ -15,8 +15,8 @@
     },
     {
       "path": "analysis/AA-PRIVILEGE-DEPENDENCY-MATRIX.md",
-      "bytes": 22946,
-      "sha256": "cf8fbefc31ad1fcac4499354b2a7c93df2fcf289231d88ed1d1db8430ef0cdf1"
+      "bytes": 22942,
+      "sha256": "cd1eeb55fdf9b9d5634c713329c9e6cdfcbf0152c252a330fb0f0947893258cb"
     },
     {
       "path": "analysis/agent-reviews/CLAUDE-AUTO-RESUME-SETUP.md",
@@ -70,8 +70,8 @@
     },
     {
       "path": "analysis/agent-reviews/codex-20261029-car-test-runner-fix.md",
-      "bytes": 13498,
-      "sha256": "69344d998b15f68e9680b321c96f9bfd4752ac58f1e0cfed76598ccb8c859436"
+      "bytes": 13475,
+      "sha256": "0378e441b2d8c029717ddd2f16aaedd2b12ac2a4a2a44383f1c8c89b150ce8b3"
     },
     {
       "path": "analysis/agent-reviews/codex-20261029-laptop-independent-receiver-alternatives.md",
@@ -389,9 +389,14 @@
       "sha256": "fdcea9e8e0517bb97514f109a777f2ee40fd10d2f95a9a639076e27d0b38ceff"
     },
     {
+      "path": "analysis/agent-reviews/friend-pdf-20261030/REVIEW.md",
+      "bytes": 13373,
+      "sha256": "c71d0c3400b51e6016a0c6d73434b8acf2ca557a0cff029bf034b50626ee5886"
+    },
+    {
       "path": "analysis/agent-reviews/honda-disable-adversarial-review.md",
-      "bytes": 12721,
-      "sha256": "75dfaf4d6a89178acb0aef903ee4d8bcd78e91096d5c146aca2a2395d2d31cb6"
+      "bytes": 12675,
+      "sha256": "cc1f6532f30dbd0fb2547c24f623f0466ee51ca47b526757fb924b4f27e8491f"
     },
     {
       "path": "analysis/agent-reviews/INCAR-CHECKLIST-EVENING-20261027.md",
@@ -414,6 +419,51 @@
       "sha256": "d353cf1e1bf6d70b3afbb7660651bec658c9cf64e2cdc9a6447ae8a11ffe1416"
     },
     {
+      "path": "analysis/agent-reviews/main-pad-order-20261031/factory-excerpts.md",
+      "bytes": 327,
+      "sha256": "e6a0e4de038473d6723dc655ccd5b8828c07474a43513d7019cf593e925e70d9"
+    },
+    {
+      "path": "analysis/agent-reviews/main-pad-order-20261031/REPORT.md",
+      "bytes": 11775,
+      "sha256": "6b587b87e4182c26c9e78422ce5883a3ced853b1110f032075a9883b41fa794b"
+    },
+    {
+      "path": "analysis/agent-reviews/maps-route-20261031/REPORT.md",
+      "bytes": 9479,
+      "sha256": "ff0dbd794caa7eec98385bde764de652cf743ef1d44bec9cb2be8ffdfc0c5c37"
+    },
+    {
+      "path": "analysis/agent-reviews/offline-alternatives-20261031/ALTERNATIVES.md",
+      "bytes": 12066,
+      "sha256": "ab1869fde755b64c2037de05867c70d825238346dbc4da39bc76babe38ebc04a"
+    },
+    {
+      "path": "analysis/agent-reviews/offline-alternatives-20261031/EVIDENCE.md",
+      "bytes": 7779,
+      "sha256": "0759b1c003e4ee72bbbdfba0b950c68cbd19ed43d3da882576231054e1da9b44"
+    },
+    {
+      "path": "analysis/agent-reviews/offline-alternatives-20261031/REPORT.md",
+      "bytes": 12743,
+      "sha256": "17a9ae07cc8e3bec1fba3510ecc92de3ba2d5be426bf53003b2d5cab8f8d708d"
+    },
+    {
+      "path": "analysis/agent-reviews/offline-alternatives-20261031/TODO-PLAN.md",
+      "bytes": 19651,
+      "sha256": "2399197be47ebac9a57c01a32106f075d3d5253beb20fa9ea280f8ba01f53c4a"
+    },
+    {
+      "path": "analysis/agent-reviews/page-profile-ab-results-20261031/NEXT-PROBE.md",
+      "bytes": 4051,
+      "sha256": "553609f30b9ee0a72e1eb627281be685d552f5f4952af3bb3f88814aeeb5d5da"
+    },
+    {
+      "path": "analysis/agent-reviews/page-profile-ab-results-20261031/REPORT.md",
+      "bytes": 13674,
+      "sha256": "7cd4d17cc840f43bfc68769070630374b6314aa029fbc08f715b5505810f4df5"
+    },
+    {
       "path": "analysis/agent-reviews/proposed-framework-pin/Test-M5ArmReadiness.proposed.ps1",
       "bytes": 9528,
       "sha256": "4f2d9ce25509d164786593e0d29bcc62605d9caac40596bffe8a6bc68d511b21"
@@ -434,6 +484,36 @@
       "sha256": "bdee89e418c1bbadaaa0078b6d7f2feee3300a0d63185f24ace1915e90fbf615"
     },
     {
+      "path": "analysis/agent-reviews/spotify-bottom-row-20261031/DECISION-TESTS.md",
+      "bytes": 5341,
+      "sha256": "64ac59ebdc37dcd8fc1dd547a7ec8a5011cce58886d3f8504e46ee7a10390967"
+    },
+    {
+      "path": "analysis/agent-reviews/spotify-bottom-row-20261031/REPORT.md",
+      "bytes": 16118,
+      "sha256": "87fd27b6ded9607297fd35942f718b8dc8a92a6554d35f3e3c54e993a32bae4c"
+    },
+    {
+      "path": "analysis/agent-reviews/spotify-maps-media-20261031/REPORT.md",
+      "bytes": 9022,
+      "sha256": "d4ff1632c9dca39bee2eff436c43c2fdbf23091938578bd2d060fa4fca856ebc"
+    },
+    {
+      "path": "analysis/agent-reviews/spotify-row-mechanism-20261031/FOCUS-ORIGIN-TEST.md",
+      "bytes": 3811,
+      "sha256": "5090fe00a37e4d28a34ba27a23e632688a85894fbc82c34f8742ad42e39e7759"
+    },
+    {
+      "path": "analysis/agent-reviews/spotify-row-mechanism-20261031/REPORT.md",
+      "bytes": 16672,
+      "sha256": "305459505bd8e6ea1cb3f7291ef4ff1963c27b6d43a918268478de3c0f053a90"
+    },
+    {
+      "path": "analysis/agent-reviews/spotify-row-mechanism-20261031/test-matrix.md",
+      "bytes": 680,
+      "sha256": "a9104ddfb13bccea16d2f08d504d7f60d68b813b252d6efd2a2fb5955f19c413"
+    },
+    {
       "path": "analysis/agent-reviews/transport-failure-analysis-20261028.md",
       "bytes": 20347,
       "sha256": "c9fdf6bc8e541b2500565985445ca86793143e04fb877960b4004711ed6c7bf3"
@@ -445,8 +525,13 @@
     },
     {
       "path": "analysis/agent-reviews/usb-default-research.md",
-      "bytes": 7533,
-      "sha256": "037fc9203895dfc266a8bc7c920275f05aa8fa0230857eb436b5f523c30e846d"
+      "bytes": 7487,
+      "sha256": "0cab6e3c387c23369d330ef3d798461a1eff0abd5ee9f8c65acc0ef0e864b9cd"
+    },
+    {
+      "path": "analysis/agent-reviews/usb-menu-automation-20261031/REPORT.md",
+      "bytes": 6211,
+      "sha256": "8ea9bdf32a06de71cf9c7a288f8a2802bd7b00f3fbe6b734417641764a7f7781"
     },
     {
       "path": "analysis/agent-reviews/v5-code-review-20261028.md",
@@ -455,8 +540,8 @@
     },
     {
       "path": "analysis/agent-reviews/v6h-honda-disable-plan.md",
-      "bytes": 6148,
-      "sha256": "fde11f7be9a499632359377d8cbd0e6ad68c0541db950bdbcba898c002b8c396"
+      "bytes": 5872,
+      "sha256": "fb97d4661fbd21f33327eb01e8eeadcf7272dfd2fbd89bdaf3290644f862627d"
     },
     {
       "path": "analysis/ANDROID-AUTO-CONFIGURATION-TRACE.md",
@@ -465,8 +550,8 @@
     },
     {
       "path": "analysis/CUSTOM-RECEIVER-ARCHITECTURE.md",
-      "bytes": 14230,
-      "sha256": "f74077d8bc01eb1a5d8d9c717fad1d7a31d7b7bcc46cceee1160d712d8dcd2e3"
+      "bytes": 14228,
+      "sha256": "2edb48c70d0b0bdeace6b38d23de3dca6d0449dbd5afc268f00b80c0feedbd89"
     },
     {
       "path": "analysis/DEPLOYMENT-PATHS.md",
@@ -485,8 +570,8 @@
     },
     {
       "path": "analysis/GAL-TRANSPORT-TRACE.md",
-      "bytes": 11517,
-      "sha256": "7fdb526183be42ed4f7c645ddaaae2d998f6c7c413bdc733ef430c45064a8700"
+      "bytes": 11515,
+      "sha256": "893c7532391a20fbec67c8298d2aa236e9d45128fa68e3bb4d53424fdb2181d7"
     },
     {
       "path": "analysis/honda-malicious-detector-analysis.md",
@@ -525,13 +610,13 @@
     },
     {
       "path": "analysis/PARALLEL-AA-FIRST-LIVE-TEST.md",
-      "bytes": 16079,
-      "sha256": "06c0154e1f003687dcd10a2f9d236cbd7fe4f5dd6398452d26819e810c49127c"
+      "bytes": 16077,
+      "sha256": "5cda457a5838417b06b1e5005e6d227f60b8dfc6b631c9b77f01cdb739813648"
     },
     {
       "path": "analysis/PARALLEL-AA-RECEIVER-FEASIBILITY.md",
-      "bytes": 15973,
-      "sha256": "b74aafe8ad08a40d439456fce658c7d4fd2e66252c6ef1077170630cca874828"
+      "bytes": 15971,
+      "sha256": "22e0de84c8ee62d69e9a0175c51940070d90a459e51df0effb31a90869feaa7d"
     },
     {
       "path": "analysis/parallel-aa-receiver/AndroidManifest.xml",
@@ -575,18 +660,18 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/BUILD-VALIDATION-MATRIX-before-decoder02.md",
-      "bytes": 3009,
-      "sha256": "8bc7a1f90fe7dd2ae0eed3b2064bebe0f26a3a6a9685a7e18222db4b56f8bcd9"
+      "bytes": 2990,
+      "sha256": "9b4e5e06170ef396db98a33301fe3e0c22ede6772aa5c7e6a9b8e5366abc0e16"
     },
     {
       "path": "analysis/parallel-aa-receiver/BUILD-VALIDATION-MATRIX.md",
-      "bytes": 21738,
-      "sha256": "c29839893102db3302c1cf451f0260712d2d33ca9f44ca1cf2e482196cb8bef7"
+      "bytes": 21685,
+      "sha256": "635c37eb8c55776ce57962a8da96ff4502309d25729a405f3146f2bf1bd493ee"
     },
     {
       "path": "analysis/parallel-aa-receiver/CLEAN-RECEIVER-ARCHITECTURE-V2.md",
-      "bytes": 6585,
-      "sha256": "a1e6fcc14c1141ac8bb7678d689a60632ae6d3c1e9cfee6bfa46c649fcf0c442"
+      "bytes": 6584,
+      "sha256": "c716afa955f2203c10d621fafdacf832da58005ac40ed2af80c1c7311be71821"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/API22-PROVIDER-DIFFERENTIAL.md",
@@ -620,8 +705,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/API22-TLS-RUNTIME-QUALIFICATION.md",
-      "bytes": 12023,
-      "sha256": "b79d1d7691fd5c14c72d33f932a4c19648ef5e044a239e457bb1dbbe8f2764fd"
+      "bytes": 12021,
+      "sha256": "42aad65b8f12f17ba0e91b53f19d158c8a0a772bab2043f51ce229e531c40c1a"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/ASSUMPTION-CONSISTENCY-AUDIT.md",
@@ -650,8 +735,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/JAVA-TLS-CONFORMANCE.md",
-      "bytes": 4712,
-      "sha256": "0527fc7bcea6f5d0bc194c479cd2c02d6573c25d1017b67a2c4753e474846228"
+      "bytes": 4710,
+      "sha256": "6a0d75a4b4c89077028b57053f7b667cfbcc05712107de544267cace83ba1949"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/LOCAL-API22-ASSET-ARCHAEOLOGY.md",
@@ -665,8 +750,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/MEDIA-CONTROL-EVIDENCE.md",
-      "bytes": 6050,
-      "sha256": "154e4b264058b7e44de135272ed27f642a5996477791fb1ecb144d2bd65ec610"
+      "bytes": 6049,
+      "sha256": "6fadfaffbd55965c81d4caaae81d65769e69ffac407b9588f37881b4aa63c8e8"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/MEDIA-DATA-0000-0001-EVIDENCE-REVIEW.md",
@@ -690,13 +775,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/OFFLINE-M7-STATE-MACHINE-VALIDATION.md",
-      "bytes": 19279,
-      "sha256": "b0d67e0d31c01585e1074cfd6bc97ef6bc306624c19e5f76e315def9393e0417"
+      "bytes": 19277,
+      "sha256": "572b8c00b3cdbc77d5b4d465d365535f50492ad4689bb66021a5921fc9e055fe"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/OFFLINE-M7-VIDEO-DATA-PLANE.md",
-      "bytes": 21106,
-      "sha256": "0fd8e2e1b27a058920275d4d03b338fc37b39fadaed05bd0a82eea43666e164f"
+      "bytes": 21104,
+      "sha256": "66a317cd66401f39b0cb3f3b492957f43c89dc5dc5389425cab25cd5ef051f86"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/OFFLINE-PROTOCOL-VALIDATION.md",
@@ -705,13 +790,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/OFFLINE-REAL-TLS-LOOPBACK.md",
-      "bytes": 17571,
-      "sha256": "6f303863928e8bc346a2758395439aa47dd4ec413705c585a77ed824a874bfc3"
+      "bytes": 17569,
+      "sha256": "23f9244bd89e38002e5a0f375e800a75fd61dbf7c41c90aa1338683cd41e1c5d"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/OFFLINE-TLS-BODY-ADAPTER-IMPLEMENTATION.md",
-      "bytes": 16956,
-      "sha256": "51a9cc826fda80ae33e56c0cc98f95e97a8b216fa5356463a2568086c051753b"
+      "bytes": 16954,
+      "sha256": "95dd6f6176e1b48bf80676a73538aca61f59defa7da444f1c416fd4daf58eca1"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/PROTOCOL-CORE-RESULTS-20261023.md",
@@ -725,18 +810,18 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/PROVENANCE.md",
-      "bytes": 8436,
-      "sha256": "66120bd72794d5c7096c301c3fe593598a356d15ca1921e4526b7c3a46524d78"
+      "bytes": 8435,
+      "sha256": "3859eafd5a7c8b0779740667c608f9c02d59884aa7d00f47e5036cc54f186edf"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/README.md",
-      "bytes": 19258,
-      "sha256": "b8e2848b5713e6fa2f0e5fc3b1ddff57af6495acb13d4069e5c8fa39e455b874"
+      "bytes": 19247,
+      "sha256": "9c1fcb64069a62ce2f1d5bc004d13671a5a1eda974504e3ba90acf7c5e476c16"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/REAL-TLS-ADAPTER-CONTRACT.md",
-      "bytes": 23548,
-      "sha256": "2cda13fa7b59ddb698917d10a40210255b0cb4f1fc301dcbdd8dd906e22a84a3"
+      "bytes": 23546,
+      "sha256": "e4641e452090ad7126b3a5616fabfe437090899692622be296e10f42574a14e3"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/REAL-TLS-SOL-IMPLEMENTATION-PLAN.md",
@@ -750,13 +835,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/SESSION-FIXTURE-PROVENANCE.md",
-      "bytes": 3414,
-      "sha256": "e65a69128b66482c1590d26463af523e3a7cad7f29669421b6b4c7069ab0b365"
+      "bytes": 3413,
+      "sha256": "0cb86ab33090ae9dc7c4b7de8630db6969321d278c5eba7058dbce908b6b6cbc"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/SESSION-STATE-TRANSITIONS.md",
-      "bytes": 4056,
-      "sha256": "9f4071ec2f509055c813967cfc7f35e06aeb458991115705052274dd33c25ca0"
+      "bytes": 4055,
+      "sha256": "cb582f1ab4a55222c9c464d90ce6729148dd75d9e11aa417d4e504756be4c2b6"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/AaControlChannel.java",
@@ -845,8 +930,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/DecryptedAaFragment.java",
-      "bytes": 669,
-      "sha256": "a7c3604fa16e37a2d685d2d76f6d62c31d664dd03603638881512f61527ab9c4"
+      "bytes": 668,
+      "sha256": "8cd6167564af91bd45522233eae202ee9334df8572c3428b7512b9059d1bb5b4"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/DeviceIdentity.java",
@@ -915,8 +1000,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/OuterFrameContext.java",
-      "bytes": 1052,
-      "sha256": "c9bc69df1f87413b04eb579898f5cf6c30839eaf77ebb8d82d3ee0f104efd171"
+      "bytes": 1050,
+      "sha256": "e89156b0cced44c8ecbd66793d4f4d159e4257f20b6df664f6502e36b9902785"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/PlaintextVideoBridge.java",
@@ -935,8 +1020,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/RawAaFrame.java",
-      "bytes": 520,
-      "sha256": "0eb9e42b223c8d3909f3eda95c7c1d81ab095c367eba85509d20cba900ceaaf8"
+      "bytes": 518,
+      "sha256": "1b7d874d2a3ee88b9ef1c84ed3962a912b3ddfed3c46cdffe8bc8c7b86a6b5f8"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/RealTlsBodyAdapter.java",
@@ -945,23 +1030,23 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/SecureBodyAdapter.java",
-      "bytes": 2018,
-      "sha256": "7fe49e532dcf1ead52043ae8da406e06447dfc4e52a5d46a03b1b23cf9fbe635"
+      "bytes": 2017,
+      "sha256": "6bc46418e6ba93f1455476ebca2ad1eae8e7e792691bb1350ac8e186c35e4ede"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/SecureBodyPipeline.java",
-      "bytes": 7465,
-      "sha256": "31171069f33960b938f70c52abcb5610a50a429918dcb73e230eebccf3ab0e60"
+      "bytes": 7462,
+      "sha256": "5f09013812cc6310d2cc081d1764fd882b40f4c41796dc87538b436841b8f076"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/SecureSessionSimulation.java",
-      "bytes": 5983,
-      "sha256": "d1391c1ae4020c1b379c7a2d83a90dc370420ffacd1a96a7ba8fd2a7528aaebb"
+      "bytes": 5982,
+      "sha256": "289aec4dbb2b260b635190592c2f90e8411b56fbbfa24e7e4b6df2f5503a7f5f"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/SecureStartupPolicy.java",
-      "bytes": 1464,
-      "sha256": "88f5d051f70f0c0a3a319ff8e77219d4ec1e23c97b923ad29bb35601dab2cf40"
+      "bytes": 1463,
+      "sha256": "9c7e822bd256e55b0a82b51e2e75a65418a5b71b066fcbc4c695117a79cf340a"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/SessionCatalog.java",
@@ -975,8 +1060,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/SimulatedSessionEngine.java",
-      "bytes": 18952,
-      "sha256": "d81df5c2c8b098625907501f19b2e663a8d38077c17564889a4296bbed4179d2"
+      "bytes": 18949,
+      "sha256": "d2bb4364d764defdb03ef56d534e8bbbc36670ea9df0e6564f91deb958a8f44a"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/SurfaceRenderer.java",
@@ -990,8 +1075,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/SyntheticTlsState.java",
-      "bytes": 1230,
-      "sha256": "570d2b31f13d9ad1fb7ee5481e02597b3402e05f3aee234f411a20db6f1c4525"
+      "bytes": 1229,
+      "sha256": "34a883ac137a0a0eb0587fd11ae0e9a9665ffb0f697a698cb5db9534896cab5d"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/source/com/rdx/fullscreen/clean/TlsAdapter.java",
@@ -1050,8 +1135,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/STATE-GUARANTEES.md",
-      "bytes": 9916,
-      "sha256": "6ce31e231d228cc9e0eaaea940e394789fd2ef9141b5d210596ec5350627818f"
+      "bytes": 9914,
+      "sha256": "9ad3efffd26a63a2d703f59b84f6ff55560cdbe843589905f771246cebd59a10"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/test-fixtures/v1/README.md",
@@ -1075,8 +1160,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/FakeSecureBodyAdapter.java",
-      "bytes": 3040,
-      "sha256": "4c0a846b08f8b1a6efb9df33fbc46ca0262740b9e2f56947515a224fd7b983b7"
+      "bytes": 3038,
+      "sha256": "abfb1986277025da65ecb90c0eb854bb89ececbfd2ab30274e5d158d856bfe3e"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/FakeTlsAdapter.java",
@@ -1090,8 +1175,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/FakeVideoDecoder.java",
-      "bytes": 1415,
-      "sha256": "82d45d38ba9e7f1b771bb22dd78ae4e372c1dd3e39d5bab7814009ddcbd3b4ec"
+      "bytes": 1414,
+      "sha256": "48a286eab06df4b0455d99e87fe1c4eccefc513dfc96e19679c2029b85eb9ac5"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/FoundationTests.java",
@@ -1100,8 +1185,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/HondaMediaTests.java",
-      "bytes": 22954,
-      "sha256": "a3aedc62f8f0d671123ff1d3e7a02eb410d91535f8383da99aadd8d44508f8ae"
+      "bytes": 22952,
+      "sha256": "7adc186deb79252ceb72cb251b314752b4ae68d9dbace866d797b9bb67185c69"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/IndependentFixtures.java",
@@ -1120,8 +1205,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/Mp4FixtureReader.java",
-      "bytes": 6045,
-      "sha256": "cad7d846e955d784c030ad624a179976c94dd86d90dd7756b1df72ed82bfc28f"
+      "bytes": 6044,
+      "sha256": "e213d24194fcd5e405aa36c1321a5771d57a2667f170d55da7a7188a9e0448b4"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/ProtocolCoreTests.java",
@@ -1135,13 +1220,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/SecureBodyOracle.java",
-      "bytes": 2185,
-      "sha256": "4a569c1052317c30a9d21b7b3dfd52e27feb6bc15f37b142914da1ff7818c2a8"
+      "bytes": 2184,
+      "sha256": "047fa37a13642286d70d4d861157c5c5bae30305d5e0c3a3a15579bbcf76327d"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/SecureBodyTests.java",
-      "bytes": 33952,
-      "sha256": "928bfbe73c659066e80a2d689ec2da1e3cdceacdefe9d5189a3a5d1c5e283ffc"
+      "bytes": 33943,
+      "sha256": "d801b67fa13e44acd676e5ef3821c3a117c9135f24d842b8838a0961b708bad2"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/SessionEngineTests.java",
@@ -1155,38 +1240,38 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/TlsLoopbackTests.java",
-      "bytes": 28854,
-      "sha256": "e7fba8a944a5e3bbb6ffb480be86702ea81fb663b28b4722b976b20256e223df"
+      "bytes": 28850,
+      "sha256": "25160f84770579b875b53126896e827a171e4c1dc84f0797cb9825c2e0532bf4"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/VideoDataTests.java",
-      "bytes": 31717,
-      "sha256": "8c492b835bcb0ac64fe9f4c80f8da816978f4ad109ec7444e7679619d5c1c1b1"
+      "bytes": 31710,
+      "sha256": "360ff824b2fded1b3e7fedaacb60f9f266b8f18968b20dbf58de627b19e84b2b"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/tests/com/rdx/fullscreen/clean/VideoWireOracle.java",
-      "bytes": 2175,
-      "sha256": "385d3b12e59e51419b0bc0883d414762dc52c6bf5437c8ded57c0442d55f8dd3"
+      "bytes": 2174,
+      "sha256": "19bbee591cff1b51f9b520071fcff0304bb08e658845ff8dda7746f973331a91"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/TLS-BACKEND-SELECTION.md",
-      "bytes": 3353,
-      "sha256": "3b976ac28c376d443eb63278ec136cacca85d0a2a438a0754f755b2a0d506c86"
+      "bytes": 3351,
+      "sha256": "10f0f44f801de0c708e30773f847a4c3c3bab3b1e215524338d4abaf0a532f24"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/TLS-IMPLEMENTATION-PLAN.md",
-      "bytes": 1677,
-      "sha256": "832247b7137c5e2695e0894ac6274866de685788a80c5fd18ee8f8e4ddb50d59"
+      "bytes": 1676,
+      "sha256": "fb82310197ea1372fff2feaaad83b7a50082cbd4eeaaddcfc4efb85f8a870e17"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/TLS-NATIVE-EVIDENCE-INVENTORY.md",
-      "bytes": 2614,
-      "sha256": "8fad0d47be3439a24a380c8a5a37bd99eced9b8ffa5774fb8ba68ebf7d82ca74"
+      "bytes": 2613,
+      "sha256": "128e6ad6969eca77484e124459773ff22e53676bde951e595946a01ddb8bb402"
     },
     {
       "path": "analysis/parallel-aa-receiver/clean-receiver/TLS-PLAINTEXT-ASSOCIATION-REVIEW.md",
-      "bytes": 3872,
-      "sha256": "775c2c41c4a2423d33c59005f224bc989abdb80ef8c77999848664613ac6a96d"
+      "bytes": 3871,
+      "sha256": "f93b7a06cc6633ae7b317e6da360a452932fc1f4af567fdec0457d9b3a727f61"
     },
     {
       "path": "analysis/parallel-aa-receiver/DECODER-TEST-PLAN-before-clips-foundation.md",
@@ -1195,8 +1280,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/DECODER-TEST-PLAN.md",
-      "bytes": 5140,
-      "sha256": "7dff676bd6c2bce5644c52251347d2ba05a1ecee89b95ffc5c2b18d535228ca1"
+      "bytes": 5139,
+      "sha256": "798650a66059ac39d25aad9d9e0cddf06980b3a07e8ff19f8560d2936c8c7390"
     },
     {
       "path": "analysis/parallel-aa-receiver/decoder-test/AndroidManifest.xml",
@@ -1210,8 +1295,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/decoder-test/README.md",
-      "bytes": 1501,
-      "sha256": "9d22c545232e5157bf524f72b8abe25dca7cb029607f7497d1b49ba1611fbb49"
+      "bytes": 1500,
+      "sha256": "fd8262f54bbbc222925d1d14d2ed885dc3c60bee53895a987ec9dc97bf674fe6"
     },
     {
       "path": "analysis/parallel-aa-receiver/decoder-test/revisions/0.1.0-audited-source/AndroidManifest.xml",
@@ -1230,8 +1315,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/decoder-test/revisions/0.1.0-audited-source/source/com/rdx/fullscreen/decodertest/DecodeWorker.java",
-      "bytes": 5009,
-      "sha256": "c201dcca8a5fa70697d934b98572b6c67459fada318d7af19d6d6a23a281ece8"
+      "bytes": 5008,
+      "sha256": "fa0bcdb070483006527161bf55ec129e7c0a813121cf2c0e3c2035f4780d6722"
     },
     {
       "path": "analysis/parallel-aa-receiver/decoder-test/source/com/rdx/fullscreen/decodertest/ClipCatalog.java",
@@ -1245,8 +1330,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/decoder-test/source/com/rdx/fullscreen/decodertest/DecodeWorker.java",
-      "bytes": 6923,
-      "sha256": "53c1dedeb337a93a842019c1df0b446beb2606c9df08a4c0f822c927aa1db082"
+      "bytes": 6922,
+      "sha256": "e755e9ef1aec309c6c789137126b2ace9903bbd844df93897af7105b50257bc6"
     },
     {
       "path": "analysis/parallel-aa-receiver/EXTENDED-OFFLINE-SESSION-RESULTS.md",
@@ -1285,8 +1370,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/HONDA-UNAUTHORIZED-APP-WARNING.md",
-      "bytes": 7578,
-      "sha256": "6137400d51dc5bf115f907d1a8612953a3b7a3e67e453bcd5938a190eb535123"
+      "bytes": 7576,
+      "sha256": "c6751256c9bb2a0e3279ef4e9c1b9f985646845989812573e0b20f30651b1c07"
     },
     {
       "path": "analysis/parallel-aa-receiver/HONDA-WARNING-DETECTOR-PERSISTENCE-MAP.md",
@@ -1310,8 +1395,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/INDEX.md",
-      "bytes": 5507,
-      "sha256": "ba36972dc17a6e0237c8125bc554883789ab317b24336ad38a12fc7e6ca3f74f"
+      "bytes": 5500,
+      "sha256": "c1591a6dfe9bac202341d340219def19e934a1f19e79ba42a2e5c362cae3ceef"
     },
     {
       "path": "analysis/parallel-aa-receiver/LIVE-FOUNDATION-READINESS.md",
@@ -1345,8 +1430,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/M5-LIVE-TEST-RESULTS.md",
-      "bytes": 9796,
-      "sha256": "2cc8692ece95fd3c24c76c1f777738e6869fc90c461480c8fb011c770d8c26ca"
+      "bytes": 9795,
+      "sha256": "d8316dac67d12fb91fa2e849ec3cc5240648e0ade5d526e93a419e4eccaf0392"
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-locktask-guard-20261025-195507/OFFLINE-COMMANDS.md",
@@ -1385,13 +1470,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/history/pre-0.2.0-300s/M5-USB-PERMISSION-TEST.md",
-      "bytes": 5560,
-      "sha256": "5d3890210497ba448785c6642e52ef95973b6155c8c147a792461986fa2411dc"
+      "bytes": 5558,
+      "sha256": "81d8183c725bb393c007d96c5f3845c231a67307231d9bda66d8f7474a082760"
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/history/pre-0.2.0-300s/NEXT-LIVE-TEST.md",
-      "bytes": 3296,
-      "sha256": "25c0cd8493d6e5c4b949254f684c64bfeaea23bf5d45a3f8bd7c77f85875d986"
+      "bytes": 3295,
+      "sha256": "774e40c896d9daf92f27ac6fc9099efe4e62621b2169ad90df8f03686811cb70"
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/history/pre-0.2.0-300s/README.md",
@@ -1400,8 +1485,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/history/pre-0.2.0-300s/source/com/rdx/fullscreen/m5permission/PermissionService.java",
-      "bytes": 5693,
-      "sha256": "34a37d6c3ac15776eaa9ffec0e96a1d7350dc37bfe9f21ad043e033e9733316b"
+      "bytes": 5692,
+      "sha256": "f0b32cd6bba8ea13fcb2022d67aec1f0d1b1ac82a20eefb92c9e27beb7b9f8e1"
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/history/pre-single-port-20261023/AndroidManifest.xml",
@@ -1420,18 +1505,18 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/M5-RETRY-INDEPENDENT-AUDIT.md",
-      "bytes": 6580,
-      "sha256": "2681c5720a526134aef474730379195264abb624c0e1886e166e524108995c3b"
+      "bytes": 6579,
+      "sha256": "59a16979f1edffca0a964ca2910a445428b33244d49be880fd0739485e1f770c"
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/M5-SINGLE-PORT-AUDIT.md",
-      "bytes": 1846,
-      "sha256": "ab8e2a7f66e0409b4ae9f4697b32e1ba0024bcdb26727a06e7357c022bdb0f96"
+      "bytes": 1845,
+      "sha256": "26b836d17eca0aee4777e92412fbbdfdce54bd8841f47908ca904ee4ee019f36"
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/README.md",
-      "bytes": 2240,
-      "sha256": "323f5a85df5af9ec7e5e72fd6358c34759a79c6aa5f0251dd562237ddaab1b88"
+      "bytes": 2239,
+      "sha256": "6aa9c0f4ebf242a6074f6396cd31bf9e7461501695bbed0022139cd9e81396b6"
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/source/com/rdx/fullscreen/m5permission/PermissionMachine.java",
@@ -1440,8 +1525,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/source/com/rdx/fullscreen/m5permission/PermissionService.java",
-      "bytes": 10534,
-      "sha256": "a8b723eac7fb30d18eb92ede607e7aebdd3a58f38909af26ce7f82a772fa098a"
+      "bytes": 10533,
+      "sha256": "d7ae318715efb137417778c47b4707cbcd80d376fbcff57b57672fac769882b0"
     },
     {
       "path": "analysis/parallel-aa-receiver/m5-permission/source/com/rdx/fullscreen/m5permission/PrivateJournal.java",
@@ -1465,8 +1550,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/M5-RETRY-OFFLINE-VALIDATION.md",
-      "bytes": 14437,
-      "sha256": "0acb38273d73f5476ec8125108a4452b36c5c965744ea1f3e952042af5e35883"
+      "bytes": 14436,
+      "sha256": "f31cda62aeca393cfe201eb709a716863f1fb1bacf8dff7c1fc2d97b2a864433"
     },
     {
       "path": "analysis/parallel-aa-receiver/M5-USB-PERMISSION-TEST-before-clips-foundation.md",
@@ -1475,8 +1560,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/M5-USB-PERMISSION-TEST.md",
-      "bytes": 7942,
-      "sha256": "4284dbf81b735a1a66985b34752b8808c3e6b6f4c627697e427851a64b34ff40"
+      "bytes": 7939,
+      "sha256": "fc85a40c17ba1d6bcc71fe5430428cf1e08f04d7b054835f93293c0c4799e10f"
     },
     {
       "path": "analysis/parallel-aa-receiver/M6-AOA-FROZEN.md",
@@ -1485,8 +1570,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/M6-AOA-ONLY-TEST.md",
-      "bytes": 4987,
-      "sha256": "5595b8d4dc276323a33bdf411dacac2a2895ed5378e53554d1eda1857c0a0cca"
+      "bytes": 4983,
+      "sha256": "cb0a9406fc972cbc35949d6ea9bfd31ead1076b3931b38d257f53536dcd969fc"
     },
     {
       "path": "analysis/parallel-aa-receiver/m6-aoa/AndroidManifest.xml",
@@ -1570,8 +1655,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/m6-offline-20261025-130328-474/FILE-INVENTORY.md",
-      "bytes": 1120,
-      "sha256": "0e19952d5661462baa6119200915910a8b28948ff188a614aba5b3beea8b40ac"
+      "bytes": 1119,
+      "sha256": "f58d82489c29fa06ad7fc0c422dda17f34c6fdc3b8949dbcc5a9e27a80b589f8"
     },
     {
       "path": "analysis/parallel-aa-receiver/M6-OFFLINE-VALIDATION.md",
@@ -1595,8 +1680,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/MALICIOUS-DETECTOR-READONLY-ACQUISITION.md",
-      "bytes": 2093,
-      "sha256": "cbc7ab1e03a0027cca177034fc923617c7e59e11a9ed1a7c47363be423eb985c"
+      "bytes": 2091,
+      "sha256": "3666fb367d9709d7375a4d69ee3cee7f28892a9f38e4ec9dfc0d0e247343c1f0"
     },
     {
       "path": "analysis/parallel-aa-receiver/NEXT-CAR-SESSION-CHECKLIST.md",
@@ -1605,13 +1690,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/NEXT-LIVE-DECISION-TREE.md",
-      "bytes": 1914,
-      "sha256": "06268d98a8d196b34a7974a738aea488256843e594d300ddbce05d728608027a"
+      "bytes": 1913,
+      "sha256": "c98cdd74546dfcfc90798dc3a8e78fe5698400aff6d7520910a91de0d44170dd"
     },
     {
       "path": "analysis/parallel-aa-receiver/NEXT-LIVE-TEST-after-M4-before-M5-20261023.md",
-      "bytes": 2207,
-      "sha256": "6736a4e4df568a5ec67150f2d4a8d2d53b81fb5dcd6130f6d89464c13f510dde"
+      "bytes": 2206,
+      "sha256": "fe17450b76acf2f66be11eb9256b42d03d837cc56ee4106b7870beb84f498085"
     },
     {
       "path": "analysis/parallel-aa-receiver/NEXT-LIVE-TEST-before-20261023-build.md",
@@ -1620,18 +1705,18 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/NEXT-LIVE-TEST-before-M4-PASS-20261023.md",
-      "bytes": 7209,
-      "sha256": "49b3eab10de74b57af0581b82f55fa673fc0b7473caed688e647bef0472e53b2"
+      "bytes": 7207,
+      "sha256": "739a4b108900b980cd8dd17377fe146457c6ef933c7c087a56be85ffa388c64f"
     },
     {
       "path": "analysis/parallel-aa-receiver/NEXT-LIVE-TEST.md",
-      "bytes": 3534,
-      "sha256": "790a4c2a632cd343f9521a2336f049823ab3881dc568aac620849ee5fa2d6cab"
+      "bytes": 3531,
+      "sha256": "28a15ce3b062969165b74a3b3567a3119c89a807a4d45dcda85bd71c246262df"
     },
     {
       "path": "analysis/parallel-aa-receiver/OFFLINE-CONTINUATION-CLIPS-FOUNDATION-20261023.md",
-      "bytes": 10348,
-      "sha256": "13fdc68f2c7894b1520d6146eb91441565cb6be7882c164518f0e2f6a4290114"
+      "bytes": 10347,
+      "sha256": "b128940a63c3b732a5b1d069b8e1af5b4060df4449323b68761545c1ccab4e60"
     },
     {
       "path": "analysis/parallel-aa-receiver/OFFLINE-DEEP-INVESTIGATION-RESULTS.md",
@@ -1640,8 +1725,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/OFFLINE-FOUNDATION-FREEZE.md",
-      "bytes": 7974,
-      "sha256": "0cca3b43a59b7126a4d784237c04f64d2d63b80b95b1c663fb806e34ce698f76"
+      "bytes": 7973,
+      "sha256": "97331a35c62347780ade72531fc9742b8a1c31cd4733f90dee0ce25e23208f4e"
     },
     {
       "path": "analysis/parallel-aa-receiver/offline-freeze-20261025-015031-430/FILE-INVENTORY.md",
@@ -1660,8 +1745,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/README.md",
-      "bytes": 8985,
-      "sha256": "3e27f8d0fad81adc9902f6fd946881eaaf7d987fe1df841322c3c104b8eeeb4e"
+      "bytes": 8981,
+      "sha256": "b971a61da33cdd343eb59c45f222ef4e591f5dd0ecf1edbbf2466e78987a5ff8"
     },
     {
       "path": "analysis/parallel-aa-receiver/src/com/google/android/projection/common/BufferPool.java",
@@ -1685,8 +1770,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/src/com/google/android/projection/protocol/GalReceiver.java",
-      "bytes": 6183,
-      "sha256": "d897d35d2ba852c9acfad878e1863f137ca8b9d15450b9f7e24ddad8e5e36cb2"
+      "bytes": 6553,
+      "sha256": "db209950b8cdefafec4c21c4390dde4b5d4b2a1f5511146ddb1922f3b41413fb"
     },
     {
       "path": "analysis/parallel-aa-receiver/src/com/google/android/projection/protocol/InputSource.java",
@@ -1730,8 +1815,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/STOCK-AA-USB-COMPETITION.md",
-      "bytes": 4481,
-      "sha256": "23764ce27d5277ed99fd56075f45f61b52aa11d3827e2666b3dba8fa23ebdc02"
+      "bytes": 4480,
+      "sha256": "dbefd58327361b8a5d9f9ede304dc80f11bdc7b165a2bc655d205847ab128ef7"
     },
     {
       "path": "analysis/parallel-aa-receiver/TEST-HARNESS-SAFETY.md",
@@ -1760,13 +1845,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/google/android/projection/protocol/InputSource.java",
-      "bytes": 4305,
-      "sha256": "f62a95e38014231edb002e9c907cada8ed32424b91c038c6546c2c7afc5fcb34"
+      "bytes": 4648,
+      "sha256": "0dfaf78217110ce4e227147e8259e378cf8360fc41363faac70f5cbb3e1a225e"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/AaOverlayService.java",
-      "bytes": 20988,
-      "sha256": "bdf1508b7fd4b8d852adde26754180609f9233174c142143cc830d13a8462d63"
+      "bytes": 29350,
+      "sha256": "2c8f8cdfa522272c542236f17b4d258b356537b5c4040d06e6be09bc6059001d"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/AaSessionService.java",
@@ -1784,6 +1869,16 @@
       "sha256": "e9553ccfa7db88e5a15b355c834502ea3cc33ae82e76289e51453c096c91ae24"
     },
     {
+      "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/FocusCapture.java",
+      "bytes": 4218,
+      "sha256": "d20e04a6a6032881bfd9cd1c2cae14d6d3c7a2373179810d173e6f1447100fa4"
+    },
+    {
+      "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/FocusCaptureBudget.java",
+      "bytes": 762,
+      "sha256": "1b8ddbd7973a0219f090dbdcf623628da5574bd0a3f24886e3f6d25a7a0ba947"
+    },
+    {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/HelperActivity.java",
       "bytes": 15817,
       "sha256": "6c8e971a8a2940eae482b2ef22eb2515aa0988075d68e9a9364c4685ef7befde"
@@ -1795,8 +1890,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/InputEvents.java",
-      "bytes": 838,
-      "sha256": "442acbd2c62f9337641c82410cbd01d60bbce38f3c19a1b90ca0dd2b24cd2474"
+      "bytes": 5262,
+      "sha256": "5ed7b421bf5d36b008bc03e049835a1c1bcd32e94fface665c070dae2323cd13"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/OverlayTestService.java",
@@ -1822,6 +1917,11 @@
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/VideoGeometry.java",
       "bytes": 3777,
       "sha256": "17f4a3d7b9d636032bc10db001d624c75b6f9e694aed8851ee9435a2b2258548"
+    },
+    {
+      "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/VolumeFeedback.java",
+      "bytes": 717,
+      "sha256": "a727b29d158529538fa837e17971669270166c4d710a8beb81a3e10d285dced6"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-probe/AndroidManifest.xml",
@@ -1870,8 +1970,8 @@
     },
     {
       "path": "analysis/test-prep/20261029-helper-startup/README.md",
-      "bytes": 17169,
-      "sha256": "b00ff756d1e7d13bde907e7fa5ea6fb734d5d2349b676b55a44c34cb621763ff"
+      "bytes": 17146,
+      "sha256": "82d1bcb5eb3d56c4076721be35259a909e0d83b0e3cb1b5fc1e61f19eb119c4c"
     },
     {
       "path": "analysis/test-prep/20261029-helper-startup/Test-OfflinePreparation.ps1",
@@ -1879,9 +1979,54 @@
       "sha256": "e83420f1cf8b726a2928364b3f77541f5735d1ca226ad239664bf6fe2cd7e57b"
     },
     {
+      "path": "analysis/test-prep/bzone-keys-20261031/NEXT-TEST.md",
+      "bytes": 4450,
+      "sha256": "cc7ec6e4ae899713eec8124272ee05138f731172566a612ee3f677548ee8c690"
+    },
+    {
+      "path": "analysis/test-prep/bzone-keys-20261031/pre-adb-20261031-123725/REPORT.md",
+      "bytes": 3096,
+      "sha256": "97c57c1eb09955bfe2e08ee3a17d2bc2557fa14277bb61bf5f2f9aa06ec4f979"
+    },
+    {
+      "path": "analysis/test-prep/bzone-keys-20261031/REPORT.md",
+      "bytes": 12274,
+      "sha256": "42b3e460acc2199d79597763e1c0614889862827bef9b871f1cfe25559908de7"
+    },
+    {
       "path": "analysis/test-prep/click-focus-20261030/REPORT.md",
       "bytes": 7590,
       "sha256": "5f5bf0e252e70ca69b56cb706335afc93fd3241200e112b218d1ad180547345c"
+    },
+    {
+      "path": "analysis/test-prep/directional-focus-20261030/NEXT-TEST.md",
+      "bytes": 5568,
+      "sha256": "d7d07bf29d1385a2ba2d5dbe05cbdcfad56a0e0978206ea9f6b46f70e8233b16"
+    },
+    {
+      "path": "analysis/test-prep/directional-focus-20261030/REPORT.md",
+      "bytes": 5679,
+      "sha256": "bd03a43843e80d589a3c92d89a6209092bd2fb87dd579a288e1d1ebe9d02885c"
+    },
+    {
+      "path": "analysis/test-prep/down-motion-only-20261031/NEXT-TEST.md",
+      "bytes": 3297,
+      "sha256": "119975f5c7e70d7a43b433d8719cba84d48a121107aea7fe171a3870d502e46e"
+    },
+    {
+      "path": "analysis/test-prep/down-motion-only-20261031/REPORT.md",
+      "bytes": 9094,
+      "sha256": "1197270265ac10aab8d7cb1e7bd39da36cf2fc796aad3eef8c5933b8012be0c0"
+    },
+    {
+      "path": "analysis/test-prep/focus-observer-20261030/NEXT-TEST.md",
+      "bytes": 6715,
+      "sha256": "a654168a3a0c0039ff4ee1b1e79a3561da2f8923f38246fc4012e426dbef7391"
+    },
+    {
+      "path": "analysis/test-prep/focus-observer-20261030/REPORT.md",
+      "bytes": 6232,
+      "sha256": "4af9c6ea617bdc863aea48945fd7351a8136b3a5f328c4d6bf4eff482d658587"
     },
     {
       "path": "analysis/test-prep/honda-phone-preference-20261030/REPORT.md",
@@ -2049,9 +2194,99 @@
       "sha256": "b5ba8ae1c2fe35cbb4debfc37c3838956f80dd7de6cf7fb7e90d5fa2783cb633"
     },
     {
+      "path": "analysis/test-prep/hover-dedup-20261031/NEXT-TEST.md",
+      "bytes": 5562,
+      "sha256": "db376483ef12deb15598cf8e1442d18cb92ca8bd5cdf37286570840191663625"
+    },
+    {
+      "path": "analysis/test-prep/hover-dedup-20261031/REPORT.md",
+      "bytes": 8767,
+      "sha256": "29335d3129c9f20f761ca5a6336ab671535502227e76f88d6bcc4a45b857e0e4"
+    },
+    {
+      "path": "analysis/test-prep/hover-restore-20261031/NEXT-TEST.md",
+      "bytes": 5475,
+      "sha256": "78326e0c6cc62a6b4ba31e98ec2f80e473e2fc8d8d14afae8c1979d12e10824c"
+    },
+    {
+      "path": "analysis/test-prep/hover-restore-20261031/REPORT.md",
+      "bytes": 7967,
+      "sha256": "34ae8363771dc8891a9037dd9686a8e9d9ad39930e74a0a2778817d364bf21fb"
+    },
+    {
       "path": "analysis/test-prep/input-pcm-20261030/REPORT.md",
       "bytes": 8475,
       "sha256": "00d93acc333c0d83e01b7fb296c1bf36e1e5d833f946ffc27dc9280fe0bc8eec"
+    },
+    {
+      "path": "analysis/test-prep/long-drive-20261031/ERRATUM.md",
+      "bytes": 938,
+      "sha256": "9d82f8da2eb22b85ea1ce71e1e7cb3a0543b6f25a4d0628a0a21bd3814fe258c"
+    },
+    {
+      "path": "analysis/test-prep/long-drive-20261031/LIVE-PREPARATION.md",
+      "bytes": 4227,
+      "sha256": "4c0f6725f199378042a4376b87f70d035f4c900952b283bc32dff0769b75a48d"
+    },
+    {
+      "path": "analysis/test-prep/long-drive-20261031/NEXT-DRIVE.md",
+      "bytes": 2745,
+      "sha256": "8136506a927974da3980f2d0f7fd4489678ccad0ac3de19b1860088fcb1801b7"
+    },
+    {
+      "path": "analysis/test-prep/long-drive-20261031/REPORT.md",
+      "bytes": 7666,
+      "sha256": "8a3976da82c1393506a5f36068501eddeed6597d421bf552d19e50dca15029b4"
+    },
+    {
+      "path": "analysis/test-prep/maps-nav-focus-20261031/NavigationFocusTest.java",
+      "bytes": 2383,
+      "sha256": "52d6461f027a7aee8408f71ba5b174020da28baaeb67c74e9a1ab9f22c230839"
+    },
+    {
+      "path": "analysis/test-prep/maps-nav-focus-20261031/NEXT-TEST.md",
+      "bytes": 3646,
+      "sha256": "0cf3d781562e381628c682d6de05d1937c36a27c3dbe24ca52b41c5a8e07bc53"
+    },
+    {
+      "path": "analysis/test-prep/maps-nav-focus-20261031/REPORT.md",
+      "bytes": 7989,
+      "sha256": "9489bbb86f54dcf103b9691e6a5c441648909965cb10132fec316d9322f5ea3a"
+    },
+    {
+      "path": "analysis/test-prep/maps-nav-focus-20261031/SCOPE.md",
+      "bytes": 1500,
+      "sha256": "d90a870c9e53e7f0adc23a91998940c65e51a1f6cc9c59d8d278d9f299dee1ad"
+    },
+    {
+      "path": "analysis/test-prep/media-input-fixes-20261031/MediaInputTest.java",
+      "bytes": 5230,
+      "sha256": "5019a6d3bab85b595c5eae78bbcfefca4482c2a03942b70450e0190f82a231a9"
+    },
+    {
+      "path": "analysis/test-prep/media-input-fixes-20261031/NEXT-TEST.md",
+      "bytes": 4714,
+      "sha256": "3a23c1e48da88279493ea886ed54598daf6a633260202b05c191fa619cc05061"
+    },
+    {
+      "path": "analysis/test-prep/media-input-fixes-20261031/REPORT.md",
+      "bytes": 11254,
+      "sha256": "cf2e5d97a0f7272f97e97e04498f0c389f1f42f83803fd5b14274d4a62904695"
+    },
+    {
+      "path": "analysis/test-prep/media-input-fixes-20261031/SCOPE.md",
+      "bytes": 2163,
+      "sha256": "f950f4fdb98c8568791e8f83d276b17e48c58896534da9e056c8f2975911f7bd"
+    },
+    {
+      "path": "analysis/test-prep/pad-absolute-off-20261031/NEXT-TEST.md",
+      "bytes": 3321,
+      "sha256": "8720084a12fa23e0b90b6fea1b4c1c3f647b4311faa81a2f2cacfde9d746e653"
+    },
+    {
+      "path": "analysis/test-prep/pad-absolute-off-20261031/REPORT.md",
+      "bytes": 8179,
+      "sha256": "bc3a18a6c7dbc3205e3d4c3ccf717b54c3e04d2042d45361ac7c3b4d28ad1614"
     },
     {
       "path": "analysis/test-prep/pad-select-20261030/NEXT-TEST.md",
@@ -2062,6 +2297,16 @@
       "path": "analysis/test-prep/pad-select-20261030/REPORT.md",
       "bytes": 6792,
       "sha256": "52ed83fd7fccba5e91bea97ac86410056ab02b16a2f3a4b4fb7346b387fa26d3"
+    },
+    {
+      "path": "analysis/test-prep/page-profile-ab-20261031/NEXT-TEST.md",
+      "bytes": 3848,
+      "sha256": "79b8f91f0c7ac7427dbaf1cc94c2e3908f1e9cc8ca433eeafbb705313c0d65f3"
+    },
+    {
+      "path": "analysis/test-prep/page-profile-ab-20261031/REPORT.md",
+      "bytes": 10992,
+      "sha256": "fcb0f2f7b1a81afd4d3aad5bed700e3a06a8a01d1a00fc8edfb208c740a31a0f"
     },
     {
       "path": "analysis/test-prep/runner-fix-20261029/tests-01/Fixture.java",
@@ -2409,6 +2654,16 @@
       "sha256": "dbd05fc333597090f674eca00055d865ab124f41e1109da458692026f968a684"
     },
     {
+      "path": "analysis/test-prep/runs/helper_20261029T194340_120f2cc7c14848b38620f43f1903a0a4/RUNBOOK.md",
+      "bytes": 6762,
+      "sha256": "318c9224c04338e538bdc6ce301093741863abf8abca64ba2e721917919ec7a0"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261030T174947_2b3c30e99c544fa696bd0693a9987872/RUNBOOK.md",
+      "bytes": 6756,
+      "sha256": "afa02cd3c8f9781b81761e083cb77fd145b5fa9837542aef87a2b36551d7da1c"
+    },
+    {
       "path": "analysis/test-prep/runs/helper_20261030T180252_b9555031f7164592b2ccb24966624c28/RESULTS.md",
       "bytes": 5086,
       "sha256": "35ca7fe97f5b130ecdd9f92c7fe453476ffcda1fa2fa56b7976e50a08f30710b"
@@ -2429,6 +2684,116 @@
       "sha256": "346fe7d3653ed4f3fb9d09bf0d84760c099459c997fc721feeb9322c321160af"
     },
     {
+      "path": "analysis/test-prep/runs/helper_20261030T234615_99356193e031448eb0d3fb4ebd9b5be9/RESULTS.md",
+      "bytes": 5298,
+      "sha256": "144b91f04b3affcbb96a934163c00dc8956c684bac9162233ccbd77fd49b9467"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T000705_990b5e7dac5f4bf9b19bf2639551fe4f/RESULTS.md",
+      "bytes": 7618,
+      "sha256": "10c7893d37173e639643499f57ee6b1e532af845d44edc5ae7f4059a58e49c43"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T002332_5cd1f8f59be24768a81fc15c38057324/RESULTS.md",
+      "bytes": 2352,
+      "sha256": "29727e80fa30e7143c8032d9e9aa3972e67ff8abc60a9814a378a5838505ad8b"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T002831_3108073116014a1d9a52966de9841a43/RESULTS.md",
+      "bytes": 5358,
+      "sha256": "23f74c153729a5a04a9bbf66faa46543f88c4c531240e890643f7de89156f332"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T041524_80b16905aa3048e99d3f52f817379dbb/REPORT.md",
+      "bytes": 13345,
+      "sha256": "36b67b7ceba99bb13524cc4f6fb5cc293aff826470a42cf8963d3c64eee3d136"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T051918_e24f47ab1b7548cb92193e19fa5dc8f4/REPORT.md",
+      "bytes": 10017,
+      "sha256": "07d5cf771251d9d46c9e8b3f71171dcb63c478d316fc98eff29ed0ede4f2df68"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T131432_b7c47627e1bd469a90efe3e189e593b9/PREPARATION-REPORT.md",
+      "bytes": 2954,
+      "sha256": "861c7d160c91d15a6b37bdf9d2dc4f7a7233acb0b66d6b3e5c34a7b6ca0a256d"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T131432_b7c47627e1bd469a90efe3e189e593b9/REPORT.md",
+      "bytes": 4173,
+      "sha256": "3ec60640ce56ad233966c31d322b06f13d6f3bda6476a031b92b8c72292a7d52"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T134451_d21703de95744f9b95bf7d9fe79d8b52/PREPARATION-REPORT.md",
+      "bytes": 2877,
+      "sha256": "831af42958767eaba05d5e25d15153a9958315a8327f8f2f3307fcfdf73e081c"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T134451_d21703de95744f9b95bf7d9fe79d8b52/REPORT.md",
+      "bytes": 4135,
+      "sha256": "57096cb3d5468919898ef7d89fd731e5c0a106ef7fe2c29c4abc9c73787a6ef2"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T143425_89ea543e3cf14689aa757824d265ec16/PREPARATION-REPORT.md",
+      "bytes": 2949,
+      "sha256": "6b1ebc19abd880da66b9a874beeb5c25bdc33d3820792bc066ee8a4568eae347"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T143425_89ea543e3cf14689aa757824d265ec16/REPORT.md",
+      "bytes": 2648,
+      "sha256": "b15d5cbfbb18ef5946e79fdd52579209cc595b81330df5a3205a7ddebe3fdacc"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T144308_52b40ebcec4249d6975326904e645149/PREPARATION-REPORT.md",
+      "bytes": 3022,
+      "sha256": "c26821bc5bb1f578bcaf1296c3465bf782d764ca672b2c094fac9619b05d6ce8"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T144308_52b40ebcec4249d6975326904e645149/REPORT.md",
+      "bytes": 4139,
+      "sha256": "a75cdad0a2ac34470624e762a184f99f480fe151c3cc42782f0b9a47a41cac95"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T162415_49f9bbe40ccd43578fa70712dff86c9d/PREPARATION-REPORT.md",
+      "bytes": 3023,
+      "sha256": "1a8c52eef8da2fde112e85525a528b2eb5785449089d116d0b8992397c611130"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T162415_49f9bbe40ccd43578fa70712dff86c9d/REPORT.md",
+      "bytes": 3536,
+      "sha256": "c6cf93fee3cd9d690b3138a9491e5154381a78071a21bb1a5d66c1f4e3016200"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T173855_e72a6103b88a4bdc815a3e210f2c4f69/COLLECTION-REPORT.md",
+      "bytes": 2420,
+      "sha256": "7b09521301909649621b2f9db25584fc56acb94b24c45652168c74ec1a83b56d"
+    },
+    {
+      "path": "analysis/test-prep/runs/helper_20261031T173855_e72a6103b88a4bdc815a3e210f2c4f69/offline-review/REPORT.md",
+      "bytes": 7454,
+      "sha256": "ebaca6b40b003d727f7d16980d70da518c94ce744c208fa0ad9c4478dc3980c8"
+    },
+    {
+      "path": "analysis/test-prep/swipe-navigation-20261030/NEXT-TEST.md",
+      "bytes": 5130,
+      "sha256": "2e2f957c2d0677f079aa0a4645a37393a6916f8d18246bf344e43471e1922cc3"
+    },
+    {
+      "path": "analysis/test-prep/swipe-navigation-20261030/REPORT.md",
+      "bytes": 5372,
+      "sha256": "060611de06f6b6a3339a2d1074ded16e8a4f2327021a0d1022c47743769103bd"
+    },
+    {
+      "path": "analysis/test-prep/v5-repeatability-20261030/REPORT.md",
+      "bytes": 3789,
+      "sha256": "bfc510acbfb53cb82cf0856674189ac96e4953ee292155133fd39045025d0f96"
+    },
+    {
+      "path": "analysis/test-prep/v5-repeatability-20261030/TEST-PLAN.md",
+      "bytes": 8447,
+      "sha256": "563fee400be4e05c1b68193374ab3aaa5bb6ac69a94cdf8e6867d838145bd597"
+    },
+    {
       "path": "analysis/test-prep/video-geometry-20261030/REPORT.md",
       "bytes": 9401,
       "sha256": "26e61b8f1224876ec293e85381dc27626a3f07e4e85255927107aa033809067a"
@@ -2440,8 +2805,8 @@
     },
     {
       "path": "CURRENT-FINDINGS.md",
-      "bytes": 4048,
-      "sha256": "7758ebd30793bdefb567d0b3db3fb053c5476de4b6dfabf8dc642a13c01698e8"
+      "bytes": 6966,
+      "sha256": "eae612bb9b0d71031235d8ace0532372f732435e184308fea8a0fb2fb425c525"
     },
     {
       "path": "diagnostic-app/AndroidManifest.xml",
@@ -2470,8 +2835,8 @@
     },
     {
       "path": "downloads/headunit-diagnostics-0.1.0-build.json",
-      "bytes": 1022,
-      "sha256": "b75a39ee5b75ff899eeaa12fc86abb1de21b4479065d78ee4c0dc251d7d2ac56"
+      "bytes": 987,
+      "sha256": "8e6fe841d677cd3334e4fa5e41c273983bffb600b8d8a836b2cd1ff3fa2b5933"
     },
     {
       "path": "downloads/headunit-diagnostics-0.1.0.apk",
@@ -2479,19 +2844,24 @@
       "sha256": "6727ea2dbbd93f19e477dc9467573adfce50a9081c1b889be771c31e03718473"
     },
     {
+      "path": "LATEST-TEST-PLAN.md",
+      "bytes": 3299,
+      "sha256": "e283c8f76d656115a591805b19217ad53f1588f74f9f90b845b3d00d6c91fedd"
+    },
+    {
       "path": "NOTES.md",
-      "bytes": 145950,
-      "sha256": "857a5fafcde79d93fa7da7b7f91459b0ed16d62b9895a08a6373f512851e6999"
+      "bytes": 145929,
+      "sha256": "afe060e464158df908707d7543f61e6e3a2ca0dd27a9880997622dfc414ece90"
     },
     {
       "path": "PORTING.md",
-      "bytes": 2065,
-      "sha256": "7c215208e4c36103b25a1bb1aade93c32dcad888bbdfba8013f85a85596fc92a"
+      "bytes": 2433,
+      "sha256": "0c5aa63ca360f365258c51e45660ecdb43a70c0cdc26ccc0a73aad65686b7d93"
     },
     {
       "path": "README.md",
-      "bytes": 3839,
-      "sha256": "6c803df9cc023952287c048b3a071dd608198026e8afde957cb7f5eeecf3a4e0"
+      "bytes": 4444,
+      "sha256": "df7c47d15bb257a51a9df246c32b24278b17e5dc8b7d28856dd44b26ca6f34f1"
     },
     {
       "path": "scripts/Analyze-RdxArchives.ps1",
@@ -2555,8 +2925,8 @@
     },
     {
       "path": "scripts/Build-RdxCleanFoundation.ps1",
-      "bytes": 9241,
-      "sha256": "e9f3f824fa93b05446c8dfa1b63129729bbc051ab8243ba963d049bf33b40110"
+      "bytes": 9238,
+      "sha256": "9f3c590cdd9d0cac710c5104bb5a23996147a9a9d54c5dc9085bfa93f3ab2757"
     },
     {
       "path": "scripts/Build-RdxLive02Synthetic.ps1",
@@ -2580,8 +2950,8 @@
     },
     {
       "path": "scripts/Build-RdxUsbHelper.ps1",
-      "bytes": 7936,
-      "sha256": "6d297e9b6cfe014b6c63ca9c3c3e5a3e091e63bde2d63934aeebb718c30148f0"
+      "bytes": 7830,
+      "sha256": "858dd82e9c1a5868653a6ee4f83313350c245face6a6fed63bc0c236963dd38a"
     },
     {
       "path": "scripts/Capture-RdxBoundedBaseline.ps1",
@@ -2640,8 +3010,8 @@
     },
     {
       "path": "scripts/Disassemble-RdxLoadInitializers.ps1",
-      "bytes": 6375,
-      "sha256": "dc1eecea3b41c41b96b7858305a3c0920937df99f41d53520a957023944a7af1"
+      "bytes": 6374,
+      "sha256": "623b30ff1fa8b18784cf31a250bbe3ff3b1d9829ca8a6ee82a35b2bedc3aba37"
     },
     {
       "path": "scripts/Disassemble-RdxUpdateFunctions.ps1",
@@ -2725,8 +3095,8 @@
     },
     {
       "path": "scripts/Invoke-RdxLive02Adb.ps1",
-      "bytes": 1859,
-      "sha256": "56c75ac176bb14603cc973d4322c97143d02f3a0536decb2d5a51530c0797e68"
+      "bytes": 1858,
+      "sha256": "63cb2c1351384a35296cd6f4ebfba7cdc2f6276f4db94312c85ffe9364987be4"
     },
     {
       "path": "scripts/Invoke-RdxM4Evidence.ps1",
@@ -2745,8 +3115,8 @@
     },
     {
       "path": "scripts/New-RdxHondaMediaFixtures.ps1",
-      "bytes": 4213,
-      "sha256": "6614b058a3ad6140fa1a6e8a31f302ea391c111fcfc43d3b8ac87b85e663c125"
+      "bytes": 4212,
+      "sha256": "fb0cd9ee18da40cfba3a044b65e69df7e2b7641abe5c7c5cb212c95cd316f5ba"
     },
     {
       "path": "scripts/New-RdxLoopbackCredentials.ps1",
@@ -2765,8 +3135,8 @@
     },
     {
       "path": "scripts/New-RdxVideoDataFixtures.ps1",
-      "bytes": 3849,
-      "sha256": "271dc327bd74855c297898be0edd8e124e2ebef35f64e50572ff2cf8dc953c3c"
+      "bytes": 3848,
+      "sha256": "03fd939680757f76d8717c032542e36f8595fe7b77eae828bc5872c4322096d5"
     },
     {
       "path": "scripts/pre-test-diagnostics.sh",
@@ -2910,8 +3280,8 @@
     },
     {
       "path": "scripts/Validate-RdxM7MediaConfig.ps1",
-      "bytes": 6020,
-      "sha256": "2d89e485d09ac82c5052f988460e2152ae470b5a6e14f471082c833f7b91bf86"
+      "bytes": 6019,
+      "sha256": "03bb0d80e6404782cb2db314962f33e8d12338852c0cd622826072ab6d1ec0d9"
     },
     {
       "path": "scripts/Validate-RdxM7Session.ps1",
@@ -2920,8 +3290,8 @@
     },
     {
       "path": "scripts/Validate-RdxM7VideoData.ps1",
-      "bytes": 7492,
-      "sha256": "b03ae3784d6a171a49ffa3aefedb9d1db4bdf4a8019b9ffaa43ebca54c1edc4d"
+      "bytes": 7491,
+      "sha256": "9d66af1da8621a475adb6d70cbb0efb669fabed1dd2770d98436533b96a75853"
     },
     {
       "path": "scripts/Validate-RdxProtocolCore.ps1",
@@ -2935,13 +3305,13 @@
     },
     {
       "path": "scripts/Validate-RdxRealTlsLoopback.ps1",
-      "bytes": 5645,
-      "sha256": "16f9f0d3c7267d9de8161836d83d3b2b901c89ca0089be6d1a29316ef44888cf"
+      "bytes": 5644,
+      "sha256": "e93e094ab0941f0a4102bfda058ea6a69b478bf2a14b454903ad55852eb7decb"
     },
     {
       "path": "scripts/Validate-RdxSecureBody.ps1",
-      "bytes": 5630,
-      "sha256": "9aef4d38ee09db7517ceaac2e9dc1a26afb9d778f92f22145b1e483d04f9c0d7"
+      "bytes": 5629,
+      "sha256": "f7a6df9ce9baaae1f173d4a922c466625d980177643c29d03f68216c4b0e74c9"
     },
     {
       "path": "scripts/Verify-RdxDecoderAssets.ps1",
@@ -2985,8 +3355,8 @@
     },
     {
       "path": "START-HERE.md",
-      "bytes": 3067,
-      "sha256": "15138fc387df88b1badffd1fd5b945ce0cb8d60cbf5c3fc65b59a0f4ffb0e638"
+      "bytes": 3082,
+      "sha256": "b516d938ab17c89ef83516ee40f7636b237e331ad21facbf1e8fd30ab593f195"
     },
     {
       "path": "tools/api22/Compare-Api22TlsResults.ps1",
@@ -3014,9 +3384,29 @@
       "sha256": "2784bbdb389cf4fd5fe314de1ee5e3e4af7f5264ca9afde6c0b59073de2539c3"
     },
     {
+      "path": "tools/car-test/BZoneSwipeTest.java",
+      "bytes": 5381,
+      "sha256": "4e11856cf4990aeb21a821de531990f621dfc0902e2619ba71ccaaff6b6a89be"
+    },
+    {
       "path": "tools/car-test/CarTest.Core.ps1",
       "bytes": 22903,
       "sha256": "0345a3884e058fb450b3c7db77cc334f41885e57d60473316d4edadff45d63f4"
+    },
+    {
+      "path": "tools/car-test/DownMotionOnlyTest.java",
+      "bytes": 3430,
+      "sha256": "474b3f866a16f69eb8c60e816ea21ab5b18bceeaa34e0c207d844002831bf381"
+    },
+    {
+      "path": "tools/car-test/fixtures/api22-service-response.json",
+      "bytes": 1887,
+      "sha256": "735396db54f11155462e6d98d6fab7ab1e85a267d80cec7d37b7f927c906bc8a"
+    },
+    {
+      "path": "tools/car-test/FocusCaptureBudgetTest.java",
+      "bytes": 1107,
+      "sha256": "bb67aa3101e88eebe29e0e5b28273cabd3214bdf2668d03719b5661623acd272"
     },
     {
       "path": "tools/car-test/HondaPhonePolicyTest.java",
@@ -3024,9 +3414,19 @@
       "sha256": "4eb0d721cef8baf77548ceb57e9c8b9adb0817669899f6747905843d33b8a1f3"
     },
     {
+      "path": "tools/car-test/HoverContactReplayTest.java",
+      "bytes": 5182,
+      "sha256": "658c9a46d5f7e2a3ffa0ae1f3714f117d4757d3ab213c551275a6fec66c3f4e2"
+    },
+    {
       "path": "tools/car-test/InputPcmTest.java",
-      "bytes": 3295,
-      "sha256": "61bdec38ff2eba7f678ddab9d1f4bbe16f5bed98e912b75aae57850260dad8aa"
+      "bytes": 5336,
+      "sha256": "1358138dadf2500a0a78817a5b530d07f0ceb14989506079cf99e60ee1fbbf54"
+    },
+    {
+      "path": "tools/car-test/NavigationProfileTest.java",
+      "bytes": 3574,
+      "sha256": "7c9ceef99d376d2f876333b18e611f064382c382460bfca627b11d837651ede3"
     },
     {
       "path": "tools/car-test/Test-CarTestOffline.ps1",
@@ -3037,6 +3437,11 @@
       "path": "tools/car-test/Test-PublicInputPcm.ps1",
       "bytes": 1110,
       "sha256": "437733684d0dbbf6946be39359021dbfa18ef92e4be2e09529e4934cf0fb4c84"
+    },
+    {
+      "path": "tools/car-test/Test-PublicReceiverChanges.ps1",
+      "bytes": 2634,
+      "sha256": "f4a19f2733205ccbf569073b9eb7fb8acd0b35f4fccc1298d3d0a5a33d963a66"
     },
     {
       "path": "tools/car-test/Test-VideoGeometry.ps1",
@@ -3105,8 +3510,8 @@
     },
     {
       "path": "tools/m5/Test-M5ArmReadinessOffline.ps1",
-      "bytes": 14659,
-      "sha256": "7e3ebfd153494a7eb894b7cbb5d432d63d0f7a39f675c9ca39e4c459e812e633"
+      "bytes": 14654,
+      "sha256": "8009acdd7669dabbfa853cec04128f20e859cddd86e1cc1dc92f3bf4297bdec4"
     },
     {
       "path": "tools/m5/Test-M5FrozenPreflight.ps1",

@@ -110,7 +110,6 @@ Check-Exit 'zipalign'
 # --- Sign ---
 $keystore = "$project/signing/rdx-parallel-development.p12"
 $password = $env:RDX_SIGNING_PASSWORD
-if (-not $password) { throw "Set RDX_SIGNING_PASSWORD to a new local signing password before building." }
 if (-not (Test-Path -LiteralPath $keystore)) {
     & "$javaHome/bin/keytool.exe" -genkeypair -alias rdx-parallel-development `
         -keyalg RSA -keysize 2048 -validity 3650 -storetype PKCS12 `

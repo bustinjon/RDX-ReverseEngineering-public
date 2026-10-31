@@ -29,22 +29,22 @@ This only needs to be done once. The preference persists across reboots.
 **Changes:**
 
 a. Add field:
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 b. Add action handler in `onStartCommand` (after the HONDA_STOPPED handler):
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 c. Modify poll loop gate (line 195):
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 d. Modify AUTO_GRANTED non-AOAP gate (line 138):
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 e. Modify permission callback non-AOAP gate (line 397):
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 f. Modify permission callback else-log (line 409):
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 ### 2. PermissionClickService.java — Check "Always use" Checkbox
 
@@ -54,7 +54,7 @@ f. Modify permission callback else-log (line 409):
 
 In `tryClickInRoot()`, before the OK/Allow click loop, add:
 
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 **Note:** The checkbox text varies:
 - `UsbConfirmActivity`: "Use by default for this USB device"
@@ -62,7 +62,7 @@ In `tryClickInRoot()`, before the OK/Allow click loop, add:
 - Both contain the word "default" — can also search for that
 
 Revised search:
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 ### 3. Run-CarTest.ps1 — Honda Disable Mode
 
@@ -71,19 +71,19 @@ Revised search:
 **Changes:**
 
 a. Add parameter:
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 b. Replace Step 7 (kill loop) with conditional:
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 c. Update READY message:
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 ---
 
 ## Expected Flow (Honda Disable Mode)
 
-[Code block omitted from public report; see authored source where available.]
+[Code block omitted; consult project-authored source.]
 
 ---
 

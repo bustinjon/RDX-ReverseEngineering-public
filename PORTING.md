@@ -11,4 +11,6 @@ Begin with offline comparison, not by installing this project's historical APK o
 
 For the original v5 test procedure, see [NEXT-TEST.md](analysis/test-prep/pad-select-20261030/NEXT-TEST.md). It includes the OnePlus Settings → Bluetooth → car details → Media audio isolation step. This is a historical procedure for the original setup, not a general installation guide.
 
-Do not substitute a copied platform certificate/private key, factory app replacement, persistent force-stop loop or disabled readiness guard for understanding the target. No credentials, vendor native libraries or installable APK are provided in this public snapshot.
+Do not substitute a copied platform certificate/private key, factory app replacement, persistent force-stop loop or disabled readiness guard for understanding the target. No receiver credentials, vendor native libraries or authenticated receiver APK are provided. The separate downloadable diagnostic APK tests local hardware only.
+
+The latest candidate and its remaining hardware questions are described in [LATEST-TEST-PLAN.md](LATEST-TEST-PLAN.md). Its source is available for review; do not mistake an offline test pass for compatibility with another car. Run both portable host-test scripts listed in README.md before adapting it.

@@ -82,7 +82,16 @@ public final class GalReceiver {
     }
     public void bugreportRequestCallback(long timestamp) { listener.event("Bugreport request ignored"); }
     public void pingResponseCallback(long timestamp) { listener.event("GAL ping response"); }
-    public void navigationFocusCallback(int request) { nativeSetNavFocus(1); }
+    public void navigationFocusCallback(int request) {
+        listener.event("NAVIGATION_PROTOCOL_REQUEST request="+request);
+        // Stock NavFocusType wire values: 1=native, 2=projected.
+        if(request!=1 && request!=2) {
+            listener.event("NAVIGATION_PROTOCOL_REJECTED request="+request);
+            return;
+        }
+        listener.event("NAVIGATION_PROTOCOL_REPLY state="+request);
+        nativeSetNavFocus(request);
+    }
     public void audioFocusRequestCallback(int request) {
         listener.event("AUDIO_PROTOCOL_REQUEST request="+request);
         if(audioFocusListener!=null)audioFocusListener.request(request);
