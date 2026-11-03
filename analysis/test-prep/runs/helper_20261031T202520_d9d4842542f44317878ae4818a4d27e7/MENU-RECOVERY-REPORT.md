@@ -1,0 +1,12 @@
+# Diagnostic-menu access interruption — 2026-10-31 20:28 UTC
+
+1. **Files inspected:** active run candidate/session metadata, saved preparer/collector and new window/activity snapshots; collection.json and menu-block-observation.json.
+2. **Files changed:** Capture-MenuBlock.ps1, private menu snapshot, collected logs/APK/hash/postcheck evidence and this report. Device changes limited to the existing own-helper/diagnostic cleanup and recorded accessibility-baseline handling. No source/APK changes.
+3. **Commands run:** saved Capture-MenuBlock.ps1 followed by Collect-MediaTest.ps1 using the authorized explicit head-unit serial. Read-only saved-evidence inspection afterward. One wildcard rg path was rejected by Windows; the exact saved path was used instead.
+4. **Tests/results:** menu snapshot retrieved; logs pulled before cleanup; installed APK still matches A2F4785466AD41E2459051A096B917881349EC2B64E06303D19F66DA38D4FB0F; final helper and owned diagnostics absent; accessibility matches original. Collector PASS. No private focus images retrieved; no AA feature result established.
+5. **Findings:** test preparation ended and is no longer armed. User can retry menu access with the helper stopped. Cause of the original menu failure is UNKNOWN. Do not assume our overlay was covering it: snapshot showed Honda Home focused and no helper-window match in the inspected window listing.
+6. **Primary evidence:** menu-block-observation.json, menu-block-20261031-202840/windows-before-cleanup.txt:84–85, activities-before-cleanup.txt:43,48; collection.json, longdrive-manual-cleanup.txt, longdrive-postchecks.json and commands.jsonl.
+7. **Assumptions:** current ADB reconnection authorizes preserving evidence and the previously described own-helper cleanup to recover menu access.
+8. **Uncertainties:** whether the diagnostic menu opens after cleanup needs the operator's observation. No verified root cause or successful Maps/media/volume/Spotify test follows from this attempt.
+9. **Exact diff summary:** new collection/snapshot/report artifacts plus one saved capture script only. Installed candidate retained but own services stopped. No OEM package/window/setting changes outside the existing recorded accessibility cleanup.
+10. **Preservation:** APK hash matches the pinned artifact; original logs copied/hashed; no source edit, frozen rebuild, key inspection, guard bypass, milestone advancement or Git/network publication action. Git updates remain paused.

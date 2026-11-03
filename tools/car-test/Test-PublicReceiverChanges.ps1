@@ -10,7 +10,8 @@ $mediaClasses=Join-Path $OutputDirectory 'media-classes'
 $navSource=Join-Path $OutputDirectory 'navigation-source/com/google/android/projection/protocol'
 $navClasses=Join-Path $OutputDirectory 'navigation-classes'
 New-Item -ItemType Directory -Path $mediaClasses,$navSource,$navClasses | Out-Null
-$helper=Join-Path $root 'analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper'
+# Media/volume candidate was rolled back from production source; test its archived copy.
+$helper=Join-Path $root 'analysis/test-prep/diagnostic-rollback-20261031/saved-media-source'
 & $javac -source 7 -target 7 -d $mediaClasses (Join-Path $helper 'InputEvents.java') (Join-Path $helper 'VolumeFeedback.java') (Join-Path $root 'analysis/test-prep/media-input-fixes-20261031/MediaInputTest.java')
 if($LASTEXITCODE){throw 'Media/input host compile failed'}
 & $java -cp $mediaClasses com.rdx.fullscreen.usbhelper.MediaInputTest

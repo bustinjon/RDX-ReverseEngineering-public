@@ -17,47 +17,14 @@ public final class InputEvents {
         for(int supported:supportedKeyCodes())if(mapped==supported)return true;
         return false;
     }
-    public static int[] supportedKeyCodes() { return new int[]{4,23,87,88,92,93,122,123}; }
+    public static int[] supportedKeyCodes() { return new int[]{4,23,92,93,122,123}; }
     public interface KeyConsumer { void send(int mappedCode,boolean down); }
     /** True means the overlay must consume this event, preventing synthetic fallback. */
     public static boolean dispatchKey(int rawCode,int action,KeyConsumer consumer) {
         if(consumer==null || !key(rawCode) || (action!=0 && action!=1))return false;
+        if(rawCode==146)return true; // Down motion probe: consume both phases without an extra key pulse.
         consumer.send(keyCode(rawCode),action==0);
         return true;
-    }
-    /** Short-press track control: one balanced pair on release, no repeat skips. */
-    public static final class MediaButtons {
-        private static final int NONE=Integer.MIN_VALUE;
-        private int previousDevice=NONE, previousRaw=NONE, nextDevice=NONE, nextRaw=NONE;
-        private int mapped(int code,int scan,int source,int device) {
-            if(device < -1)return -1;
-            if(code==87 || code==88)return code;
-            if(source!=257 || device<0)return -1;
-            if(code==138 && scan==66)return 88; // Honda seekDown -> Previous.
-            if(code==139 && scan==67)return 87; // Honda seekUp -> Next.
-            return -1;
-        }
-        public boolean dispatch(int code,int scan,int source,int device,
-                int action,int repeat,boolean canceled,KeyConsumer consumer) {
-            int key=mapped(code,scan,source,device);
-            if(key<0 || consumer==null || (action!=0 && action!=1))return false;
-            int owner=key==88?previousDevice:nextDevice;
-            int raw=key==88?previousRaw:nextRaw;
-            if(action==0) {
-                if(repeat==0 && !canceled && owner==NONE) {
-                    if(key==88){previousDevice=device;previousRaw=code;}
-                    else{nextDevice=device;nextRaw=code;}
-                }
-                return true;
-            }
-            if(owner==device && raw==code) {
-                if(key==88){previousDevice=NONE;previousRaw=NONE;}
-                else{nextDevice=NONE;nextRaw=NONE;}
-                if(!canceled){consumer.send(key,true);consumer.send(key,false);}
-            }
-            return true;
-        }
-        public void reset() { previousDevice=previousRaw=nextDevice=nextRaw=NONE; }
     }
     /** Opt-in test adapter: verified B-zone key signatures, one pair on release. */
     public static final class BZoneSwipe {

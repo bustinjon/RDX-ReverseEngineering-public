@@ -1,10 +1,7 @@
 package com.rdx.fullscreen.usbhelper;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -24,7 +21,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 /**
  * Fullscreen AA overlay using TYPE_SYSTEM_ERROR.
@@ -84,27 +80,6 @@ public final class AaOverlayService extends Service {
     private int touchCount;
     private int ignoredHoverCount;
     private final InputEvents.SelectPress selectPress = new InputEvents.SelectPress();
-    private final InputEvents.MediaButtons mediaButtons = new InputEvents.MediaButtons();
-    private final VolumeFeedback volumeFeedback = new VolumeFeedback();
-    private TextView volumeHud;
-    private boolean volumeReceiverRegistered;
-    private final Runnable hideVolumeHud = new Runnable() {
-        public void run() { if(volumeHud!=null)volumeHud.setVisibility(View.GONE); }
-    };
-    private final BroadcastReceiver volumeReceiver = new BroadcastReceiver() {
-        @Override public void onReceive(Context context,Intent intent) {
-            if(intent==null || !VolumeFeedback.ACTION.equals(intent.getAction()) || destroyed || container==null)return;
-            try {
-                if(!intent.hasExtra(VolumeFeedback.EXTRA))return;
-                int received=intent.getByteExtra(VolumeFeedback.EXTRA,(byte)-1);
-                boolean changed=volumeFeedback.update(received);
-                Log.i(TAG,"VOLUME_FEEDBACK_RECEIVED level="+received+" changed="+changed);
-                if(changed)showVolumeFeedback();
-            }catch(RuntimeException error){
-                Log.w(TAG,"VOLUME_FEEDBACK_REJECTED type="+error.getClass().getSimpleName());
-            }
-        }
-    };
     private float lastTouchAaX = -1, lastTouchAaY = -1;
     private TouchListener touchListener;
     private SurfaceReadyListener surfaceReadyListener;
@@ -190,18 +165,6 @@ public final class AaOverlayService extends Service {
             private boolean bZoneDeviceLogged;
             @Override public boolean dispatchKeyEvent(final KeyEvent event) {
                 if (!testMode && event.getAction()==KeyEvent.ACTION_DOWN) Log.i(TAG,"INPUT_RAW_KEY code="+event.getKeyCode()+" scan="+event.getScanCode()+" flags="+event.getFlags()+" repeat="+event.getRepeatCount()+" source="+event.getSource()+" device="+event.getDeviceId());
-                if(!testMode && (event.getKeyCode()==87 || event.getKeyCode()==88 || event.getKeyCode()==138 || event.getKeyCode()==139))
-                    Log.i(TAG,"INPUT_MEDIA_RAW code="+event.getKeyCode()+" scan="+event.getScanCode()+" action="+event.getAction()+" repeat="+event.getRepeatCount()+" source="+event.getSource()+" device="+event.getDeviceId()+" canceled="+event.isCanceled());
-                if(!testMode && event.getAction()==KeyEvent.ACTION_DOWN &&
-                        (event.getKeyCode()==KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode()==KeyEvent.KEYCODE_VOLUME_DOWN))showVolumeFeedback();
-                if(!testMode && touchListener!=null && mediaButtons.dispatch(
-                        event.getKeyCode(),event.getScanCode(),event.getSource(),event.getDeviceId(),
-                        event.getAction(),event.getRepeatCount(),event.isCanceled(),new InputEvents.KeyConsumer(){
-                    public void send(int mappedCode,boolean down){
-                        Log.i(TAG,"INPUT_MEDIA_KEY raw="+event.getKeyCode()+" mapped="+mappedCode+" down="+down);
-                        touchListener.onAaKey(mappedCode,down,event.getEventTime());
-                    }
-                }))return true;
                 if(!testMode && (event.getKeyCode()==38 || event.getKeyCode()==39)){
                     if(!bZoneDeviceLogged){
                         bZoneDeviceLogged=true;
@@ -359,8 +322,6 @@ public final class AaOverlayService extends Service {
             Log.e(TAG, "Failed to add overlay: " + e);
             return;
         }
-
-        if(!testMode)startVolumeFeedback();
 
         if (testMode) {
             handler.postDelayed(new Runnable() {
@@ -572,48 +533,7 @@ public final class AaOverlayService extends Service {
         this.surfaceReadyListener = listener;
     }
 
-    private void startVolumeFeedback() {
-        volumeHud=new TextView(this);
-        volumeHud.setTextColor(Color.WHITE);
-        volumeHud.setBackgroundColor(0xE6202020);
-        volumeHud.setTextSize(22);
-        volumeHud.setGravity(Gravity.CENTER);
-        volumeHud.setFocusable(false);
-        volumeHud.setFocusableInTouchMode(false);
-        volumeHud.setClickable(false);
-        volumeHud.setLongClickable(false);
-        volumeHud.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-        volumeHud.setVisibility(View.GONE);
-        FrameLayout.LayoutParams layout=new FrameLayout.LayoutParams(280,64,Gravity.TOP|Gravity.CENTER_HORIZONTAL);
-        layout.topMargin=12;
-        container.addView(volumeHud,layout);
-        try {
-            registerReceiver(volumeReceiver,new IntentFilter(VolumeFeedback.ACTION));
-            volumeReceiverRegistered=true;
-            Log.i(TAG,"VOLUME_FEEDBACK_REGISTERED source=OEM_AMP_BYTE");
-        }catch(RuntimeException error){
-            Log.w(TAG,"VOLUME_FEEDBACK_UNAVAILABLE type="+error.getClass().getSimpleName());
-        }
-    }
-
-    private void showVolumeFeedback() {
-        if(destroyed || volumeHud==null || volumeFeedback.level()<0)return;
-        volumeHud.setText("Volume "+volumeFeedback.level());
-        volumeHud.setVisibility(View.VISIBLE);
-        volumeHud.bringToFront();
-        handler.removeCallbacks(hideVolumeHud);
-        handler.postDelayed(hideVolumeHud,VolumeFeedback.DISPLAY_MS);
-        Log.i(TAG,"VOLUME_FEEDBACK_SHOWN level="+volumeFeedback.level());
-    }
-
     private void removeOverlay() {
-        if(volumeReceiverRegistered){
-            try{unregisterReceiver(volumeReceiver);}catch(IllegalArgumentException ignored){}
-            volumeReceiverRegistered=false;
-        }
-        mediaButtons.reset();
-        volumeFeedback.reset();
-        volumeHud=null;
         if(focusCapture!=null){focusCapture.close();focusCapture=null;}
         sendSelectTransition(selectPress.action(MotionEvent.ACTION_CANCEL),android.os.SystemClock.uptimeMillis());
         handler.removeCallbacksAndMessages(null);

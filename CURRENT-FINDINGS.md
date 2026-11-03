@@ -1,6 +1,20 @@
-# Current findings — October 31, 2026
+# Current findings — November 3, 2026
 
-Latest source candidate: **v6h-media-input-a**, original local APK SHA-256 `A2F4785466AD41E2459051A096B917881349EC2B64E06303D19F66DA38D4FB0F`. It has passed offline checks but is **not installed or car-tested**. Its authenticated APK is not distributed; sanitized source is available for independent review/adaptation. Sanitized public builds need not reproduce the original container hash.
+Current source is the **Maps-only build**: the working long-drive build plus one navigation-focus method. See [build table, next test and to-do list](LATEST-TEST-PLAN.md).
+
+| Area | Latest observation | Confidence and limits |
+|---|---|---|
+| Everyday use | The working long-drive build is used for real driving through a private Windows launcher: full-width picture, touchpad movement/select, audible media | Operator-reported, one car; multi-hour reliability not established |
+| Diagnostics-menu failure | The combined media build was installed around a failure of the factory Diagnostics button shortcut. Rolling back, then adding runtime pieces one at a time (helper, auto-clicker, capture arming) passed each time | Original cause UNKNOWN; reinstall/power state may be confounding |
+| Maps route cancellation | Static defect confirmed (always replied native focus); fix is in the Maps-only build | Route behavior with the fix not yet tested |
+| Spotify compact playback row | Operator reports the **same failure in stock Android Auto** on this car | Shared phone/media-card focus behavior now the leading explanation over a receiver-only defect; not fully excluded |
+| Ending a session | Unplugging the phone always ends the receiver session | Operator-confirmed; used as the safety stop in tests |
+| Reverse camera, calls | **Not yet tried** with the receiver on screen. The OEM camera window is above our overlay in window policy, but the camera image is composited natively, so visibility is UNKNOWN. The OEM call card is in a status-bar window below our overlay | First item of the next session, parked |
+| Track buttons, volume indicator, mic, reconnect | Investigated statically; several needed OEM permissions are signature/system-only | See the to-do table in the test plan |
+
+## October 31 candidate (since rolled back)
+
+Source candidate: **v6h-media-input-a**, original local APK SHA-256 `A2F4785466AD41E2459051A096B917881349EC2B64E06303D19F66DA38D4FB0F`. It passed offline checks; it was installed around the Diagnostics failure and then rolled back without a meaningful car evaluation of its new features. Its authenticated APK is not distributed; sanitized source is available for independent review/adaptation. Sanitized public builds need not reproduce the original container hash.
 
 | Area | Latest observation / candidate change | Confidence and limits |
 |---|---|---|
@@ -12,7 +26,7 @@ Latest source candidate: **v6h-media-input-a**, original local APK SHA-256 `A2F4
 | Untimed operation | A prepared untimed session survived beyond the previous short-test cutoff; manual log collection/cleanup completed | Not a multi-hour stability pass. Normal USB/lifecycle termination still applies |
 | Offline validation |77 media/input/volume checks and10 navigation-focus requests pass; a negative control detects the original navigation-focus defect | Java tests do not simulate OEM broadcast/UI, actual JNI/native delivery, phone focus decisions or car behavior |
 
-See [latest test plan](LATEST-TEST-PLAN.md), [navigation-focus investigation](analysis/agent-reviews/maps-route-20261031/REPORT.md), [Spotify evidence](analysis/agent-reviews/spotify-row-mechanism-20261031/REPORT.md), and [candidate report](analysis/test-prep/media-input-fixes-20261031/REPORT.md). The receiver native library, protocol material, original device logs and private captures remain withheld.
+See [current test plan](LATEST-TEST-PLAN.md), [Diagnostics failure investigation](analysis/agent-reviews/diagnostic-shortcut-20261031/REPORT.md), [rollback](analysis/test-prep/diagnostic-rollback-20261031/REPORT.md), [stock Spotify comparison](analysis/agent-reviews/spotify-stock-aa-20261101/REPORT.md), [navigation-focus investigation](analysis/agent-reviews/maps-route-20261031/REPORT.md), [Spotify evidence](analysis/agent-reviews/spotify-row-mechanism-20261031/REPORT.md), and [candidate report](analysis/test-prep/media-input-fixes-20261031/REPORT.md). The receiver native library, protocol material, original device logs and private captures remain withheld.
 
 ## Historical bounded v5 test — October 30
 

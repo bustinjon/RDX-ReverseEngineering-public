@@ -1,0 +1,12 @@
+# Connected preparation: manual Diagnostics checkpoint
+
+1. **Files inspected:** connected-latest.json and preceding working-launcher run/recovery.json, with generated preparation's own target/firmware/source/session verification.
+2. **Files changed:** Connected evidence/receipts under this test directory and its new project run. Device Maps-only APK installed/prepared, helper and auto-clicker active, capture armed. No receiver source/guard change.
+3. **Commands run:** Prepare-ConnectedTest.ps1; preceding saved-session recovery and Prepare-RouteTest.ps1 through bundled PowerShell. Full output/command journals retained in connected-20261101-003233 and the recorded run directory. Initial locked attempt refused before ADB; retry followed user's closure confirmation.
+4. **Tests/results:** Preparation exit 0. Maps APK hash 21037DC393FCD162499589254D745DD0904A326BD7E5A33D69CF3FC69BFA4084 verified by ordinary workflow. Cooperative helper/auto-clicker/capture-arm and untimed diagnostics checks passed. Manual Diagnostics and Maps routes PENDING.
+5. **Findings:** Ready for manual Diagnostics checkpoint with phone unplugged; no phone handoff authorized by this receipt. Previous working-launcher recovery record confirms helper/accessibility/owned-process cleanup and evidence retrieval.
+6. **Primary evidence:** connected-latest.json identifies run rdx_d8ca1b86d4e24836b58c98a234e99274 and directory helper_20261101T003246_a7d55e76890f4a10be4ae662173bc343; its session.json/final-ready.json/longdrive-session.json and command journals hold target checks. Prior working-launcher helper_20261031T225251_bbbdc91c31da44ed8a58114ba9bc0040/recovery.json records cleanupFinished=true, evidenceSaved=true and captureFailures=[].
+7. **Assumptions:** User's ADB/Home/ready statement and subsequent launcher closure authorize this scoped preparation. User will keep phone unplugged until the manual checkpoint passes.
+8. **Uncertainties:** Capture-armed Diagnostics and Maps route outcomes UNKNOWN. Original historical failure cause UNKNOWN. No long-drive stability claim.
+9. **Exact diff summary:** Live package/preparation state and saved evidence only; one Maps-focus method difference relative to D1A29 remains the sole production candidate change. No media/HUD/input additions.
+10. **Preservation:** Frozen artifacts/core/readiness unchanged; selected source/APK verified; no credential read, rebuild, guard bypass, milestone advancement or Git publication. Working launcher default is unchanged.

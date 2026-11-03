@@ -301,7 +301,7 @@ public final class AaSessionService extends Service
             // Input service (ID 2) — touchpad 1325x720, 60x40mm
             inputSource = new InputSource();
             inputSource.initialize(2, receiver.handle());
-            inputSource.registerTouchPad(1325, 720, 60, 40, true, true);
+            inputSource.registerTouchPad(1325, 720, 60, 40, true, false);
             receiver.register(inputSource);
 
             // Sensor service (ID 3) — Honda defaults: 15 sensor types, RAW_GPS_ONLY
