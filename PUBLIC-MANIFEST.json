@@ -1875,8 +1875,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/AndroidManifest.xml",
-      "bytes": 2359,
-      "sha256": "7c5002a7cdfc589b2d48c452950c0cdc92b6a2103a8a23c1ba3d3f354427bf51"
+      "bytes": 2426,
+      "sha256": "6d935b76cbafdc4dfb5a91bec425e7aa37fef082c52a4dcd6268f7a6e0a4f975"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/res/values/strings.xml",
