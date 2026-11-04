@@ -51,6 +51,7 @@ public final class AaSessionService extends Service
     private AudioSink audioSinkMedia, audioSinkGuidance;
     private AudioSource audioSource;
     private SensorSource sensorSource;
+    private NightModeWatcher nightModeWatcher;
     private VideoDecoder decoder;
     private UsbBulkTransport transport;
 
@@ -313,7 +314,13 @@ public final class AaSessionService extends Service
             audioSinkMedia = new AudioSink();
             audioSinkMedia.context(this);
             audioSinkMedia.focusObserver(new AudioSink.FocusObserver(){
+                // Our guidance stream ducking our media stream is internal: telling the phone it lost
+                // focus made it stop the prompt, which restarted and ducked again (choppy prompts).
+                private boolean ownDuck;
                 public void changed(final int change){handler.post(new Runnable(){public void run(){
+                    if(change==-3 && audioSinkGuidance!=null && audioSinkGuidance.holdsFocus()){ownDuck=true;log("AUDIO_FOCUS_INTERNAL_DUCK not forwarded");return;}
+                    if(change==1 && ownDuck){ownDuck=false;log("AUDIO_FOCUS_INTERNAL_RESTORE not forwarded");return;}
+                    ownDuck=false;
                     if(running && receiver!=null)receiver.answerAudioFocus(com.google.android.projection.protocol.AudioFocusPolicy.change(change),true);
                 }});}
             });
@@ -355,6 +362,11 @@ public final class AaSessionService extends Service
             receiver.startProtocol();
             running = true;
             sensorSource.reportInitialState();
+            final SensorSource nightSink = sensorSource;
+            nightModeWatcher = new NightModeWatcher(new NightModeWatcher.Listener() {
+                public boolean onNightMode(boolean night) { return nightSink.reportNightMode(night); }
+            });
+            nightModeWatcher.start();
 
             readerThread = new Thread(new Runnable() {
                 public void run() { readLoop(); }
@@ -608,10 +620,14 @@ public final class AaSessionService extends Service
             }
         }
 
+        if (nightModeWatcher != null) { nightModeWatcher.stop(); nightModeWatcher = null; }
         if (decoder != null && !decoder.stop()) stopped = false;
 
+        if (stopped && audioSource != null && !audioSource.destroy()) {
+            stopped = false; // capture thread alive: keep receiver and every child object
+            log("Mic capture did not stop: native objects retained");
+        }
         if (stopped) {
-            if (audioSource != null) audioSource.destroy();
             if (audioSinkMedia != null) audioSinkMedia.destroy();
             if (audioSinkGuidance != null) audioSinkGuidance.destroy();
             if (sensorSource != null) sensorSource.destroy();

@@ -1,10 +1,10 @@
 # RDX Android Auto fullscreen research
 
-Public research snapshot, updated 2026-11-03. Start with [START-HERE.md](START-HERE.md) for the public diagnostic APK and Codex handoff, then [current findings](CURRENT-FINDINGS.md) and the [porting guide](PORTING.md). No private-repository history is included.
+Public research snapshot, updated 2026-11-04. Start with [START-HERE.md](START-HERE.md) for the public diagnostic APK and Codex handoff, then [current findings](CURRENT-FINDINGS.md) and the [porting guide](PORTING.md). No private-repository history is included.
 
 The latest bounded experiment on one Honda/Acura Android 5.1.1 head unit displayed Android Auto with corrected geometry, accepted touchpad movement and physical select presses, and played audio while the phone's Bluetooth **Media audio** option was disabled. These are operator-reported outcomes supported by the receiver's input and PCM diagnostics. They do not establish compatibility with another model/year, a production-ready receiver, or an internal hardware audio-route trace.
 
-A later build has been used for real driving on that car. The current source is that working build plus a single navigation-focus correction for Maps routes, which is installed but not yet route-tested. The broader October 31 media/volume/profile candidate was rolled back after a Diagnostics-menu failure and is archived for one-at-a-time reintroduction. Known open items: Maps route cancellation, track buttons, hidden volume display, microphone/voice, reconnect without a laptop, and the Spotify playback row (also seen in stock Android Auto). Reverse camera and phone calls have not yet been checked with the receiver on screen. See [the build table, next test and to-do list](LATEST-TEST-PLAN.md).
+On November 4 the receiver was car-tested one change at a time on that unit. Working with the receiver on screen: reverse camera, Bluetooth calls, Maps routes, navigation voice, Assistant (on-screen mic and hotword), console track buttons, day/night map colours, and reconnect on replug. Not possible on this unit: steering-wheel track buttons and the volume-level display, because those OEM signals need system permissions. Still open: returning to AA after pressing Home. See [current build, results and to-do](LATEST-TEST-PLAN.md).
 
 ## What is included
 

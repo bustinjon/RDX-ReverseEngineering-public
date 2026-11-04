@@ -7,7 +7,7 @@ public final class InputPcmTest {
     private static void reject(byte[] data,int channels){boolean rejected=false;try{PcmFrames.copy(data,channels);}catch(IllegalArgumentException e){rejected=true;}check(rejected);}
     public static void main(String[] args){
         check(InputEvents.hoverAction(9)==0);check(InputEvents.hoverAction(7)==2);check(InputEvents.hoverAction(10)==1);check(InputEvents.hoverAction(8)==-1);
-        for(int key=0;key<200;key++)check(InputEvents.key(key)==(key==4 || key==23 || key==66 || key==92 || key==93 || key==122 || key==123 || key==146 || key==148 || key==150 || key==152));
+        for(int key=0;key<200;key++)check(InputEvents.key(key)==(key==4 || key==23 || key==66 || key==87 || key==88 || key==92 || key==93 || key==122 || key==123 || key==146 || key==148 || key==150 || key==152));
         check(InputEvents.keyCode(66)==23);check(InputEvents.keyCode(23)==23);check(InputEvents.keyCode(4)==4);
         int[] rawSwipes={146,148,150,152};int[] mappedSwipes={93,122,123,92};
         for(int i=0;i<rawSwipes.length;i++){
@@ -28,7 +28,7 @@ public final class InputPcmTest {
         int beforeInvalid=sends[0];check(!InputEvents.dispatchKey(146,2,consumer));
         check(!InputEvents.dispatchKey(38,0,consumer));check(!InputEvents.dispatchKey(146,0,null));check(sends[0]==beforeInvalid);
         for(int pageKey:new int[]{92,93,122,123})check(InputEvents.dispatchKey(pageKey,0,consumer));
-        int[] registered=InputEvents.supportedKeyCodes();check(registered.length==6);
+        int[] registered=InputEvents.supportedKeyCodes();check(registered.length==8);
         for(int raw=0;raw<200;raw++)if(InputEvents.key(raw)){
             boolean found=false;for(int supported:registered)if(supported==InputEvents.keyCode(raw))found=true;
             check(found);

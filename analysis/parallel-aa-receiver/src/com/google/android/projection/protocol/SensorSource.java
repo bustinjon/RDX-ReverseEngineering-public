@@ -71,7 +71,7 @@ public final class SensorSource {
 
     public long handle() { return mNativeSensorSource; }
 
-    public void reportInitialState() {
+    public synchronized void reportInitialState() {
         if (!created) return;
         nativeReportDrivingStatusData(0);
         nativeReportNightModeData(false);
@@ -81,7 +81,15 @@ public final class SensorSource {
         Log.i(TAG, "Initial sensor state reported (parked, day mode)");
     }
 
-    public void destroy() {
+    /** Synchronized with destroy() so a report can never overlap native shutdown. */
+    public synchronized boolean reportNightMode(boolean night) {
+        if (!created) return false;
+        int result = nativeReportNightModeData(night);
+        Log.i(TAG, "Night mode reported night=" + night + " result=" + result);
+        return result == 0;
+    }
+
+    public synchronized void destroy() {
         if (created) {
             created = false;
             nativeShutdown();

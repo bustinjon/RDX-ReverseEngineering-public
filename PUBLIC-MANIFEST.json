@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-11-03",
+  "snapshotDate": "2026-11-04",
   "privateHistoryIncluded": false,
   "sanitized": true,
   "files": [
@@ -542,6 +542,26 @@
       "path": "analysis/agent-reviews/todo-plan-20261102/PLAN.md",
       "bytes": 11693,
       "sha256": "47b2e01daeea9ced973d4a8485f7dedfa36333e4e710ed1b4f7d4861bd42f290"
+    },
+    {
+      "path": "analysis/agent-reviews/TODO-STATUS-20261104.md",
+      "bytes": 5809,
+      "sha256": "0b9e5e4b7374c1e2b8a04a0855f2828b1a37754d9001d4a678e60004594b6ba1"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-FINAL.md",
+      "bytes": 5288,
+      "sha256": "e110bab8efb1156b4f681f1f9adaa0a4badaa0c87081cbdb5c50dcd8b7f5a120"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-RECHECK.md",
+      "bytes": 16460,
+      "sha256": "5d9b4f3e6ebcfc00052b3a9c3d073e5576fb1c538168de464aeac0b07cb23a8e"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-REVIEW.md",
+      "bytes": 17720,
+      "sha256": "8c3e9f3b5e2cbeeb88ac7ebfd40a996667f197cf58ff756cdb685662dd59782a"
     },
     {
       "path": "analysis/agent-reviews/transport-failure-analysis-20261028.md",
@@ -1790,13 +1810,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/src/com/google/android/projection/protocol/AudioSink.java",
-      "bytes": 10484,
-      "sha256": "c45e1c63224363f57425455a526c05dc6f87597c4c94f59d1f1dcf65202f90e0"
+      "bytes": 12337,
+      "sha256": "ecdcc4380325ef9df3546a14c66280b1db98d06c8dc8e40b4783e3d74beeea06"
     },
     {
       "path": "analysis/parallel-aa-receiver/src/com/google/android/projection/protocol/AudioSource.java",
-      "bytes": 1926,
-      "sha256": "a8fa3d8e64673f7bed71147cc8fb0215a21daaf8cbda33510f353b27ff7612d4"
+      "bytes": 9756,
+      "sha256": "8b67d601cda05ef7bc7aca832deff992f66774c21e78d5dbf7a999b27a71e4de"
     },
     {
       "path": "analysis/parallel-aa-receiver/src/com/google/android/projection/protocol/GalReceiver.java",
@@ -1815,8 +1835,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/src/com/google/android/projection/protocol/SensorSource.java",
-      "bytes": 4455,
-      "sha256": "5408ba1d91b7ee6f60b9328a7b263b2121eeb89ca82f44c7ebcfdccfe1e8e60a"
+      "bytes": 4838,
+      "sha256": "b7279571f92cde128eb7b113a08b615447ba79251db8f1d788660fe963a8176e"
     },
     {
       "path": "analysis/parallel-aa-receiver/src/com/google/android/projection/protocol/VideoSink.java",
@@ -1880,13 +1900,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/AaOverlayService.java",
-      "bytes": 24884,
-      "sha256": "19a50fb768523829693565922f8aab75803d7f422e379877cd81930bff6d85ee"
+      "bytes": 26858,
+      "sha256": "2391a8a22bbab25deb2550aed67f3657f9b7b3f642b4ebbbf7afecc2697e6091"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/AaSessionService.java",
-      "bytes": 23901,
-      "sha256": "2eeff561ef926dc5cdbf2ce72d78463eb4d983dd58d1764e713230baee789d41"
+      "bytes": 25086,
+      "sha256": "ac232d39ba84972fd648c52bc6d943235649a424f2970c376bc3af87649b437b"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/BootBlockerReceiver.java",
@@ -1920,8 +1940,13 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/InputEvents.java",
-      "bytes": 3638,
-      "sha256": "154adff228907d3d43efb990931f1ad63ee8425709ea28e86a1003bfadca22e6"
+      "bytes": 5725,
+      "sha256": "94698fceacc7c83983153c9d403f6c4d6d10c29395e5c73234d08e107d7a15d3"
+    },
+    {
+      "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/NightModeWatcher.java",
+      "bytes": 4038,
+      "sha256": "a3e75a880b0a4b261faaa3fa6bc4a83ec20ab78078a6466ebe23251eb038ef49"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/OverlayTestService.java",
@@ -2964,6 +2989,161 @@
       "sha256": "060611de06f6b6a3339a2d1074ded16e8a4f2327021a0d1022c47743769103bd"
     },
     {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/A-watch-only/RESULT.md",
+      "bytes": 1243,
+      "sha256": "25736d2bde44429fa8021128c6e59629f5806a05cc987d8d3c52c8ad56eaee79"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/B-current-baseline/RESULT.md",
+      "bytes": 826,
+      "sha256": "9e2202458266ac3fb4222378a620e4f53f94249ad21c651f2691a5036ac3e7d7"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T10-track-buttons/RESULT.md",
+      "bytes": 1161,
+      "sha256": "d2ce4fb91de449770dfbef92200366e7730734c4a28eb943d4165d59761e9fa4"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T11-mic/RESULT.md",
+      "bytes": 720,
+      "sha256": "4762372f3b56170f66caf0ff895b86714a5e08b360ccc3d7b36b9327f531c361"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T13-day-night/RESULT.md",
+      "bytes": 305,
+      "sha256": "a5884a2ff7ee55664af652071f952f6e5af2d743da1ee7c24bb9246fe23092b9"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T21-nav-voice/RESULT.md",
+      "bytes": 1180,
+      "sha256": "efeca68446632914a8bfec1f5c252fa58dda4af4266f70b0e39e2f2082f34757"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T01-maps-route.md",
+      "bytes": 1454,
+      "sha256": "7c0afabec91b9424d6b5cbe6b1f2e123910b815ca85d92922dbdfb1831ce475a"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T02-voice-prompts.md",
+      "bytes": 1367,
+      "sha256": "7facf7399d5aafd49392408015acb1dd3dea1c3e062e268de82afd4789009fe5"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T03-reverse-camera.md",
+      "bytes": 1793,
+      "sha256": "f94107187803c2295f5816b89280395a7fbe6d5952ff0538d6e3b9de0eba4a9c"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T04-phone-calls.md",
+      "bytes": 1464,
+      "sha256": "996f1dca37faf573ee7a7957db97e03e19532b196ad30fcb83e3033b7d9f6c14"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T05-talk-button.md",
+      "bytes": 1280,
+      "sha256": "739355d4136238b44dc680ae7a048e0e4c644a7a56ff55fceda966bd02308a9f"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T06-volume-signal.md",
+      "bytes": 762,
+      "sha256": "92e3fda1887cbfb024a3ea050bef120ccbf6f1b1dc03aaeec516773330e776f9"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T07-spotify-stock.md",
+      "bytes": 1079,
+      "sha256": "d47af2fd64a96672cb5a4de1275eb3baf274703cc549e5a6f46f4b3de95d82f0"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T08-home-and-back.md",
+      "bytes": 1278,
+      "sha256": "aefb4d30e35ab575e749214c71cf38c6b530d55c9ca92748510fbcb0e4036f7a"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T09-volume-display.md",
+      "bytes": 1591,
+      "sha256": "d5bb1fc8a3608d9e029125a5f0586b181f37f76034681d5a33c662dbd10bd8c4"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T10-track-buttons.md",
+      "bytes": 1811,
+      "sha256": "5217131576010a42e1fc22e57be50627f93d532ea0c15f1b3a1c9b752ed2cb50"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T11-mic.md",
+      "bytes": 1764,
+      "sha256": "b268e48f314f12e6d723fc2a0bae1c36de8d3b671e63fe49e8582e2cabd8de3f"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T12-reconnect.md",
+      "bytes": 1742,
+      "sha256": "be724fc061dfdc5b3190ad5e31eee5e4ee5b983cbcb5fa1adb090f8443845c7c"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T13-day-night.md",
+      "bytes": 1625,
+      "sha256": "242c5ac7ebb4c9924ec60f46148d7bcdbd17572c0d3c33dc2f54f5c53249a2cd"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T14-car-data.md",
+      "bytes": 746,
+      "sha256": "fcf029ade0b144e1bceb36ce2db14fa257f5bc8aeb9d35565215b2dd2e38b060"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T15-unauthorized-warning.md",
+      "bytes": 612,
+      "sha256": "460a82468dd212639311b9911e09754c869c41e5ead03a9e3b5cfa16967129a6"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T16-ignition-cycle.md",
+      "bytes": 594,
+      "sha256": "f2d7c626bc3f7023220ea3c85c375215c5277ea430c05ff83cad31088d36c05e"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T17-cold-start.md",
+      "bytes": 419,
+      "sha256": "8c80ac64f91bcf1bece0e8e39ce59f136e7af7e57e323cc7be0fb5b3a5fec053"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T18-crash-recovery.md",
+      "bytes": 685,
+      "sha256": "2c3783f30fa7499062e2f73d05938d24183aefe4225094cd5051dbd409533b93"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T19-long-drive.md",
+      "bytes": 566,
+      "sha256": "95885f1f7a84d37a109ad26e6acba3b7013baa216b90bd33bcab591bbe074a37"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T20-update-install.md",
+      "bytes": 630,
+      "sha256": "f70a23c327cd289cc2855bcaedf560c85c038a90aaa3bb265b15fd697bdde143"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T21-nav-voice.md",
+      "bytes": 1821,
+      "sha256": "90531a6937893b6d6d6265f49e65cac652c855d73fe7a356d3255c32ae60a9aa"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T22-return-to-aa.md",
+      "bytes": 750,
+      "sha256": "868359aff8060c2175296dc4dc234a6e9cb01caaaf7897232e3485ad68e67100"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T23-wheel-as-honda-source.md",
+      "bytes": 916,
+      "sha256": "1488fac77e3c3b0fe44a0172a4a54a49cbc88d2596776236e68550c43c9bdb43"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/README.md",
+      "bytes": 4572,
+      "sha256": "101bc5b06dd718548a538206a4a89bbecec81533c07d92717211aa0ee6e84eee"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/REVIEW.md",
+      "bytes": 2109,
+      "sha256": "2217822deb873f1c3f96adde9e12c441f133951cb267195fe6d4e290d037edcf"
+    },
+    {
       "path": "analysis/test-prep/v5-repeatability-20261030/REPORT.md",
       "bytes": 3789,
       "sha256": "bfc510acbfb53cb82cf0856674189ac96e4953ee292155133fd39045025d0f96"
@@ -2985,8 +3165,8 @@
     },
     {
       "path": "CURRENT-FINDINGS.md",
-      "bytes": 9137,
-      "sha256": "62639e0d4995b4198400426dff81fe1447d22524f78a61a65cee49dc92625dfa"
+      "bytes": 10603,
+      "sha256": "cb640719c1011f18980d4e41c103cd4f1822f5d06ce46e40723e7acd37fcd901"
     },
     {
       "path": "diagnostic-app/AndroidManifest.xml",
@@ -3025,8 +3205,8 @@
     },
     {
       "path": "LATEST-TEST-PLAN.md",
-      "bytes": 6571,
-      "sha256": "e29f40fd8bffdf7066c9c33b1e2cd461b580271e101e40eb746984939583cee1"
+      "bytes": 5216,
+      "sha256": "52cb7f0d3e8443b6587b33cb032ecaefbda9754b6fe333b1951d725574e6ca38"
     },
     {
       "path": "NOTES.md",
@@ -3040,8 +3220,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4606,
-      "sha256": "cf14f7b49d4049bb603a1552f245ddf57052337f9d3c70f0b760f344cf9c44a2"
+      "bytes": 4438,
+      "sha256": "b3c831f1ea2f0c867ce34889115a6d59f33282d790896b77059cc6bab9b500d2"
     },
     {
       "path": "scripts/Analyze-RdxArchives.ps1",
@@ -3535,8 +3715,8 @@
     },
     {
       "path": "START-HERE.md",
-      "bytes": 3109,
-      "sha256": "8518bd372351a02ea5a823ef15af9182964ec65cc3836fc9ade6fd6ede4c618e"
+      "bytes": 3131,
+      "sha256": "b4da78ff02a4e034257f3be7047b18479d6fa0ee21bab317d09ea9f03a82be47"
     },
     {
       "path": "tools/api22/Compare-Api22TlsResults.ps1",
@@ -3600,8 +3780,8 @@
     },
     {
       "path": "tools/car-test/InputPcmTest.java",
-      "bytes": 5554,
-      "sha256": "e04e9936b645aa32c5cbd426e013af6183ab2d4ca00fb97603d1aff7f4263067"
+      "bytes": 5576,
+      "sha256": "76752d85b0fa14940b6a178635f495d127cc20b16fe9cb7c463d261290c5671c"
     },
     {
       "path": "tools/car-test/NavigationProfileTest.java",

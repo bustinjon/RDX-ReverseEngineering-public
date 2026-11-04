@@ -19,10 +19,13 @@ public final class AudioSink {
     private long mNativeAudioSink;
     private volatile boolean created, stopping, focusAllowed=true;
     private volatile boolean focusHeld;
+    private volatile boolean focusRequesting;
     private volatile boolean focusSuspended;
     private long nextFocusAttempt;
     private int sampleRate, channels, audioType;
     private volatile int activeSession=-1, stoppedSession=Integer.MIN_VALUE;
+    /** Guidance session whose already-received audio is still playing out after the phone said stop. */
+    private volatile int drainingSession=Integer.MIN_VALUE;
     private AudioManager manager;
     private volatile AudioTrack player;
     private Thread worker;
@@ -94,6 +97,9 @@ public final class AudioSink {
 
     public long handle() { return mNativeAudioSink; }
 
+    /** True while this sink holds Android focus or is still playing out a stopped guidance session. */
+    public boolean holdsFocus() { return focusHeld || focusRequesting || drainingSession!=Integer.MIN_VALUE; }
+
     public void destroy() {
         if (created) {
             created = false;
@@ -137,11 +143,19 @@ public final class AudioSink {
     @SuppressWarnings("unused")
     public void playbackStartCallback(int sessionId) {
         stoppedSession=Integer.MIN_VALUE;activeSession=sessionId;focusSuspended=false;
+        if(drainingSession==sessionId)drainingSession=Integer.MIN_VALUE;
         Log.i(TAG, "Audio playback start id=" + serviceId + " session=" + sessionId);
     }
 
     @SuppressWarnings("unused")
     public void playbackStopCallback(int sessionId) {
+        if(audioType==1 && sessionId==activeSession && !stopping){
+            // The phone sends guidance faster than real time and says stop when sending ends.
+            // Keep queued frames and the track buffer; the play loop releases focus once drained.
+            stoppedSession=sessionId;drainingSession=sessionId;activeSession=-1;
+            Log.i(TAG, "Audio playback stop id=" + serviceId + " session=" + sessionId + " draining=" + frames.size());
+            return;
+        }
         stoppedSession=sessionId;activeSession=-1;frames.clear();
         focusHeld=false;focusAllowed=false;
         if(manager!=null)manager.abandonAudioFocus(focus);
@@ -149,19 +163,31 @@ public final class AudioSink {
         Log.i(TAG, "Audio playback stop id=" + serviceId + " session=" + sessionId);
     }
 
+    /** Queue empty after a guidance stop: let the track play its buffer out, then give focus back. */
+    private void finishDrain(){
+        int session=drainingSession;drainingSession=Integer.MIN_VALUE;
+        AudioTrack track=player;try{if(track!=null)track.stop();}catch(IllegalStateException ignored){}
+        focusHeld=false;focusAllowed=false;
+        if(manager!=null)manager.abandonAudioFocus(focus);
+        Log.i(TAG,"Audio guidance drained id="+serviceId+" session="+session+" playedBytes="+played);
+    }
+
     private void playLoop(){
         try{
             while(!stopping){
                 final Frame frame=frames.poll(100,TimeUnit.MILLISECONDS);
-                if(frame==null)continue;
-                if(frame.session!=activeSession){dropped++;continue;}
+                if(frame==null){if(drainingSession!=Integer.MIN_VALUE && activeSession==-1)finishDrain();continue;}
+                if(frame.session!=activeSession && frame.session!=drainingSession){dropped++;continue;}
                 if(focusSuspended){dropped++;continue;}
                 if(manager!=null && !focusHeld){
                     long now=android.os.SystemClock.elapsedRealtime();
                     if(now<nextFocusAttempt){dropped++;continue;}
                     nextFocusAttempt=now+1000;
-                    focusAllowed=manager.requestAudioFocus(focus,AudioManager.STREAM_MUSIC,audioType==1?AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK:AudioManager.AUDIOFOCUS_GAIN)==AudioManager.AUDIOFOCUS_REQUEST_GRANTED;
-                    focusHeld=focusAllowed;
+                    focusRequesting=true; // the other sink's focus callback may arrive before this returns
+                    try{
+                        focusAllowed=manager.requestAudioFocus(focus,AudioManager.STREAM_MUSIC,audioType==1?AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK:AudioManager.AUDIOFOCUS_GAIN)==AudioManager.AUDIOFOCUS_REQUEST_GRANTED;
+                        focusHeld=focusAllowed;
+                    }finally{focusRequesting=false;}
                 }
                 if(player==null){
                     if(!focusAllowed){dropped++;continue;}
@@ -175,7 +201,7 @@ public final class AudioSink {
                 if(!focusAllowed){dropped++;continue;}
                 player.play();
                 boolean complete=PcmFrames.write(new PcmFrames.Writer(){public int write(byte[] data,int offset,int count){
-                    if(stopping || !focusAllowed || frame.session!=activeSession)return -1;
+                    if(stopping || !focusAllowed || (frame.session!=activeSession && frame.session!=drainingSession))return -1;
                     int written=player.write(data,offset,count);if(written>0)played+=written;return written;
                 }},frame.data);
                 if(!complete){dropped++;Log.w(TAG,"PCM write incomplete id="+serviceId);}

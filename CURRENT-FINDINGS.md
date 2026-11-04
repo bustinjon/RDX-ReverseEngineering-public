@@ -1,4 +1,23 @@
-# Current findings — November 3, 2026
+# Current findings — November 4, 2026
+
+Current build: the working long-drive build plus five car-tested changes (Maps focus, navigation voice, microphone, console track buttons, day/night). Details, hashes and limits: [current build, results and to-do](LATEST-TEST-PLAN.md).
+
+| Area | Result on Nov 4 (receiver on screen) | Limits |
+|---|---|---|
+| Reverse camera | Normal camera view; AA returns afterwards | One car, parked test |
+| Phone calls | Ring, answer on screen, wheel call controls, both directions | Carried by Bluetooth, not the receiver |
+| Maps routes | Stay active; phone requests projected focus and receives it | — |
+| Navigation voice | Prompts play in full; music ducks and returns | Fixed two receiver bugs (cleared queue on stop; internal duck reported as lost focus) |
+| Assistant | On-screen mic and hotword work, also with the fan on high | No OEM mic-mode switch (privileged) |
+| Console Next/Previous | One track per press; holds ignored | Long press also triggers the OEM fast-forward on its selected source |
+| Steering-wheel Next/Previous | Not reachable | Arrives as an OEM vehicle broadcast routed to the OEM audio source |
+| Day/night | Map follows the car within ~5 s | Read-only call to the display-mode service |
+| Replug | AA reconnects without the laptop | — |
+| Volume level display, vehicle signals | Not possible | Broadcasts require signature/system permissions |
+| Return to AA after Home | Not possible yet | Next to investigate |
+
+## November 3 snapshot
+
 
 Current source is the **Maps-only build**: the working long-drive build plus one navigation-focus method. See [build table, next test and to-do list](LATEST-TEST-PLAN.md).
 

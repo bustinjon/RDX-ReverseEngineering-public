@@ -80,6 +80,7 @@ public final class AaOverlayService extends Service {
     private int touchCount;
     private int ignoredHoverCount;
     private final InputEvents.SelectPress selectPress = new InputEvents.SelectPress();
+    private final InputEvents.MediaButtons mediaButtons = new InputEvents.MediaButtons();
     private float lastTouchAaX = -1, lastTouchAaY = -1;
     private TouchListener touchListener;
     private SurfaceReadyListener surfaceReadyListener;
@@ -165,6 +166,26 @@ public final class AaOverlayService extends Service {
             private boolean bZoneDeviceLogged;
             @Override public boolean dispatchKeyEvent(final KeyEvent event) {
                 if (!testMode && event.getAction()==KeyEvent.ACTION_DOWN) Log.i(TAG,"INPUT_RAW_KEY code="+event.getKeyCode()+" scan="+event.getScanCode()+" flags="+event.getFlags()+" repeat="+event.getRepeatCount()+" source="+event.getSource()+" device="+event.getDeviceId());
+                if(!testMode && (event.getKeyCode()==87 || event.getKeyCode()==88 || event.getKeyCode()==138 || event.getKeyCode()==139))
+                    Log.i(TAG,"INPUT_MEDIA_RAW code="+event.getKeyCode()+" scan="+event.getScanCode()+" action="+event.getAction()+" repeat="+event.getRepeatCount()+" source="+event.getSource()+" device="+event.getDeviceId()+" canceled="+event.isCanceled()+" heldMs="+(event.getEventTime()-event.getDownTime()));
+                if(!testMode && touchListener!=null){
+                    int media=mediaButtons.dispatch(
+                            event.getKeyCode(),event.getScanCode(),event.getSource(),event.getDeviceId(),
+                            event.getAction(),event.getRepeatCount(),event.isCanceled(),
+                            event.getAction()==KeyEvent.ACTION_UP?event.getEventTime()-event.getDownTime():0,
+                            new InputEvents.KeyConsumer(){
+                        public void send(final int mappedCode,boolean down){
+                            Log.i(TAG,"INPUT_MEDIA_KEY raw="+event.getKeyCode()+" mapped="+mappedCode+" down="+down);
+                            if(down){touchListener.onAaKey(mappedCode,true,event.getEventTime());return;}
+                            // Stock sends the release 100 ms after the press.
+                            handler.postDelayed(new Runnable(){public void run(){
+                                if(touchListener!=null)touchListener.onAaKey(mappedCode,false,android.os.SystemClock.uptimeMillis());
+                            }},100);
+                        }
+                    });
+                    if(media==0 && event.getAction()==KeyEvent.ACTION_UP)Log.i(TAG,"INPUT_MEDIA_NOT_SENT raw="+event.getKeyCode()+" heldMs="+(event.getEventTime()-event.getDownTime()));
+                    if(media>=0)return true;
+                }
                 if(!testMode && (event.getKeyCode()==38 || event.getKeyCode()==39)){
                     if(!bZoneDeviceLogged){
                         bZoneDeviceLogged=true;
@@ -534,6 +555,7 @@ public final class AaOverlayService extends Service {
     }
 
     private void removeOverlay() {
+        mediaButtons.reset();
         if(focusCapture!=null){focusCapture.close();focusCapture=null;}
         sendSelectTransition(selectPress.action(MotionEvent.ACTION_CANCEL),android.os.SystemClock.uptimeMillis());
         handler.removeCallbacksAndMessages(null);
