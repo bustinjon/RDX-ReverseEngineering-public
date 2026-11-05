@@ -37,8 +37,9 @@ Read-only check of broadcast records, with permissions taken from the records th
 |---|---|
 | Laptop-free start after power-off | Persistent mode built; car test next |
 | OEM "unauthorized app" warning | Narrow fix built: the accessibility service presses only the exact Dismiss button of that one dialog (never "Remove all"); tested together with persistent mode |
-| Car GPS to the phone | Built (standard `gps` provider, stock unit conversion); drive test next |
-| Absolute touchpad inside AA (option) | Design: the native library exposes touchscreen registration and touch events |
+| Feature bundle (one install) | Built and reviewed: absolute touchpad, new volume look, OEM Android Auto tile returns to our AA, OEM audio-source entry, car GPS, frame-rate logging and an on-car settings screen. Each feature is a switch that defaults off and applies at the next phone connection, so one install covers a whole test visit. A lone ~2 s hold of the side-panel button opens the settings screen. Car test next |
+| Self-recovery after a dropped session | Built; car test next |
+| Extra allowed phones | Built; needs a second phone |
 | Steering-wheel buttons | Blocked by OEM permission |
 | Spotify compact playback row | Parked; also reported in stock AA |
 | Ignition cycle, cold start without laptop, multi-hour drive, update install | Long-run tests still to do |

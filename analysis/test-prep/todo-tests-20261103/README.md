@@ -23,13 +23,18 @@ If a Start fails before READY, run **Restore-Baseline-Source.cmd** before trying
 Passed and in the baseline: Maps focus, nav voice, mic, console track buttons, day/night, Home minimizes / side-panel returns (T22, T22b), volume display (T24).
 Blocked by Honda permissions: steering-wheel track/talk buttons (T23), Honda volume broadcast (T09), speed/gear (T14).
 
+**Simplest path: follow [VISIT.md](VISIT.md).** It covers the Survey plus one T50 bundle install, with every feature behind a switch in AA Settings.
+
 | Next visit | Run | Covers |
 |---|---|---|
-| 1 | Start-T30-persistent (type PERSIST after READY; power-off test; UNDO at Collect) | T30 persistent mode + T26 popup dismiss retest + T16/T17 laptop-free restart |
-| 2 | Start-T25-car-gps on a real drive | T25 |
-| 3 | New launcher (T31) for the long drive (T19); Start-B-current-baseline for T27 replug x5, T28 app-tile look, T29 transitions | T19, T27-T29, T31 |
-| any | T07 Spotify in stock AA | T07 |
-| design | T32 setup kit, T33 absolute touchpad, T34 volume look | — |
+| 1 | Survey.cmd (read-only, 3 min), then Start-T50-bundle and VISIT.md | T40, T09/T23 re-check, new-tile research, T33, T34, T35, T37, T38, T39, T25 (parked) |
+| 2 | Start-T30-persistent (PERSIST after READY; power-off; UNDO at Collect) | T30 + popup dismiss + laptop-free restart |
+| 3 | Start-T43-self-recovery | T43 |
+| drive | New launcher (T31) for a long drive; T25 moving check only if you choose | T25, T31, T19 |
+| any | T41 with a second phone (Honda AA set to Disabled/Never on it; Add-Phone.cmd after the bundle's READY); Start-B-current-baseline for T27 replug x5, T28, T29; T07 stock Spotify | — |
+| design | T32 setup kit (questions for the user) | — |
+
+All candidates are Codex-reviewed; see REVIEW.md.
 
 Rule: when a test passes, tell Claude. Its change becomes the new baseline for the next builds. Failed changes are dropped.
 

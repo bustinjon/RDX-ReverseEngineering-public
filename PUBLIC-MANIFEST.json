@@ -24,6 +24,11 @@
       "sha256": "3fe83a79372012783cdb29ce339fe464dc3950fc4eca60329b58cc3aceb303c5"
     },
     {
+      "path": "analysis/agent-reviews/backlog/EXTRA-APPS-VIDEO.md",
+      "bytes": 1399,
+      "sha256": "5d9e14144579356433876e91934b2756036cf3686e5c6ce7ed0ef1a9a2a4ee13"
+    },
+    {
       "path": "analysis/agent-reviews/CLAUDE-AUTO-RESUME-SETUP.md",
       "bytes": 5672,
       "sha256": "54244ffbb38e214185044e95ba2966374e53cdbf5ed6527b22c7ac324e2d94f7"
@@ -552,6 +557,36 @@
       "path": "analysis/agent-reviews/TODO-STATUS-20261104.md",
       "bytes": 5809,
       "sha256": "0b9e5e4b7374c1e2b8a04a0855f2828b1a37754d9001d4a678e60004594b6ba1"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-BATCH2-RECHECK.md",
+      "bytes": 4092,
+      "sha256": "f95e43235e9e45000f36086c1b50f9e8c1678acc12298400118ec7b1d51a2393"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-BATCH2.md",
+      "bytes": 9481,
+      "sha256": "73000a07b735119b40440a634462ca0ff04fc3ad5faabf7a9ccd1dba59934118"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-BATCH3-RECHECK.md",
+      "bytes": 5970,
+      "sha256": "c472de9e6760a707e3764db5fd2c51edf561184ca51c0f10c91cd5d63f32474e"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-BATCH3.md",
+      "bytes": 10145,
+      "sha256": "ea8513b7ca10d12214810411a76855130f5f10e12d58a863230ea13fa4af5b79"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-BUNDLE-RECHECK.md",
+      "bytes": 4300,
+      "sha256": "4b83dfc5d3d03d933c5f5d39a53d9db4bca2d283518045927040e8602ccf675f"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-BUNDLE.md",
+      "bytes": 8634,
+      "sha256": "5c5bde413ea5460d18bab69a5dc52c5ae3470d7344f30ab45ddd4a078d3fba32"
     },
     {
       "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-FINAL.md",
@@ -3224,24 +3259,74 @@
       "sha256": "d7546ff64757dbf60447b7bc776f9907a21b7cb0fdc363f96b13f337c09f12db"
     },
     {
-      "path": "analysis/test-prep/todo-tests-20261103/cards/T33-absolute-touchpad.md",
-      "bytes": 769,
-      "sha256": "6159d261534f6a09af8f5b9037d2631bd7db1b3a84505af988c486270890d1ee"
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T33-absolute-touch.md",
+      "bytes": 2046,
+      "sha256": "522976d402b7e9aa1f81ee52927b0fdc0d2b8e4cedeacaea6fb5dfdc5791681f"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T34-volume-look.md",
-      "bytes": 737,
-      "sha256": "16e389f678dca0bacbe9914c669cb3920a0a213bdb8f5f34c1f97c2609b54605"
+      "bytes": 1912,
+      "sha256": "a8173c2daa97db80c97930beaf561d3ad94003cef0cd2ebca6b84d512535d3eb"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T35-home-launch.md",
+      "bytes": 2444,
+      "sha256": "ea3b37520295ea83a6c4364ca3602d91bdec316de53c2179c1afead2492f1b56"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T36-extra-apps-backlog.md",
+      "bytes": 614,
+      "sha256": "6968b44e5a837224d9d2530373805d01d6741e08f7490235f07d7d562734e1e8"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T37-frame-rate.md",
+      "bytes": 1454,
+      "sha256": "2b44a52e8d5855364911a06f6e4a7ff46b99e696a1bea000eee2e9bc5c378940"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T38-settings.md",
+      "bytes": 1879,
+      "sha256": "0a3c34fd89e991de451924332b8787c02f9fae80698b67223c3acfc8035538fd"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T39-media-source.md",
+      "bytes": 1973,
+      "sha256": "29d9a1a8d1de27025b17d24f74fe3bff9954db5ff9635c1931d3d836a1d21cfe"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T40-capabilities.md",
+      "bytes": 759,
+      "sha256": "be7fc6ae97aa477e2c0394e05a0c1e7fa28210eca508ca5bb0718ec9e372f5cf"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T41-multi-phone.md",
+      "bytes": 1737,
+      "sha256": "03a936491b5dab0eb85857d92b2d5a3a8203235416a9f217e0341cbeff127b79"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T42-system-audio.md",
+      "bytes": 577,
+      "sha256": "60879c850c2277fa87a6024d3ad2ec006abdb30fc0bd02a643ba42011d8091d5"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T43-self-recovery.md",
+      "bytes": 1901,
+      "sha256": "4690cec0230f2c8b53ed56ba1aa546f039cbbbffb6b17f084e21878213e9a5f6"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/README.md",
-      "bytes": 4950,
-      "sha256": "9e1c267b157aba49eae051368b6a25714a20c01fac918d5b523f30806893d9c6"
+      "bytes": 5343,
+      "sha256": "0370c1e71ddfd3190017e24586c782aa9a75e9b71ebdfbfd1f449d928c36700f"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/REVIEW.md",
-      "bytes": 2109,
-      "sha256": "2217822deb873f1c3f96adde9e12c441f133951cb267195fe6d4e290d037edcf"
+      "bytes": 6260,
+      "sha256": "24a01c78ab0bac5edbc0803b9a716f6f5afbba6346800682d3d5bb5b40842544"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/VISIT.md",
+      "bytes": 4120,
+      "sha256": "6afb70a6ae4875eabab5ced20b6192c960acc683a32dd4819decebf2a27078e2"
     },
     {
       "path": "analysis/test-prep/v5-repeatability-20261030/REPORT.md",
@@ -3305,8 +3390,8 @@
     },
     {
       "path": "LATEST-TEST-PLAN.md",
-      "bytes": 6807,
-      "sha256": "a67a46a927884298c3335f41233d6cf1eca7e3f6c08051cf6eee296a7b1a421a"
+      "bytes": 7133,
+      "sha256": "fdaccbe5fa7c31600bf5ebed77974129d8646ebcc14989ccec4f27a883ab7194"
     },
     {
       "path": "NOTES.md",
