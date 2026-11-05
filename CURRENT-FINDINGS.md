@@ -1,6 +1,6 @@
-# Current findings — November 4, 2026
+# Current findings — November 4–5, 2026
 
-Current build: the working long-drive build plus five car-tested changes (Maps focus, navigation voice, microphone, console track buttons, day/night). Details, hashes and limits: [current build, results and to-do](LATEST-TEST-PLAN.md).
+Current build: the working long-drive build plus seven car-tested changes (Maps focus, navigation voice, microphone, console track buttons, day/night, Home minimize / side-panel return, volume display). A ~25 min continuous drive on it had no drop-out. Details, hashes and limits: [current build, results and to-do](LATEST-TEST-PLAN.md).
 
 | Area | Result on Nov 4 (receiver on screen) | Limits |
 |---|---|---|
@@ -10,11 +10,13 @@ Current build: the working long-drive build plus five car-tested changes (Maps f
 | Navigation voice | Prompts play in full; music ducks and returns | Fixed two receiver bugs (cleared queue on stop; internal duck reported as lost focus) |
 | Assistant | On-screen mic and hotword work, also with the fan on high | No OEM mic-mode switch (privileged) |
 | Console Next/Previous | One track per press; holds ignored | Long press also triggers the OEM fast-forward on its selected source |
-| Steering-wheel Next/Previous | Not reachable | Arrives as an OEM vehicle broadcast routed to the OEM audio source |
+| Steering-wheel Next/Previous and talk | Not reachable | OEM vehicle broadcast `autovcs.buttons_pressed` requires a system permission |
 | Day/night | Map follows the car within ~5 s | Read-only call to the display-mode service |
 | Replug | AA reconnects without the laptop | — |
-| Volume level display, vehicle signals | Not possible | Broadcasts require signature/system permissions |
-| Return to AA after Home | Not possible yet | Next to investigate |
+| Volume level display | Works | From Android's open master-volume broadcast; the OEM amplifier broadcast is protected |
+| Vehicle speed/gear signals | Not possible | Broadcasts require signature/system permissions |
+| After power-off | Accessibility comes back disabled, so the auto-clicker is off | Persistent mode built, not yet car-tested |
+| Return to AA after Home | Works | Home minimizes; the side-panel button returns; observed through the accessibility key filter |
 
 ## November 3 snapshot
 

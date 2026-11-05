@@ -1,19 +1,20 @@
-# T23 — Steering-wheel track buttons (via Honda media source)
+# T23 — Steering wheel: Next/Previous and talk button (BLOCKED: buttons_pressed needs AUTOMOTIVE_VCS_SERVICE, signal check 2026-11-04 22:27)
 
-**Type:** Research  
-**Run with:** Not built  
-**Do first:** Signal check confirms buttons_pressed permission
+**Type:** ADB check then research  
+**Run with:** Check-Signals.cmd  
+**Do first:** —
 
-**Why:** The wheel sends com.honda.auto.autovcs.buttons_pressed (RIGHT_FWD/LEFT_REW), which Honda routes to the selected Honda audio source; with FM selected the dash says function unavailable. The only plausible route is for our app to appear as a Honda audio source (a standard media-browser service) that the user selects.
+**Why:** Item 2. The wheel sends com.honda.auto.autovcs.buttons_pressed (RIGHT_FWD/LEFT_REW; the talk button is in the same SteeringWheelCommands set). If our app may receive it, both track buttons and talk-to-Gemini become possible; if not, the remaining route is our app appearing as a Honda audio source.
 
 ## Steps
-- Claude: check how Honda discovers and selects media sources, and what selection requires.
+- Run Check-Signals.cmd, type CHECK, and when asked press the wheel Next/Previous, volume and talk buttons a few times.
+- Tell Claude the buttons_pressed line.
 
-**Pass:** Wheel Next/Previous skip tracks in AA.
+**Pass:** Decision recorded: readable (build wheel + talk) or protected (media-source route only, wheel unlikely).
 
 **Emergency stop:** stay parked and unplug the phone — that always ends our session.
 
-**Evidence Claude reads:** VolumeManager/SeekKeyHandler, our media session.
+**Evidence Claude reads:** signals-*/signals.json; research in analysis/agent-reviews/wheel-media-source-20261104/REPORT.md.
 
 ## Result (fill in)
 - Date:

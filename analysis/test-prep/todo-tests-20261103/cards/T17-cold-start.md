@@ -1,19 +1,19 @@
-# T17 — Start with no laptop at all
+# T17 — Laptop-free start after a full cold boot
 
-**Type:** Long-run  
-**Run with:** Not built  
-**Do first:** T16
+**Type:** Watch  
+**Run with:** Needs T30 persistent install  
+**Do first:** T16, T30
 
-**Why:** The final goal: get in, plug in, AA works.
+**Why:** Final goal: get in, plug in, AA works, with nothing else.
 
 ## Steps
-- Design after T16.
+- After T30 is installed: car off overnight (or battery-saver sleep), start, plug in the phone from Home.
 
-**Pass:** —
+**Pass:** AA starts every time, and the warning popup is dismissed (T26).
 
 **Emergency stop:** stay parked and unplug the phone — that always ends our session.
 
-**Evidence Claude reads:** —
+**Evidence Claude reads:** Next Collect.
 
 ## Result (fill in)
 - Date:

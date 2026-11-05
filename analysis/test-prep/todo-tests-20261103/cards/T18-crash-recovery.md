@@ -1,19 +1,22 @@
-# T18 — Recovery after a mid-drive failure
+# T18 — Recovery after a failure mid-drive
 
-**Type:** Long-run  
-**Run with:** T12 build  
-**Do first:** T12
+**Type:** Watch  
+**Run with:** Start-B-current-baseline.cmd / Collect-B-current-baseline.cmd  
+**Do first:** —
 
-**Why:** If a session dies while driving, T12 should bring it back on replug. A forced crash needs a design that does not depend on ADB (ADB is off while the phone is connected).
+**Why:** Reliability item 7. Replug already recovers; this checks every failure kind does.
+
+## Connection steps
+Parked at Home, phone unplugged during prep. Run the Start shortcut, type START, wait for READY, do the Diagnostics checkpoint and type PASS. Switch USB to phone mode in the Honda Diagnostics menu (the label may say Apple CarPlay/phone mode), return to the Home screen FIRST (never plug the phone in while the Diagnostics menu is still open: on 2026-11-04 that left the permission overlay stuck until a car restart), then plug in the phone. Afterward: unplug the phone, switch back to ADB mode, reconnect the laptop, run the Collect shortcut, wait for SAFE TO DISCONNECT.
 
 ## Steps
-- During normal use of the T12 build, note any spontaneous drop-out and whether unplug/replug recovers it.
+- During normal use note any drop-out (black screen, frozen picture, no audio). Each time: unplug, wait 5 s, replug, note whether AA comes back and how long it took.
 
-**Pass:** Unplug/replug recovers every drop-out.
+**Pass:** Every drop-out recovers with one replug.
 
 **Emergency stop:** stay parked and unplug the phone — that always ends our session.
 
-**Evidence Claude reads:** Next Collect.
+**Evidence Claude reads:** Transport write ended / USB_DEVICE_DETACHED / AUTO_GRANTED timeline.
 
 ## Result (fill in)
 - Date:

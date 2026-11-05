@@ -1,10 +1,10 @@
 # RDX Android Auto fullscreen research
 
-Public research snapshot, updated 2026-11-04. Start with [START-HERE.md](START-HERE.md) for the public diagnostic APK and Codex handoff, then [current findings](CURRENT-FINDINGS.md) and the [porting guide](PORTING.md). No private-repository history is included.
+Public research snapshot, updated 2026-11-05. Start with [START-HERE.md](START-HERE.md) for the public diagnostic APK and Codex handoff, then [current findings](CURRENT-FINDINGS.md) and the [porting guide](PORTING.md). No private-repository history is included.
 
 The latest bounded experiment on one Honda/Acura Android 5.1.1 head unit displayed Android Auto with corrected geometry, accepted touchpad movement and physical select presses, and played audio while the phone's Bluetooth **Media audio** option was disabled. These are operator-reported outcomes supported by the receiver's input and PCM diagnostics. They do not establish compatibility with another model/year, a production-ready receiver, or an internal hardware audio-route trace.
 
-On November 4 the receiver was car-tested one change at a time on that unit. Working with the receiver on screen: reverse camera, Bluetooth calls, Maps routes, navigation voice, Assistant (on-screen mic and hotword), console track buttons, day/night map colours, and reconnect on replug. Not possible on this unit: steering-wheel track buttons and the volume-level display, because those OEM signals need system permissions. Still open: returning to AA after pressing Home. See [current build, results and to-do](LATEST-TEST-PLAN.md).
+On November 4 the receiver was car-tested one change at a time on that unit. Working with the receiver on screen: reverse camera, Bluetooth calls, Maps routes, navigation voice, Assistant (on-screen mic and hotword), console track buttons, day/night map colours, and reconnect on replug. Not possible on this unit: steering-wheel buttons, because that OEM signal needs a system permission. Since then, Home minimizes AA and a side-panel button brings it back, a volume display works, and a ~25 min drive ran without a drop-out. Still open: laptop-free start after power-off (the head unit resets accessibility). See [current build, results and to-do](LATEST-TEST-PLAN.md).
 
 ## What is included
 

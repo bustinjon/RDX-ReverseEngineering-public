@@ -1,6 +1,6 @@
 # To-do test suite — prepared 2026-11-03 (Claude)
 
-One test per to-do item. **Current baseline: T13 day/night `F8C1EF5C…BCEE18` = Maps fix + nav voice + mic + console track buttons + day/night, promoted 2026-11-04. Run it any time with Start-B-current-baseline.cmd.** T09 dropped (volume signal is Honda-only), T12 dropped (reconnect already works), T14 deferred. Every code test is its own APK built from the current baseline with one change. One card per item is in [cards/](cards/).
+One test per to-do item. **Current baseline: T24 volume `191E43A6…F48C` = Maps fix + nav voice + mic + console track buttons + day/night + Home minimizes / side-panel returns + volume display, promoted 2026-11-04. Run it any time with Start-B-current-baseline.cmd.** T09 dropped (volume signal is Honda-only), T12 dropped (reconnect already works), T14 deferred. Every code test is its own APK built from the current baseline with one change. One card per item is in [cards/](cards/).
 
 ## How a visit works
 
@@ -18,16 +18,18 @@ Every Start repeats the full handoff:
 
 If a Start fails before READY, run **Restore-Baseline-Source.cmd** before trying a different test.
 
-## Suggested order
+## Suggested order (updated 2026-11-04 night)
 
-| Visit | Run | Covers |
+Passed and in the baseline: Maps focus, nav voice, mic, console track buttons, day/night, Home minimizes / side-panel returns (T22, T22b), volume display (T24).
+Blocked by Honda permissions: steering-wheel track/talk buttons (T23), Honda volume broadcast (T09), speed/gear (T14).
+
+| Next visit | Run | Covers |
 |---|---|---|
-| 1 | Check-Signals.cmd (2 min, ADB only), then **Start-A-watch-only** | T06 + T14 prerequisite; T03 reverse, T08 Home, T04 calls, T05 talk button, T01 Maps, T02 voice prompts |
-| 1 or 2 | T07 Spotify in stock AA (no laptop) | T07 |
-| 2 | T10 track buttons, T13 day/night | T10, T13 |
-| 3 | T12 reconnect, T11 mic | T12, T11 |
-| 4 | T09 volume display (only if T06 says readable) | T09 |
-| later | T16 → T17, T18, T19, T20; T14 and T15 after research | long-run |
+| 1 | Start-T30-persistent (type PERSIST after READY; power-off test; UNDO at Collect) | T30 persistent mode + T26 popup dismiss retest + T16/T17 laptop-free restart |
+| 2 | Start-T25-car-gps on a real drive | T25 |
+| 3 | New launcher (T31) for the long drive (T19); Start-B-current-baseline for T27 replug x5, T28 app-tile look, T29 transitions | T19, T27-T29, T31 |
+| any | T07 Spotify in stock AA | T07 |
+| design | T32 setup kit, T33 absolute touchpad, T34 volume look | — |
 
 Rule: when a test passes, tell Claude. Its change becomes the new baseline for the next builds. Failed changes are dropped.
 

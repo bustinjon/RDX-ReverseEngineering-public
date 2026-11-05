@@ -1,19 +1,22 @@
-# T19 — Multi-hour drive
+# T19 — Multi-hour drive + memory
 
-**Type:** Long-run  
-**Run with:** Whatever build has passed the most tests  
-**Do first:** Most of the above
+**Type:** Watch  
+**Run with:** Start-B-current-baseline.cmd / Collect-B-current-baseline.cmd (or the new launcher, T31)  
+**Do first:** —
 
-**Why:** Nothing has been proven over hours yet.
+**Why:** Reliability item 7. Nothing has been proven over hours. The untimed session samples memory every minute.
+
+## Connection steps
+Parked at Home, phone unplugged during prep. Run the Start shortcut, type START, wait for READY, do the Diagnostics checkpoint and type PASS. Switch USB to phone mode in the Honda Diagnostics menu (the label may say Apple CarPlay/phone mode), return to the Home screen FIRST (never plug the phone in while the Diagnostics menu is still open: on 2026-11-04 that left the permission overlay stuck until a car restart), then plug in the phone. Afterward: unplug the phone, switch back to ADB mode, reconnect the laptop, run the Collect shortcut, wait for SAFE TO DISCONNECT.
 
 ## Steps
-- Normal driving for 2+ hours; note any drop-outs, audio glitches, heat or lag.
+- Normal driving 2+ hours with Maps and music. Note drop-outs, audio glitches, lag, heat.
 
-**Pass:** No drop-outs.
+**Pass:** No drop-outs; memory flat in the health samples.
 
 **Emergency stop:** stay parked and unplug the phone — that always ends our session.
 
-**Evidence Claude reads:** Collect (rotating log keeps start + recent part).
+**Evidence Claude reads:** health.log memory samples, AUDIO_SUMMARY drops.
 
 ## Result (fill in)
 - Date:

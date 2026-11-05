@@ -1,7 +1,13 @@
 package com.rdx.fullscreen.usbhelper;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.IntentFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -21,6 +27,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.TextView;
 
 /**
  * Fullscreen AA overlay using TYPE_SYSTEM_ERROR.
@@ -80,7 +88,56 @@ public final class AaOverlayService extends Service {
     private int touchCount;
     private int ignoredHoverCount;
     private final InputEvents.SelectPress selectPress = new InputEvents.SelectPress();
+    private final VolumeFeedback volumeFeedback = new VolumeFeedback();
+    private TextView volumeHud;
+    private boolean volumeReceiverRegistered;
+    private final Runnable hideVolumeHud = new Runnable() {
+        public void run() { if(volumeHud!=null)volumeHud.setVisibility(View.GONE); }
+    };
+    private final BroadcastReceiver volumeReceiver = new BroadcastReceiver() {
+        @Override public void onReceive(Context context,Intent intent) {
+            if(intent==null || !VolumeFeedback.ACTION.equals(intent.getAction()) || destroyed || container==null)return;
+            try {
+                if(!intent.hasExtra(VolumeFeedback.EXTRA))return;
+                int received=intent.getIntExtra(VolumeFeedback.EXTRA,-1);
+                boolean changed=volumeFeedback.update(received);
+                Log.i(TAG,"VOLUME_FEEDBACK_RECEIVED level="+received+" changed="+changed);
+                if(changed)showVolumeFeedback();
+            }catch(RuntimeException error){
+                Log.w(TAG,"VOLUME_FEEDBACK_REJECTED type="+error.getClass().getSimpleName());
+            }
+        }
+    };
     private final InputEvents.MediaButtons mediaButtons = new InputEvents.MediaButtons();
+    // T22: Home minimizes; the window and its video surface stay alive while hidden.
+    private final HomeToggle homeToggle = new HomeToggle();
+    private final HomeToggle.BackHold backHold = new HomeToggle.BackHold();
+    private WindowManager.LayoutParams overlayParams;
+    private TextView restoreButton;
+    /** Called by PermissionClickService when it observes a side-panel (Guide) button release. */
+    static void onObservedSidePanel() {
+        final AaOverlayService s = instance;
+        if (s == null) return;
+        s.handler.post(new Runnable() { public void run() {
+            if (s.container == null || s.testMode) return;
+            int decision = s.homeToggle.onSidePanel();
+            Log.i(TAG, "SIDE_PANEL_KEY decision=" + decision);
+            if (decision == HomeToggle.RESTORE) s.restoreOverlay("side-panel");
+        }});
+    }
+
+    /** Called by PermissionClickService (same process) when it observes a Home key release. */
+    static void onObservedHome() {
+        final AaOverlayService s = instance;
+        if (s == null) return;
+        s.handler.post(new Runnable() { public void run() {
+            if (s.container == null || s.testMode) return;
+            int decision = s.homeToggle.onHome(SystemClock.uptimeMillis());
+            Log.i(TAG, "HOME_KEY decision=" + decision + " minimized=" + s.homeToggle.minimized());
+            if (decision == HomeToggle.MINIMIZE) s.minimizeOverlay();
+
+        }});
+    }
     private float lastTouchAaX = -1, lastTouchAaY = -1;
     private TouchListener touchListener;
     private SurfaceReadyListener surfaceReadyListener;
@@ -203,6 +260,20 @@ public final class AaOverlayService extends Service {
                             touchListener.onAaKey(mappedCode,down,event.getEventTime());
                         }
                     }))return true;
+                }
+                if (!testMode && touchListener != null && event.getKeyCode()==KeyEvent.KEYCODE_BACK) {
+                    // Honda consumes Home while this window has focus, so a long Back is the way out.
+                    int back=backHold.onKey(event.getAction(),event.getRepeatCount(),event.isCanceled(),event.getEventTime()-event.getDownTime());
+                    if(back==HomeToggle.BackHold.SHORT){
+                        Log.i(TAG,"INPUT_KEY code=4 mapped=4 shortBackPair");
+                        touchListener.onAaKey(4,true,event.getEventTime());
+                        touchListener.onAaKey(4,false,event.getEventTime());
+                    }else if(back==HomeToggle.BackHold.MINIMIZE){
+                        Log.i(TAG,"BACK_LONG_PRESS minimize");
+                        homeToggle.minimizedByBack();
+                        minimizeOverlay();
+                    }
+                    return true;
                 }
                 if (!testMode && touchListener != null) {
                     boolean consumed=InputEvents.dispatchKey(event.getKeyCode(),event.getAction(),new InputEvents.KeyConsumer(){
@@ -338,11 +409,15 @@ public final class AaOverlayService extends Service {
         try {
             wm.addView(container, params);
             if (!testMode) Log.i(TAG,"INPUT_FOCUS_REQUEST="+container.requestFocus());
+            overlayParams = params;
+
             Log.i(TAG, "Overlay added: TYPE_SYSTEM_ERROR " + OVERLAY_W + "x" + OVERLAY_H);
         } catch (Exception e) {
             Log.e(TAG, "Failed to add overlay: " + e);
             return;
         }
+
+        if(!testMode)startVolumeFeedback();
 
         if (testMode) {
             handler.postDelayed(new Runnable() {
@@ -554,7 +629,111 @@ public final class AaOverlayService extends Service {
         this.surfaceReadyListener = listener;
     }
 
+    /** Hide AA without ending it: transparent, not touchable, not focusable; small AA button shown. */
+    private void minimizeOverlay() {
+        if (container == null || overlayParams == null) return;
+        sendSelectTransition(selectPress.action(MotionEvent.ACTION_CANCEL), SystemClock.uptimeMillis());
+        mediaButtons.reset();
+        backHold.reset();
+        overlayParams.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+        overlayParams.alpha = 0f;
+        try { wm.updateViewLayout(container, overlayParams); }
+        catch (RuntimeException e) { Log.w(TAG, "OVERLAY_MINIMIZE_FAILED " + e.getClass().getSimpleName()); homeToggle.reset(); overlayParams.flags &= ~(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE); overlayParams.alpha = 1f; return; }
+        showRestoreButton();
+        Log.i(TAG, "OVERLAY_MINIMIZED session continues; press the side-panel button to return");
+    }
+
+    private void restoreOverlay(String how) {
+        if (container == null || overlayParams == null) { removeRestoreButton(); homeToggle.reset(); return; }
+        int oldFlags = overlayParams.flags;
+        overlayParams.flags &= ~(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        overlayParams.alpha = 1f;
+        try { wm.updateViewLayout(container, overlayParams); }
+        catch (RuntimeException e) {
+            // Stay minimized with the button available.
+            overlayParams.flags = oldFlags; overlayParams.alpha = 0f;
+            homeToggle.minimizedByBack();
+            Log.w(TAG, "OVERLAY_RESTORE_FAILED " + e.getClass().getSimpleName()); return;
+        }
+        removeRestoreButton();
+        homeToggle.restored();
+        Log.i(TAG, "OVERLAY_RESTORED via=" + how + " INPUT_FOCUS_REQUEST=" + container.requestFocus());
+    }
+
+    private void showRestoreButton() {
+        if (restoreButton != null) return;
+        TextView button = new TextView(this);
+        button.setText("AA");
+        button.setTextSize(24);
+        button.setTextColor(Color.WHITE);
+        button.setGravity(Gravity.CENTER);
+        button.setBackgroundColor(0xE61A73E8);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) { restoreOverlay("button"); }
+        });
+        WindowManager.LayoutParams p = new WindowManager.LayoutParams(120, 64,
+            WindowManager.LayoutParams.TYPE_SYSTEM_ERROR,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+            PixelFormat.TRANSLUCENT);
+        p.gravity = Gravity.BOTTOM | Gravity.LEFT;
+        p.x = 16;
+        p.y = 16;
+        try { wm.addView(button, p); restoreButton = button; }
+        catch (RuntimeException e) { Log.w(TAG, "RESTORE_BUTTON_UNAVAILABLE " + e.getClass().getSimpleName()); }
+    }
+
+    private void removeRestoreButton() {
+        if (restoreButton == null) return;
+        try { wm.removeView(restoreButton); restoreButton = null; }
+        catch (RuntimeException e) { Log.w(TAG, "RESTORE_BUTTON_REMOVE_FAILED " + e.getClass().getSimpleName()); }
+    }
+
+    private void startVolumeFeedback() {
+        volumeHud=new TextView(this);
+        volumeHud.setTextColor(Color.WHITE);
+        volumeHud.setBackgroundColor(0xE6202020);
+        volumeHud.setTextSize(22);
+        volumeHud.setGravity(Gravity.CENTER);
+        volumeHud.setFocusable(false);
+        volumeHud.setFocusableInTouchMode(false);
+        volumeHud.setClickable(false);
+        volumeHud.setLongClickable(false);
+        volumeHud.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        volumeHud.setVisibility(View.GONE);
+        FrameLayout.LayoutParams layout=new FrameLayout.LayoutParams(280,64,Gravity.TOP|Gravity.CENTER_HORIZONTAL);
+        layout.topMargin=12;
+        container.addView(volumeHud,layout);
+        try {
+            registerReceiver(volumeReceiver,new IntentFilter(VolumeFeedback.ACTION));
+            volumeReceiverRegistered=true;
+            Log.i(TAG,"VOLUME_FEEDBACK_REGISTERED source=ANDROID_MASTER_VOLUME");
+        }catch(RuntimeException error){
+            Log.w(TAG,"VOLUME_FEEDBACK_UNAVAILABLE type="+error.getClass().getSimpleName());
+        }
+    }
+
+    private void showVolumeFeedback() {
+        if(destroyed || volumeHud==null || volumeFeedback.level()<0)return;
+        volumeHud.setText("Volume "+volumeFeedback.level());
+        volumeHud.setVisibility(View.VISIBLE);
+        volumeHud.bringToFront();
+        handler.removeCallbacks(hideVolumeHud);
+        handler.postDelayed(hideVolumeHud,VolumeFeedback.DISPLAY_MS);
+        Log.i(TAG,"VOLUME_FEEDBACK_SHOWN level="+volumeFeedback.level());
+    }
+
     private void removeOverlay() {
+        if(volumeReceiverRegistered){
+            try{unregisterReceiver(volumeReceiver);}catch(IllegalArgumentException ignored){}
+            volumeReceiverRegistered=false;
+        }
+        volumeFeedback.reset();
+        volumeHud=null;
+        removeRestoreButton();
+        restoreButton = null; // overlay teardown: drop the reference even if removal failed
+        homeToggle.reset();
+        backHold.reset();
+        overlayParams = null;
         mediaButtons.reset();
         if(focusCapture!=null){focusCapture.close();focusCapture=null;}
         sendSelectTransition(selectPress.action(MotionEvent.ACTION_CANCEL),android.os.SystemClock.uptimeMillis());

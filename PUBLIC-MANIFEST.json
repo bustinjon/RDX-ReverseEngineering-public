@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-11-04",
+  "snapshotDate": "2026-11-05",
   "privateHistoryIncluded": false,
   "sanitized": true,
   "files": [
@@ -17,6 +17,11 @@
       "path": "analysis/AA-PRIVILEGE-DEPENDENCY-MATRIX.md",
       "bytes": 22942,
       "sha256": "cd1eeb55fdf9b9d5634c713329c9e6cdfcbf0152c252a330fb0f0947893258cb"
+    },
+    {
+      "path": "analysis/agent-reviews/absolute-touchpad-20261104/REPORT.md",
+      "bytes": 2583,
+      "sha256": "3fe83a79372012783cdb29ce339fe464dc3950fc4eca60329b58cc3aceb303c5"
     },
     {
       "path": "analysis/agent-reviews/CLAUDE-AUTO-RESUME-SETUP.md",
@@ -564,6 +569,11 @@
       "sha256": "8c3e9f3b5e2cbeeb88ac7ebfd40a996667f197cf58ff756cdb685662dd59782a"
     },
     {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T22.md",
+      "bytes": 3643,
+      "sha256": "80d9e7bec535ca33015b460c9392ab88987a3a56d53418c5e0e28a4bf425bc09"
+    },
+    {
       "path": "analysis/agent-reviews/transport-failure-analysis-20261028.md",
       "bytes": 20347,
       "sha256": "c9fdf6bc8e541b2500565985445ca86793143e04fb877960b4004711ed6c7bf3"
@@ -584,6 +594,11 @@
       "sha256": "8ea9bdf32a06de71cf9c7a288f8a2802bd7b00f3fbe6b734417641764a7f7781"
     },
     {
+      "path": "analysis/agent-reviews/user-setup-kit-20261104/PLAN.md",
+      "bytes": 3852,
+      "sha256": "384a5cd3106860cb5bb79ff06e91a217a95a5de79ee91b2eeb2422609700f998"
+    },
+    {
       "path": "analysis/agent-reviews/v5-code-review-20261028.md",
       "bytes": 11202,
       "sha256": "fe180125402f927d9894fcd7ae581ec8b6b64edef18a5314f14a5ce2ac51602b"
@@ -592,6 +607,11 @@
       "path": "analysis/agent-reviews/v6h-honda-disable-plan.md",
       "bytes": 5872,
       "sha256": "fb97d4661fbd21f33327eb01e8eeadcf7272dfd2fbd89bdaf3290644f862627d"
+    },
+    {
+      "path": "analysis/agent-reviews/wheel-media-source-20261104/REPORT.md",
+      "bytes": 3047,
+      "sha256": "f6b574086b654dc660ce656ee262dabacffd996bfc037f357bf707f886db8b87"
     },
     {
       "path": "analysis/ANDROID-AUTO-CONFIGURATION-TRACE.md",
@@ -1885,8 +1905,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/res/xml/accessibility_config.xml",
-      "bytes": 460,
-      "sha256": "f6a26d78b5a5acd9abc99985437ff7699598135e909cb654cf13a9c5f5d04d7c"
+      "bytes": 532,
+      "sha256": "48fa9267244c6aa9e1bd1983b7dd559587102f38237b2f9eb57d6fb4f59f7772"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/res/xml/device_filter.xml",
@@ -1900,8 +1920,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/AaOverlayService.java",
-      "bytes": 26858,
-      "sha256": "2391a8a22bbab25deb2550aed67f3657f9b7b3f642b4ebbbf7afecc2697e6091"
+      "bytes": 35975,
+      "sha256": "9f33dbb0460d8186cf5edd1b2cdc8516378662bbd506f2204995f48fcbbd340d"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/AaSessionService.java",
@@ -1934,6 +1954,11 @@
       "sha256": "6c8e971a8a2940eae482b2ef22eb2515aa0988075d68e9a9364c4685ef7befde"
     },
     {
+      "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/HomeToggle.java",
+      "bytes": 2409,
+      "sha256": "a607a498a30edecfd5f77fe765240d63ed1061bc32994c4e7623cfbc2c8e41fc"
+    },
+    {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/HondaPhonePolicy.java",
       "bytes": 834,
       "sha256": "6bc4fb9f78c2eedfc1393973d728fadb297923a067586f521f4cd561ae56548a"
@@ -1955,8 +1980,8 @@
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/PermissionClickService.java",
-      "bytes": 8664,
-      "sha256": "8f049f4cc94296a53492c0293fd6137790f7ef5c9d0db6785cde412d7ff29b0a"
+      "bytes": 9815,
+      "sha256": "473d106d0ae4155127cbe3b62cc16d4977a0d1053e9af782605cdb73a0160595"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/UsbAttachActivity.java",
@@ -1972,6 +1997,11 @@
       "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/VideoGeometry.java",
       "bytes": 3777,
       "sha256": "17f4a3d7b9d636032bc10db001d624c75b6f9e694aed8851ee9435a2b2258548"
+    },
+    {
+      "path": "analysis/parallel-aa-receiver/usb-helper/source/com/rdx/fullscreen/usbhelper/VolumeFeedback.java",
+      "bytes": 877,
+      "sha256": "54881e19a65fa4a9dd0e72c45766fdf754d98f1904e18635b9b71dc50c1d0c78"
     },
     {
       "path": "analysis/parallel-aa-receiver/usb-probe/AndroidManifest.xml",
@@ -2995,8 +3025,8 @@
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/builds/B-current-baseline/RESULT.md",
-      "bytes": 826,
-      "sha256": "9e2202458266ac3fb4222378a620e4f53f94249ad21c651f2691a5036ac3e7d7"
+      "bytes": 1657,
+      "sha256": "543e15d3b5420fd3162ec320e084b19a7f43949f57d99958fb2b30408f7c5f84"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/builds/T10-track-buttons/RESULT.md",
@@ -3017,6 +3047,21 @@
       "path": "analysis/test-prep/todo-tests-20261103/builds/T21-nav-voice/RESULT.md",
       "bytes": 1180,
       "sha256": "efeca68446632914a8bfec1f5c252fa58dda4af4266f70b0e39e2f2082f34757"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T22-return-to-aa/RESULT.md",
+      "bytes": 1149,
+      "sha256": "fdded74cf8a3ec11438367c771d66038f9b00e8d2e8abbafdc9bfff491d687f0"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T22b-side-panel/RESULT.md",
+      "bytes": 426,
+      "sha256": "149507349a2a88884e22a87216f7be840ef6b8b1eeea138549f55b5c9bfb7837"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T24-volume-android/RESULT.md",
+      "bytes": 311,
+      "sha256": "ddec8b64e8111915141d02d705857a4f607d048a7b7c19451ca76f45add72026"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T01-maps-route.md",
@@ -3085,8 +3130,8 @@
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T14-car-data.md",
-      "bytes": 746,
-      "sha256": "fcf029ade0b144e1bceb36ce2db14fa257f5bc8aeb9d35565215b2dd2e38b060"
+      "bytes": 742,
+      "sha256": "db71a928291a1cefc44bda671702d9d5d0be506a5f842a3213d770f15af9422f"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T15-unauthorized-warning.md",
@@ -3095,28 +3140,28 @@
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T16-ignition-cycle.md",
-      "bytes": 594,
-      "sha256": "f2d7c626bc3f7023220ea3c85c375215c5277ea430c05ff83cad31088d36c05e"
+      "bytes": 1584,
+      "sha256": "20efa89f4f1dce83d3dfe6b4fa851ed8af1926e500e87b18288f84d17ea92f1c"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T17-cold-start.md",
-      "bytes": 419,
-      "sha256": "8c80ac64f91bcf1bece0e8e39ce59f136e7af7e57e323cc7be0fb5b3a5fec053"
+      "bytes": 624,
+      "sha256": "e7c57daf028ed760f4f2476cf0d6aa9fe79d4489e334c4faa4a66c8baabbcbf0"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T18-crash-recovery.md",
-      "bytes": 685,
-      "sha256": "2c3783f30fa7499062e2f73d05938d24183aefe4225094cd5051dbd409533b93"
+      "bytes": 1355,
+      "sha256": "ab3a14efc544a16186cdb4dfc74f72aa1467fd26bbe902d4f59547f0b8ff35b5"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T19-long-drive.md",
-      "bytes": 566,
-      "sha256": "95885f1f7a84d37a109ad26e6acba3b7013baa216b90bd33bcab591bbe074a37"
+      "bytes": 1307,
+      "sha256": "7432818dd64e80b5a20efef8b0588933bc53155e8f2428a6c81938dbd187bbda"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T20-update-install.md",
-      "bytes": 630,
-      "sha256": "f70a23c327cd289cc2855bcaedf560c85c038a90aaa3bb265b15fd697bdde143"
+      "bytes": 663,
+      "sha256": "7dbce53c5f55d28f5e61936d6c53f4bec7674e81faf322d32149de49c1433094"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T21-nav-voice.md",
@@ -3125,18 +3170,73 @@
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T22-return-to-aa.md",
-      "bytes": 750,
-      "sha256": "868359aff8060c2175296dc4dc234a6e9cb01caaaf7897232e3485ad68e67100"
+      "bytes": 2057,
+      "sha256": "6c910b32af0d595b2509cbe49e46b39cddfc4a99c4f1ac08e74ff5364b89a086"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T23-wheel-as-honda-source.md",
-      "bytes": 916,
-      "sha256": "1488fac77e3c3b0fe44a0172a4a54a49cbc88d2596776236e68550c43c9bdb43"
+      "bytes": 1138,
+      "sha256": "7433a76b30829786baec20f89f04e6b3fcc93cf2309894076f7a8a56615238d3"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T24-volume-android.md",
+      "bytes": 1678,
+      "sha256": "ef1bbb315b54d4c9e294fb07ef70901f87e40b413350197c595026d8eccb4ca4"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T25-car-gps.md",
+      "bytes": 1854,
+      "sha256": "d88d3fb90ea36bcfca1d67e3e2a9022aa2fc14e5025cafdf8232f7a6f3bcac2f"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T26-warning-dismiss.md",
+      "bytes": 2056,
+      "sha256": "a2a6652b0e0d0f1945fb481253bc66233e0688ef804c231da01e5fda96ba05c0"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T27-replug-cycles.md",
+      "bytes": 1326,
+      "sha256": "dd899858224f286f8deccea90105c704983a64ce6158504930704e356110890f"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T28-honda-app-tile.md",
+      "bytes": 676,
+      "sha256": "63cb83bb4dc1089dccdd2861c98c6461fbf98721e009b902186b5913c9593801"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T29-repeat-transitions.md",
+      "bytes": 1438,
+      "sha256": "a30402d92bad5a53cebce56590552c5465c2ee1976c06a9e70fe25534dad911c"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T30-persistent.md",
+      "bytes": 2235,
+      "sha256": "95e20884197c98ad6fe61d24c62db5a1b696fd24f4c71e88373c1f517aa40182"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T31-new-launcher.md",
+      "bytes": 865,
+      "sha256": "225ef2382ddac58eef6ef7dfce46235a85a9f7a8820b6f3f1f73c22c7b025c90"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T32-user-setup-kit.md",
+      "bytes": 599,
+      "sha256": "d7546ff64757dbf60447b7bc776f9907a21b7cb0fdc363f96b13f337c09f12db"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T33-absolute-touchpad.md",
+      "bytes": 769,
+      "sha256": "6159d261534f6a09af8f5b9037d2631bd7db1b3a84505af988c486270890d1ee"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/cards/T34-volume-look.md",
+      "bytes": 737,
+      "sha256": "16e389f678dca0bacbe9914c669cb3920a0a213bdb8f5f34c1f97c2609b54605"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/README.md",
-      "bytes": 4572,
-      "sha256": "101bc5b06dd718548a538206a4a89bbecec81533c07d92717211aa0ee6e84eee"
+      "bytes": 4950,
+      "sha256": "9e1c267b157aba49eae051368b6a25714a20c01fac918d5b523f30806893d9c6"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/REVIEW.md",
@@ -3165,8 +3265,8 @@
     },
     {
       "path": "CURRENT-FINDINGS.md",
-      "bytes": 10603,
-      "sha256": "cb640719c1011f18980d4e41c103cd4f1822f5d06ce46e40723e7acd37fcd901"
+      "bytes": 11028,
+      "sha256": "e4d1dedbd809a83cae71d3778a6d0ed174889881e0fd936a3dfc7048e166ab78"
     },
     {
       "path": "diagnostic-app/AndroidManifest.xml",
@@ -3205,8 +3305,8 @@
     },
     {
       "path": "LATEST-TEST-PLAN.md",
-      "bytes": 5216,
-      "sha256": "52cb7f0d3e8443b6587b33cb032ecaefbda9754b6fe333b1951d725574e6ca38"
+      "bytes": 6807,
+      "sha256": "a67a46a927884298c3335f41233d6cf1eca7e3f6c08051cf6eee296a7b1a421a"
     },
     {
       "path": "NOTES.md",
@@ -3220,8 +3320,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4438,
-      "sha256": "b3c831f1ea2f0c867ce34889115a6d59f33282d790896b77059cc6bab9b500d2"
+      "bytes": 4576,
+      "sha256": "4896768ffc534c9373e412d0f25fdb46e35bbd2f5924a2ad34f4355e89a25ade"
     },
     {
       "path": "scripts/Analyze-RdxArchives.ps1",

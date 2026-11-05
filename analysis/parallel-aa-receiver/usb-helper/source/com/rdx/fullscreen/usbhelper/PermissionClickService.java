@@ -188,6 +188,21 @@ public final class PermissionClickService extends AccessibilityService {
         }
     }
 
+    private int keyLogs;
+
+    /** Observe only: Home releases drive AA minimize/restore; every key is logged (bounded) to map buttons. */
+    @Override
+    protected boolean onKeyEvent(android.view.KeyEvent event) {
+        if (keyLogs < 400) { keyLogs++; Log.i(TAG, "A11Y_KEY code=" + event.getKeyCode() + " scan=" + event.getScanCode() + " action=" + event.getAction() + " repeat=" + event.getRepeatCount() + " source=" + event.getSource()); }
+        if (event.getKeyCode() == android.view.KeyEvent.KEYCODE_HOME && event.getAction() == android.view.KeyEvent.ACTION_UP && !event.isCanceled())
+            AaOverlayService.onObservedHome();
+        // Side-panel button (Guide, also part of the Diagnostics three-button shortcut): observed, not consumed.
+        if (event.getKeyCode() == android.view.KeyEvent.KEYCODE_GUIDE && event.getAction() == android.view.KeyEvent.ACTION_UP
+                && !event.isCanceled() && event.getRepeatCount() == 0)
+            AaOverlayService.onObservedSidePanel();
+        return false; // never consume: Honda keeps every button
+    }
+
     @Override
     public void onInterrupt() {
         Log.w(TAG, "AccessibilityService interrupted");
@@ -206,7 +221,8 @@ public final class PermissionClickService extends AccessibilityService {
         info.eventTypes = AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED;
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC;
         info.flags = AccessibilityServiceInfo.FLAG_INCLUDE_NOT_IMPORTANT_VIEWS
-                | AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS;
+                | AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
+                | AccessibilityServiceInfo.FLAG_REQUEST_FILTER_KEY_EVENTS;
         setServiceInfo(info);
         Log.i(TAG, "PermissionClickService connected — watching for USB permission dialogs");
     }

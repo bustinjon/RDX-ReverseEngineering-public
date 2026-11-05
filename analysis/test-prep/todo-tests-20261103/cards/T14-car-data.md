@@ -1,4 +1,4 @@
-# T14 — Real speed / gear / parking brake to the phone (optional, deferred)
+# T14 — Real speed / gear / parking brake to the phone (optional offer)
 
 **Type:** Optional  
 **Run with:** Not built  

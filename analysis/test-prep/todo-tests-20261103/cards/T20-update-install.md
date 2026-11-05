@@ -1,15 +1,15 @@
-# T20 — Installing an updated build
+# T20 — Updating to a new build keeps settings
 
-**Type:** Long-run  
-**Run with:** Any two builds back to back  
+**Type:** Watch  
+**Run with:** Any two packages back to back  
 **Do first:** —
 
-**Why:** Each test already reinstalls; this checks settings (Disabled/Never, accessibility) survive an update.
+**Why:** Delivery item 8. Each test reinstalls; this checks the phone policy (Disabled/Never) and accessibility survive updates.
 
 ## Steps
-- Covered automatically when you run two different test packages in a row; Claude checks the logs.
+- Covered automatically when two packages run one after another; Claude checks the Prepare outputs.
 
-**Pass:** Second package prepares without manual fixes.
+**Pass:** The second package prepares with no manual fixes.
 
 **Emergency stop:** stay parked and unplug the phone — that always ends our session.
 
