@@ -599,6 +599,16 @@
       "sha256": "ebdceea6f12ec5c4e3ab579444b45fd944d83900a159031289db0288c1e8640d"
     },
     {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T80-RECONCILE.md",
+      "bytes": 1478,
+      "sha256": "9a820561b5c1813cd02380581e7dde86843c0b393d87781d9852270d41779d5b"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T90-RECONCILE.md",
+      "bytes": 800,
+      "sha256": "e43098c553b0767856370584f3298ef87b6b5e2d8be72800d1791b6a39be461c"
+    },
+    {
       "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-BATCH2-RECHECK.md",
       "bytes": 4092,
       "sha256": "f95e43235e9e45000f36086c1b50f9e8c1678acc12298400118ec7b1d51a2393"
@@ -672,6 +682,16 @@
       "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T60.md",
       "bytes": 9376,
       "sha256": "d0a38cfe0c0f04db32cf501c287cff76ada49ad87d81a612d305fe20948939c6"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T80.md",
+      "bytes": 15520,
+      "sha256": "1745928233e8bbbdb2fddace6f862dff4ecb36450f8d4974344df9783dca0b17"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T90.md",
+      "bytes": 10152,
+      "sha256": "21dc9a55435828d3a6650c577a9ac4f91184cb3dca92cf0f852981fb1a78fc64"
     },
     {
       "path": "analysis/agent-reviews/transport-failure-analysis-20261028.md",
@@ -3184,6 +3204,16 @@
       "sha256": "cfd52ffcb7b17ed56ea61e20bd951feb234940cd33aad284ed0d9db2b70bea34"
     },
     {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T80-bundle/RESULT.md",
+      "bytes": 2411,
+      "sha256": "a6ed8e89cfbe93f9b712f7b77204107f0c8766d79abf75d1b91cde9746cece32"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T90-bundle/RESULT.md",
+      "bytes": 1450,
+      "sha256": "847def90257f36d1232db3f78fe199bf1944d6499f929a507b98a9964b823fa4"
+    },
+    {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T01-maps-route.md",
       "bytes": 1454,
       "sha256": "7c0afabec91b9424d6b5cbe6b1f2e123910b815ca85d92922dbdfb1831ce475a"
@@ -3410,8 +3440,8 @@
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/VISIT.md",
-      "bytes": 7456,
-      "sha256": "d988877ae7a2cc75f098f3da41703fad1ba3515a3e8cdb926ba25f8152af4aa6"
+      "bytes": 4417,
+      "sha256": "983d35b1e2a1457566dc7c6ce5b7917583ff093f4dfccebd5a4d92a1f9edb975"
     },
     {
       "path": "analysis/test-prep/v5-repeatability-20261030/REPORT.md",
@@ -3475,8 +3505,8 @@
     },
     {
       "path": "LATEST-TEST-PLAN.md",
-      "bytes": 11422,
-      "sha256": "6b5f71ef815da611dac278f79e7b329d401d3c67492f2e4c8b100c82f52350bb"
+      "bytes": 13399,
+      "sha256": "1084ce98a53b596721a0c46522d3c5c153de4d130fc507a67699873097bfd032"
     },
     {
       "path": "NOTES.md",

@@ -1,5 +1,21 @@
 # Current build, results and to-do list — November 4–6, 2026
 
+## Feature-bundle visits (Nov 6, afternoon)
+
+Two more one-install builds on the same day.
+
+| Feature | Result |
+|---|---|
+| OEM audio source | PASS. The receiver's session now lives for the whole AA session, so the OEM selects it automatically when AA starts and the instrument display keeps the track across Home and back. Steering-wheel track buttons work through it |
+| Knob and wheel power button | PASS. Pause and resume both reach the phone (the OEM's play/pause session calls are forwarded as media keys) |
+| OEM home-screen card | PASS. Shows the receiver's music and navigation |
+| Wireless AA dongle | PASS (first wireless session). Any device the operator explicitly added is switched into accessory mode; the phone stays in a pocket. An earlier failure was our tooling: the test runner's Start wiped the added-device list |
+| Separate navigation volume | PASS. Guidance plays on the OEM navigation stream (10), so prompts and music have their own volumes as in stock AA. Now on by default |
+| Steering-wheel talk button to the phone assistant | Dead end. The OEM's voice service accepts only system apps as voice providers, and the press/hold broadcasts never reached the receiver (0 received while the OEM logged every press). Use the on-screen mic or the hotword |
+| Instrument display always showing the track | Dropped. Re-sending the track every 10 s has no visible effect; the display reacts only to a real track change |
+| Side-panel strip scroll | Still failing in the narrow pane: the synthetic drags are too fast and open a list item. One more try planned with slow one-to-one drags |
+| AA's "exit to car" launcher icon | Tapping it dropped the session. It showed our old test name. Next: use the stock name and return to the OEM home screen |
+
 ## Feature-bundle visit (Nov 6)
 
 Next one-install bundle. New defaults: absolute touchpad and the OEM audio source on, Medium volume panel, a dimmer icon. The own Home tile is now the only way back to AA; a short side-panel press is ignored. Self-recovery, the layout probe and the "tap OK" hint are removed.
@@ -62,7 +78,7 @@ The authenticated receiver APK is not distributed (it bundles separately supplie
 
 Read-only check of broadcast records, with permissions taken from the records themselves:
 - The OEM main-volume broadcast and the vehicle parking-brake and gear-mode broadcasts are sent with receiver permissions held only by signature/system apps. A third-party receiver cannot show the volume level or read those signals.
-- **Steering-wheel track and talk buttons** arrive as the OEM vehicle broadcast `autovcs.buttons_pressed` (`RIGHT_FWD` / `LEFT_REW` …), not as key events, and that broadcast requires a signature/system permission. Only console buttons reach the receiver.
+- **Steering-wheel track and talk buttons** arrive as the OEM vehicle broadcast `autovcs.buttons_pressed` (`RIGHT_FWD` / `LEFT_REW` …), not as key events, and that broadcast requires a signature/system permission. Track buttons reach the receiver only through the OEM audio source; the talk button does not reach it at all.
 - **The head unit fully resets at power-off and comes back with accessibility disabled**, so the receiver's USB-permission auto-clicker is off after every restart. `WRITE_SECURE_SETTINGS` is a development permission on this firmware (grantable once over ADB); an opt-in persistent mode that re-enables only the receiver's own accessibility service at boot was car-tested on Nov 5 and failed. The boot broadcast did not start the app, and the settings write threw a SecurityException even while the permission showed as granted.
 - On a long press of the console seek keys, the OEM starts fast-forward on its selected source. With Bluetooth Audio selected, that paused the phone over Bluetooth; with FM selected there is no side effect.
 - The OEM talk button goes to the OEM voice service. Use the on-screen mic or the hotword instead.
@@ -73,17 +89,19 @@ Read-only check of broadcast records, with permissions taken from the records th
 | Item | Status |
 |---|---|
 | No more USB popups / laptop-free start after power-off | Done via "Remember this phone" (Nov 6) |
-| Home and side panel after a restart | Next: read these keys without the accessibility service |
-| Wireless AA dongle | Next: also switch allowed non-phone devices into accessory mode |
-| OEM audio source | Next: select it automatically when AA opens and keep it across Home and back |
-| Side-panel strip scroll | Next: make it work in the 1/3 pane |
-| Home tile while driving | Next: find what the OEM checks |
-| Separate volume for navigation/assistant | Next: stock AA keeps guidance and assistant volume separate from media; ours shares one |
+| Home and side panel after a restart | Built (reads the OEM home signal and our own window); car test pending |
+| Wireless AA dongle | Done (Nov 6); longer run pending |
+| OEM audio source | Done (Nov 6) |
+| Side-panel strip scroll | One last try with slow drags, otherwise retired |
+| Home tile while driving | The OEM launcher allows only signature/system apps, so the tile stays blocked. Workaround built: the OEM now-playing area returns to AA; car test pending |
+| AA exit icon returns to the OEM home screen | Next |
+| Add allowed devices from the on-car settings screen | Next |
+| Separate volume for navigation/assistant | Done (Nov 6) |
 | Track info and turn-by-turn on the OEM screens | Done (Nov 6) |
 | Wireless Android Auto without a dongle | Announcing support during a wired session had no effect; parked |
 | Full-screen Maps/Spotify instead of AA's split screen | Open; density change ruled out |
 | Extra allowed phones | Built; needs a second phone |
-| Steering-wheel buttons | Blocked by OEM permission |
+| Steering-wheel track buttons | Done, through the OEM audio source. Talk button is a dead end |
 | Spotify compact playback row | Parked; also reported in stock AA |
 | Ignition cycle, cold start without laptop, multi-hour drive, update install | Long-run tests still to do |
 
