@@ -26,3 +26,6 @@ Full operator notes and log evidence: `VISIT-NOTES-20261106.md`. Three Start/Col
   - wireless announce (P3: Bluetooth service 8 plus Wi-Fi projection)
   - remember this phone (auto-tick "Use by default" on the USB popup)
 - Persistent mode: log the full write exception; start the boot path from the media-source bind; Settings "Turn on auto-accept" button.
+
+## Operator note (after the visit)
+- The Spotify compact playback row is reachable with the absolute ("true") touchpad, so that parked item is solved. The absolute touchpad is the default from T70 on.

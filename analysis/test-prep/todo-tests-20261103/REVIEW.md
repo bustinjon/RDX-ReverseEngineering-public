@@ -91,3 +91,16 @@ Accepted:
 - T43 cleanup and generation bookkeeping also run with self-recovery off (extra safety and logging only).
 - Live Honda HFP/Wi-Fi coexistence, the target shell, the touch origin and Honda's indexing remain UNKNOWN until the car test.
 - The open-headunit material is used as reference only; it is AGPL-3.0.
+
+## T70 bundle (2026-11-06)
+Build 1BD53F5520DB8F751A89048AF1858CA35B9BB90A5818D61101AA2BE65750FCF0; host tests pass (111 bundle checks plus the feature suites).
+- Codex: not run yet. The usage limit was hit; rerun after 12:47.
+- Claude independent review (CLAUDE-T70.md): NOT READY, then fixed and rechecked (CLAUDE-T70-RECHECK.md): READY FOR CAR TEST.
+
+| Finding | Fix |
+|---|---|
+| B1: T73 could tick "use by default" on Honda's own USB dialog | Ticks only when the dialog names the app label "Hackura" (SystemUI UsbPermissionActivity puts the requesting app's application label in the dialog; spot-checked) |
+| S1: T73 makes Hackura the phone's permanent default; Collect cannot undo it | Accepted (that is the goal); documented in VISIT.md with the undo route |
+| S2: T74 unregistered with the class name | Unregisters with APP_NAME "Hackura", as stock does with its app name |
+| S3: T71 drag could stay held after a press in the strip | A press UP/CANCEL in the strip releases the drag |
+| S4: T71 edge re-grab with zero movement could tap | Re-grab only when moving toward that edge; new host test |

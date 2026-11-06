@@ -1,5 +1,23 @@
 # Current build, results and to-do list — November 4–6, 2026
 
+## Feature-bundle visit (Nov 6)
+
+Next one-install bundle. New defaults: absolute touchpad and the OEM audio source on, Medium volume panel, a dimmer icon. The own Home tile is now the only way back to AA; a short side-panel press is ignored. Self-recovery, the layout probe and the "tap OK" hint are removed.
+
+| Feature | Result |
+|---|---|
+| **Remember this phone** (the auto-clicker ticks Android's "Use by default" once, only on a popup naming the receiver app) | PASS. No USB popups on later plug-ins. **After a 2-minute power-off, plugging in started AA with no laptop and no popups**, without the persistent mode. The earlier power-off failure is solved this way |
+| New defaults | PASS |
+| OEM audio source | Works once selected by hand (steering-wheel track buttons work). After Home and back to AA the instrument display shows "No device connected" |
+| Track info to the OEM screens (media-status service) | PASS: title/artist reach the OEM screens with the steering-wheel controls. Same "No device connected" after Home and back |
+| Maps turn-by-turn to the OEM screens (navigation-status service bridged into the OEM navigation framework) | PASS |
+| Side-panel strip scroll | Works when the app is in AA's 2/3 pane, not in the 1/3 pane |
+| Phone battery/signal | Already shown via Bluetooth; nothing to build |
+| Wireless announce (Bluetooth + Wi-Fi projection services) | No reaction on the phone |
+| Wireless AA dongle (wired side added to the allowed list) | Not started: the receiver only switches the phone's vendor into accessory mode, so the dongle was never switched and kept re-enumerating. The phone did see the dongle ("Android Auto is available") |
+| After a power-off with the phone remembered | AA starts, but Home and the side-panel long hold do nothing: they are read by the accessibility service, which is off after a restart |
+| Opening the Home tile while driving | The OEM blocks it ("not available while driving"); works parked |
+
 ## Feature-bundle visits (Nov 5)
 
 Two one-install test builds. Each feature is a switch on an on-car settings screen ("Hackura settings") and applies at the next phone plug-in, so one visit covers many tests.
@@ -54,12 +72,15 @@ Read-only check of broadcast records, with permissions taken from the records th
 
 | Item | Status |
 |---|---|
-| Next bundle | In progress: Medium volume, audio source and absolute touchpad on by default; dimmer icon; self-recovery, layout probe and the "tap OK" hint removed; a launch refusal is shown with its reason |
-| No more USB popups | Next test: the auto-clicker also ticks Android's "Use by default" box once, so the phone is remembered and later plug-ins (even after a power-off) need no popup |
-| Laptop-free start after power-off | Failed (see above). Next: log the exact refusal, start the boot path when the OEM media scan binds the app, and add a "turn on auto-accept" button |
-| Side-panel strip scroll | Next test: the touchpad's side-panel strip (one fixed column) becomes a scroll strip for AA lists and maps |
-| Track info on the OEM screens | Next test: register the media-status service that the head unit's native library already supports, and copy title/artist/art into the OEM media session (as the stock app does) |
-| Wireless Android Auto | Next stage: announce Bluetooth and Wi-Fi projection support during a wired session, then retry the Bluetooth probe |
+| No more USB popups / laptop-free start after power-off | Done via "Remember this phone" (Nov 6) |
+| Home and side panel after a restart | Next: read these keys without the accessibility service |
+| Wireless AA dongle | Next: also switch allowed non-phone devices into accessory mode |
+| OEM audio source | Next: select it automatically when AA opens and keep it across Home and back |
+| Side-panel strip scroll | Next: make it work in the 1/3 pane |
+| Home tile while driving | Next: find what the OEM checks |
+| Separate volume for navigation/assistant | Next: stock AA keeps guidance and assistant volume separate from media; ours shares one |
+| Track info and turn-by-turn on the OEM screens | Done (Nov 6) |
+| Wireless Android Auto without a dongle | Announcing support during a wired session had no effect; parked |
 | Full-screen Maps/Spotify instead of AA's split screen | Open; density change ruled out |
 | Extra allowed phones | Built; needs a second phone |
 | Steering-wheel buttons | Blocked by OEM permission |
