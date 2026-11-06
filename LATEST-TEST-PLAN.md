@@ -1,4 +1,23 @@
-# Current build, results and to-do list — November 4–5, 2026
+# Current build, results and to-do list — November 4–6, 2026
+
+## Feature-bundle visits (Nov 5)
+
+Two one-install test builds. Each feature is a switch on an on-car settings screen ("Hackura settings") and applies at the next phone plug-in, so one visit covers many tests.
+
+| Feature | Result |
+|---|---|
+| New volume panel (rounded, Small/Medium/Large) | PASS. Medium preferred, becomes the default |
+| Screen density | Standard best, Smaller kept as an option, Larger dropped |
+| Absolute touchpad (finger position = screen position, a press taps under a ring cursor) | First try misaligned. Fixed by measuring touch rows from the top of AA's UI area instead of centring them. The second try "works perfectly" |
+| Own Home tile / app-list entry "Hackura" with its own icon | PASS: one tap brings a minimized AA back; with no phone it opens the settings. Replaces the old helper screen |
+| OEM audio-source entry | Listed. Selecting it makes the steering-wheel track buttons work. It dropped out of the list after a power-off: the OEM's boot-time probe arrived before any AA session, and the entry wrongly answered "off". Fix: read the saved setting |
+| Car GPS to the phone | Forwarding works (fixes about 5 m, no failures) |
+| Narrower layout to avoid AA's split screen (320/400 dp) | FAIL, both look too large; dropped. Full-screen Maps/Spotify need another route |
+| Self-recovery after a dropped session | Dropped. It counted the driver's own replugs against its restart budget and then refused to start |
+| Wi-Fi Direct probe | The head unit can create and remove a Wi-Fi Direct group as owner (wireless AA groundwork) |
+| Bluetooth probe on the wireless-AA UUID | The listener coexists with the OEM hands-free profile. The phone never connected, most likely because the car has not yet announced wireless support during a wired session |
+| Laptop-free start after power-off | FAIL. The boot broadcast did not start the receiver app, and writing the accessibility setting is refused even with the development permission granted. So the USB popups and the OEM warning return after a restart |
+
 
 ## Current build
 
@@ -26,7 +45,7 @@ The authenticated receiver APK is not distributed (it bundles separately supplie
 Read-only check of broadcast records, with permissions taken from the records themselves:
 - The OEM main-volume broadcast and the vehicle parking-brake and gear-mode broadcasts are sent with receiver permissions held only by signature/system apps. A third-party receiver cannot show the volume level or read those signals.
 - **Steering-wheel track and talk buttons** arrive as the OEM vehicle broadcast `autovcs.buttons_pressed` (`RIGHT_FWD` / `LEFT_REW` …), not as key events, and that broadcast requires a signature/system permission. Only console buttons reach the receiver.
-- **The head unit fully resets at power-off and comes back with accessibility disabled**, so the receiver's USB-permission auto-clicker is off after every restart. `WRITE_SECURE_SETTINGS` is a development permission on this firmware (grantable once over ADB); an opt-in persistent mode that re-enables only the receiver's own accessibility service at boot is built but not yet car-tested.
+- **The head unit fully resets at power-off and comes back with accessibility disabled**, so the receiver's USB-permission auto-clicker is off after every restart. `WRITE_SECURE_SETTINGS` is a development permission on this firmware (grantable once over ADB); an opt-in persistent mode that re-enables only the receiver's own accessibility service at boot was car-tested on Nov 5 and failed. The boot broadcast did not start the app, and the settings write threw a SecurityException even while the permission showed as granted.
 - On a long press of the console seek keys, the OEM starts fast-forward on its selected source. With Bluetooth Audio selected, that paused the phone over Bluetooth; with FM selected there is no side effect.
 - The OEM talk button goes to the OEM voice service. Use the on-screen mic or the hotword instead.
 - The receiver reports the car as parked to the phone. Android Auto therefore keeps parked-mode features while driving; the operator chose to keep this for now.
@@ -35,10 +54,13 @@ Read-only check of broadcast records, with permissions taken from the records th
 
 | Item | Status |
 |---|---|
-| Laptop-free start after power-off | Persistent mode built; car test next |
-| OEM "unauthorized app" warning | Narrow fix built: the accessibility service presses only the exact Dismiss button of that one dialog (never "Remove all"); tested together with persistent mode |
-| Feature bundle (one install) | Built and reviewed: absolute touchpad, new volume look, OEM Android Auto tile returns to our AA, OEM audio-source entry, car GPS, frame-rate logging and an on-car settings screen. Each feature is a switch that defaults off and applies at the next phone connection, so one install covers a whole test visit. A lone ~2 s hold of the side-panel button opens the settings screen. Car test next |
-| Self-recovery after a dropped session | Built; car test next |
+| Next bundle | In progress: Medium volume, audio source and absolute touchpad on by default; dimmer icon; self-recovery, layout probe and the "tap OK" hint removed; a launch refusal is shown with its reason |
+| No more USB popups | Next test: the auto-clicker also ticks Android's "Use by default" box once, so the phone is remembered and later plug-ins (even after a power-off) need no popup |
+| Laptop-free start after power-off | Failed (see above). Next: log the exact refusal, start the boot path when the OEM media scan binds the app, and add a "turn on auto-accept" button |
+| Side-panel strip scroll | Next test: the touchpad's side-panel strip (one fixed column) becomes a scroll strip for AA lists and maps |
+| Track info on the OEM screens | Next test: register the media-status service that the head unit's native library already supports, and copy title/artist/art into the OEM media session (as the stock app does) |
+| Wireless Android Auto | Next stage: announce Bluetooth and Wi-Fi projection support during a wired session, then retry the Bluetooth probe |
+| Full-screen Maps/Spotify instead of AA's split screen | Open; density change ruled out |
 | Extra allowed phones | Built; needs a second phone |
 | Steering-wheel buttons | Blocked by OEM permission |
 | Spotify compact playback row | Parked; also reported in stock AA |

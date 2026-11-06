@@ -68,3 +68,26 @@ Codex review ([CODEX-BUNDLE.md](../../agent-reviews/todo-tests-20261103/CODEX-BU
 | VISIT.md | Defaults check before comparing; Home before each replug; Standard verification replug; all checks parked; T41 needs Honda Disabled/Never |
 
 Accepted differences with everything off: the fine-location permission, frame-rate logging, the two launcher icons, and the side-panel long hold. Driving-state gating is not possible, because the car always reports parked (user decision). Build FF521CEA…; offline check PASS; host tests PASS (69 checks).
+
+## T60 feature bundle 2 (2026-11-05): Hackura, touchpad v2, audio source v2, volume size, layout probe, T30 and T43 as switches, wireless probes P1/P2
+Five Codex passes:
+1. [CODEX-T60.md](../../agent-reviews/todo-tests-20261103/CODEX-T60.md): NOT READY.
+2. [RECHECK](../../agent-reviews/todo-tests-20261103/CODEX-T60-RECHECK.md): NOT READY.
+3. [RECHECK2](../../agent-reviews/todo-tests-20261103/CODEX-T60-RECHECK2.md): NOT READY.
+4. [RECHECK3](../../agent-reviews/todo-tests-20261103/CODEX-T60-RECHECK3.md): NOT READY.
+5. [RECHECK4](../../agent-reviews/todo-tests-20261103/CODEX-T60-RECHECK4.md): **READY FOR CAR TEST**.
+
+Final build 17CFF49E…: offline check PASS; 113 host checks PASS.
+
+| Finding | Fix |
+|---|---|
+| Hackura launch could clear the T43 fail-closed latch or race a hand-off | Launch refuses during a hand-off, after an unclean end, or while reconnect is disabled or tracking; the policy is never replaced |
+| Audio source active with its switch off; T50's disabled override survives an update | Every behaviour requires AA running and the switch on; the override is reset to the default at START |
+| Power-off test lost its logs, and its undo could be skipped | After-PowerOff.cmd (saves the log since boot, undoes persistent mode, works even if Collect fails); undo checks fail on any command error |
+| Detector retry ignored persistent-off | Each retry re-checks |
+| P1/P2 lifecycle: stale workers, unconfirmed removal, exceptions in the AA process | Per-run generations, locked socket handling, retry then REMOVE UNCONFIRMED, every callback contained; saved-profile deletion confirmed per result |
+
+Accepted:
+- T43 cleanup and generation bookkeeping also run with self-recovery off (extra safety and logging only).
+- Live Honda HFP/Wi-Fi coexistence, the target shell, the touch origin and Honda's indexing remain UNKNOWN until the car test.
+- The open-headunit material is used as reference only; it is AGPL-3.0.
