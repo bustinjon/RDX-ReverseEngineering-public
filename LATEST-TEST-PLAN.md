@@ -1,4 +1,23 @@
-# Current build, results and to-do list — November 4–6, 2026
+# Current build, results and to-do list — November 4–8, 2026
+
+## Feature-bundle visits (Nov 7–8)
+
+Five more one-install builds. The receiver app is now called Hackura on the head unit.
+
+| Feature | Result |
+|---|---|
+| Start AA when plugged in while driving | PASS. The OEM's Android refuses every non-OEM activity while the car moves (`ActivityStackSupervisor` → `AutoSSMonitor`), so the USB attach activity never ran. A manifest receiver on the USB-attached broadcast starts the session instead |
+| Return to AA while driving | Side-panel press PASS. The app tile and the OEM now-playing card are refused while moving (both open an activity); a dead end |
+| Home after a cold start, and from any OEM menu | PASS. The OEM swallows Home for our window type with no broadcast, so only the accessibility key filter sees it. "Start without laptop" never worked because `WRITE_SETTINGS` was missing from the manifest; with it, accessibility comes back after every power-off. While AA runs, Home now opens the OEM home screen itself |
+| AA's exit icon | PASS. Labelled "Honda Home"; tapping it asks for native video focus, and the receiver now minimizes to the OEM home screen (before, video stopped and AA looked frozen) |
+| Steering-wheel talk button opens Gemini | PASS. The OEM voice provider is exported and reports its state; on a press the receiver takes the voice audio focus, which makes the OEM voice abort itself, then sends the assistant key. A hold opens Gemini too (watching the OEM's other voice provider). Each is a switch |
+| Console skip buttons | PASS. A press reached the phone twice (key path and the OEM audio source); duplicates are dropped |
+| Startup map smearing | Fixed so far. The first video frames were dropped while the decoder started; it now drains output and retries |
+| Day / Night / Auto | PASS. Hold console skip-forward, or Settings |
+| Settings | New layout: main page, Buttons (every mapping switchable), Phone & devices (each device enabled/disabled, the main phone included), Developer. No scrolling, large text |
+| Side-panel strip scroll | Retired after four versions; the phone ignores the injected drags |
+| OEM "Non authorized apps" warning | Cannot be prevented: only system or privileged apps count as authorized, and once any user app has been installed the warning returns at every boot, even after removal. Auto-dismiss (Dismiss only, never "Remove all") under test |
+| Wireless dongle | PASS, including reconnecting after a power-off; two hour-long drives stable |
 
 ## Feature-bundle visits (Nov 6, afternoon)
 
@@ -89,19 +108,25 @@ Read-only check of broadcast records, with permissions taken from the records th
 | Item | Status |
 |---|---|
 | No more USB popups / laptop-free start after power-off | Done via "Remember this phone" (Nov 6) |
-| Home and side panel after a restart | Built (reads the OEM home signal and our own window); car test pending |
-| Wireless AA dongle | Done (Nov 6); longer run pending |
+| Home and side panel after a restart | Done (Nov 7) |
+| Wireless AA dongle | Done (Nov 6–7) |
 | OEM audio source | Done (Nov 6) |
-| Side-panel strip scroll | One last try with slow drags, otherwise retired |
-| Home tile while driving | The OEM launcher allows only signature/system apps, so the tile stays blocked. Workaround built: the OEM now-playing area returns to AA; car test pending |
-| AA exit icon returns to the OEM home screen | Next |
-| Add allowed devices from the on-car settings screen | Next |
+| Side-panel strip scroll | Retired (Nov 7) |
+| Home tile while driving | Dead end (the OEM refuses all non-OEM activities while moving); the side panel returns to AA |
+| AA exit icon returns to the OEM home screen | Done (Nov 7) |
+| Add allowed devices from the on-car settings screen | Done (Nov 7–8) |
+| Steering-wheel talk button | Done (Nov 8) |
+| Steady cursor, auto-dismiss of the OEM warning | Built; car test next |
+| Stuck-screen protection, "Save logs" button | Next |
+| Clean-install test (uninstall, reinstall as a new user) | Next |
+| Full-screen Maps and Spotify instead of AA's split screen | Research |
+| Setup tool (owner extracts the protocol files from their own car), user guide | Final step |
 | Separate volume for navigation/assistant | Done (Nov 6) |
 | Track info and turn-by-turn on the OEM screens | Done (Nov 6) |
 | Wireless Android Auto without a dongle | Announcing support during a wired session had no effect; parked |
 | Full-screen Maps/Spotify instead of AA's split screen | Open; density change ruled out |
 | Extra allowed phones | Built; needs a second phone |
-| Steering-wheel track buttons | Done, through the OEM audio source. Talk button is a dead end |
+| Steering-wheel track buttons | Done, through the OEM audio source |
 | Spotify compact playback row | Parked; also reported in stock AA |
 | Ignition cycle, cold start without laptop, multi-hour drive, update install | Long-run tests still to do |
 

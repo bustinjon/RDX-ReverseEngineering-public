@@ -12,3 +12,6 @@ Collect: SAFE TO DISCONNECT with UNDO. Evidence: runs/helper_20261106T214625_*.
 | "RDX paral..." icon in the AA launcher | ISSUE | This is AA's "exit to car" icon, labelled from our CarInfo.displayName "RDX parallel AA test" (stock sends no displayName, so AA shows the make). Tapping it at 16:55: the phone dropped USB at 16:55:09, with no video-focus request logged; a replug recovered |
 
 Requests: rename or remove the icon; an AA launcher icon that returns to Honda Home.
+
+## After the visit (operator report, 2026-11-07)
+Dongle run: all checks worked. Two hour-long drives stayed stable. No logs were captured for these.

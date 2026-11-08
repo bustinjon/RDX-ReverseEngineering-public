@@ -1,63 +1,44 @@
-# One-visit checklist (T90 feature bundle)
+# One-visit checklist (T140 feature bundle)
 
-The T80 checklist is in Git history; its results are in `builds/T80-bundle/RESULT.md`.
+The T130 checklist is in Git history; its results are in `builds/T130-bundle/RESULT.md`.
 
-One install, one collection. **New default:** Separate navigation volume is now an option that is **on** (it passed on Nov 6). Track info, Turn-by-turn, Remember this phone, Absolute touchpad and the Honda audio source stay on.
+One install, one collection, about 25 minutes, all parked.
 
-**What T90 changes:**
-- **Dongle:** the Add-Phone entry is no longer wiped by Start (that is why the dongle was rejected on Nov 6).
-- **Strip scroll v3:** a scroll never starts in the top or bottom quarter of the screen (fixes "finger down does nothing" in the 1/3 pane).
-- **Talk button:** Hackura now listens for the talk button. It is not yet known whether Honda lets it hear the button; this visit finds out. With the new switch on, **holding** it should open the phone assistant, the way stock AA does.
-- **Dash refresh:** a switch that re-sends the track to Honda every 10 s.
+**What T140 changes:**
+- **Auto-dismiss Honda's warning** (on by default, Developer page): after a power-off Hackura now looks for the warning for 3 minutes and presses **Dismiss** only (before, it gave up after about 5 s, often before the warning appeared).
+- **Steady cursor** (on by default, switch on the main Settings page): a press taps where the cursor was just before you pushed, not where the push rolled your finger; small tremor no longer moves the cursor; while you hold the press, small movement stays a tap (a real move becomes a drag). The ring shows your finger; the tap lands where you aimed.
 
-**Remember this phone is lasting.** Once Android has saved "Use by default" for a device, it stays saved: turning the option off or running UNDO does not clear it. Only uninstalling Hackura, or **Clear defaults** on Hackura's Android app-info page, removes it.
+**Never tap "Remove all"** on Honda's "Non authorized" warning: it uninstalls Hackura. Use Dismiss.
 
-Every **test switch** starts **off**. Turn on **one at a time**. A switch applies at the **next phone plug-in**: press **Home**, unplug, wait 5 s, plug back in. All checks are done **parked**. Emergency stop: **unplug the phone**.
+**Tips:** leave Settings with **Back**. Emergency stop: **unplug the phone**. Note the time of every check.
 
 ## 1. Start (once)
-1. Phone unplugged, Honda on **Home**. In the Diagnostics USB menu, choose **ADB mode** and connect the laptop.
-2. Run **Start-T90-bundle.cmd** and type `START`. Wait for **READY**.
-3. When asked about the extra step, **skip GRANT** (press Enter).
-4. At **TEST NOW**: open Diagnostics, go back to **Home**, then type `PASS`.
-5. **Laptop still connected, after READY:** run **Add-Phone.cmd**, enter `DONGLE_SERIAL` (the dongle), type `YES`.
-6. Disconnect the laptop. In the Diagnostics USB menu, switch to phone mode. Go back to **Home**.
+1. Phone and dongle unplugged, Honda on **Home**. In the Diagnostics USB menu, choose **ADB mode** and connect the laptop.
+2. Run **Start-T140-bundle.cmd** and type `START`. Wait for **READY** (the grant runs by itself).
+3. At **TEST NOW**: open Diagnostics, go back to **Home**, then type `PASS`.
+4. Disconnect the laptop. In the Diagnostics USB menu, switch to phone mode. Go back to **Home**.
 
-## 2. Talk button, no switch (about 3 min)
+## 2. Steady cursor (about 8 min)
 1. **From Home, plug in the phone.** AA starts.
-2. **Press** the steering-wheel talk button once, then cancel Honda voice. Note the time.
-3. **Hold** the talk button about 2 s. Note the time and what opened (Honda voice, Gemini, both, nothing).
+2. Tap 10 small targets on purpose (AA app icons, list rows, small map buttons such as zoom or recentre). How many land first time? Compare with how it felt before.
+3. Pan the map with a press-and-drag. Does it still drag smoothly?
+4. Settings (hold side panel) > main page > **Steady cursor: off**. Press **Home**, unplug, wait 5 s, plug back in. Repeat step 2 and note the difference. Switch it back **on**, replug.
 
-This shows whether Hackura can hear the button at all.
+## 3. AA highlight mode, for comparison (about 5 min)
+1. Settings > **Absolute touchpad: off**. Press **Home**, unplug, wait 5 s, plug back in.
+2. AA now shows a highlight that you move with swipes; a press selects it. Try the same targets. Better or worse? Note it.
+3. Switch **Absolute touchpad** back **on**, replug.
 
-## 3. Gemini (about 3 min)
-1. Before this step, check that Gemini answers on the phone itself (unplugged) where you are parked.
-2. In AA, tap the mic and ask something simple ("what time is it"). Does Gemini **answer out loud**? Note the time.
-3. If it does not, go to Settings, turn **Separate navigation volume** off, replug, and try once more. Note the time.
+## 4. "Non authorized" warning after a power-off (about 5 min)
+1. Unplug everything. Car **fully off for 2 minutes**, then on. Do **not** touch the warning.
+2. Does the warning appear? Does it go away **by itself** (Hackura should press **Dismiss**)? Wait up to **3 minutes** before touching it, and note the times.
+3. Only if it is still there after 3 minutes, press **Dismiss** yourself.
 
-## 4. One switch at a time
-For each switch:
-1. Hold the side panel about 2 s to open Settings and turn the switch **on**.
-2. Press **Home**, unplug, wait 5 s, plug back in.
-3. Do the check and note the time.
-4. Turn the switch **off** again.
+## 5. Collect (once)
+1. In the Diagnostics USB menu, switch to **ADB mode** and reconnect the laptop.
+2. Run **After-PowerOff.cmd** (`AFTER`): it saves the log since the power-off.
+3. Run **Collect-T140-bundle.cmd**, type `COLLECT`, then `UNDO`. Wait for **SAFE TO DISCONNECT**.
 
-| Switch | Check | Pass |
-|---|---|---|
-| **Talk button hold opens Assistant (T93)** | Hold the talk button about 2 s. Then press it briefly | Hold opens Gemini; a short press still opens Honda voice |
-| **Side-panel strip scroll v3 (T91)** | List in the **1/3 pane**: rest your finger on it, slide the strip **down**, then **up**. Repeat in the **2/3 pane** | Both directions scroll in both panes; nothing gets tapped |
-| **Dash track refresh (T94)** | Play music for 1 minute and watch the dash | The track stays on the dash, not only at a song change. Note if it flickers or pops up |
-
-## 5. Wireless dongle (about 5 min)
-1. Press **Home** and unplug your phone. Leave your phone's Bluetooth and Wi-Fi on.
-2. **From Home, plug in the dongle.** If a USB popup appears, it is accepted automatically, possibly twice. Wait up to 30 s. Does our full-screen AA start, with the phone in your pocket?
-3. If it does, try music, Maps and the touchpad for 2 min. Note the time.
-4. Unplug the dongle.
-
-## 6. Collect (once)
-1. Unplug everything. In the Diagnostics USB menu, switch to **ADB mode** and reconnect the laptop.
-2. Run **Collect-T90-bundle.cmd** and type `UNDO`. Wait for **SAFE TO DISCONNECT**.
-3. If it says **NOT FULLY CLEANED**, run **After-PowerOff.cmd** (`AFTER`), then Collect again, and tell Claude.
-
-Do not run another test after Collect: Collect stops Hackura, so plug-ins go to Honda until the next Start.
+Do not run another test after Collect.
 
 Tell Claude what you saw and the times you noted.

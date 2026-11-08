@@ -25,8 +25,8 @@
     },
     {
       "path": "analysis/agent-reviews/backlog/CAR-APPS-20261106.md",
-      "bytes": 1847,
-      "sha256": "dbf620164f0dd5f545489f97c112bf3e0373bad01fcae426be016bf95b8a85e5"
+      "bytes": 1949,
+      "sha256": "271273f378bb190afd76ab8c377ed687fe0c26b9cf53b57f8155f0017973a507"
     },
     {
       "path": "analysis/agent-reviews/backlog/EXTRA-APPS-VIDEO.md",
@@ -40,8 +40,13 @@
     },
     {
       "path": "analysis/agent-reviews/backlog/IDEAS-20261106.md",
-      "bytes": 1334,
-      "sha256": "1e275d8e85299dfa638dc71f63dea382338d326f1cc86e3e8213d93ed4f72486"
+      "bytes": 1986,
+      "sha256": "ade66a403b4a435990627f953decc7c4b2bd623db0424af4ad00619f24a257bc"
+    },
+    {
+      "path": "analysis/agent-reviews/backlog/USER-GUIDE-NOTES.md",
+      "bytes": 1700,
+      "sha256": "aea2c9873f0bba4432f2b6f194ae5c467a0fc4cba7c96eedbce1e8ed6121588f"
     },
     {
       "path": "analysis/agent-reviews/car-cleanup-20261105/NOTES.md",
@@ -589,6 +594,31 @@
       "sha256": "0b9e5e4b7374c1e2b8a04a0855f2828b1a37754d9001d4a678e60004594b6ba1"
     },
     {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T100-RECONCILE.md",
+      "bytes": 3619,
+      "sha256": "b2659fb765e189f0fd0e29c99cd473b8a47a1df2f7ed893963ae7d0d06dee6c4"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T110-RECONCILE.md",
+      "bytes": 1878,
+      "sha256": "e46c6ba9105c6d112156a538fcd69cbae9c0e7c4987b597048585e6f9e706af1"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T120-RECONCILE.md",
+      "bytes": 2153,
+      "sha256": "a55668a1716de8f0932ab3e1caa2d811c2ec81841b8842b0bc434e2e5e7abaae"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T130-RECONCILE.md",
+      "bytes": 1190,
+      "sha256": "7b99242b9a42d2bee4cb44028defb5a5e8036bbc8527fdc177697cc2c56f48a0"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T140-RECONCILE.md",
+      "bytes": 1076,
+      "sha256": "999b91351177a5a8b0c685e427c3922b8129837e35c3abf63648f750a78e7cfa"
+    },
+    {
       "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T70-RECHECK.md",
       "bytes": 3450,
       "sha256": "1c394502dbe23de0e1dd158c54b7673ea75772ce0357e6c1dacb8e603ecd87a0"
@@ -639,6 +669,11 @@
       "sha256": "5c5bde413ea5460d18bab69a5dc52c5ae3470d7344f30ab45ddd4a078d3fba32"
     },
     {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-DETECTOR.md",
+      "bytes": 11290,
+      "sha256": "ddfc3e448b5859c2c596debbb676b21d985b6dbe92ba41976babb259da288b99"
+    },
+    {
       "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-FINAL.md",
       "bytes": 5288,
       "sha256": "e110bab8efb1156b4f681f1f9adaa0a4badaa0c87081cbdb5c50dcd8b7f5a120"
@@ -652,6 +687,86 @@
       "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-REVIEW.md",
       "bytes": 17720,
       "sha256": "8c3e9f3b5e2cbeeb88ac7ebfd40a996667f197cf58ff756cdb685662dd59782a"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T100-PERSIST.md",
+      "bytes": 5430,
+      "sha256": "ddcacda79ba6eedd1b2af9d1ec1fcaa090e932a7d96451535e49c769c079e9ad"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T100-RECHECK.md",
+      "bytes": 4975,
+      "sha256": "0aee4683741401f957f21b408a279154bb5dd4517c87ee340a3730deb37e9e82"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T100-RECHECK2.md",
+      "bytes": 2712,
+      "sha256": "04d59ab086cc00303a789c7a587d8f13336939c7531a86ce0402dce91892cfce"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T100-TALK-RECHECK.md",
+      "bytes": 3404,
+      "sha256": "5c9ccc72c2517ef3b9fee0b82a144ebf57a22355a39938dbda97e7d1c4a539f1"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T100-TALK.md",
+      "bytes": 7314,
+      "sha256": "3f10e5bc87f4b408974ae8be55a56a7d692bb5eb58cb00c54cf9afa71917adae"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T100.md",
+      "bytes": 14185,
+      "sha256": "ef34d9ceb9dfcbebca675e26b6cd52716d1635bc72f88ddef678f58d893f336b"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T110-RECHECK.md",
+      "bytes": 4493,
+      "sha256": "047164b891d75544cd290ccba48de3e21f936d5d09dd8427cdf2eca4ba1c5697"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T110-RECHECK2.md",
+      "bytes": 2629,
+      "sha256": "507d9ce2cf72d06f6bfbfa2f171f02456c9ce16ad43db15306fe289ce11b72d3"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T110.md",
+      "bytes": 9221,
+      "sha256": "b15d7551ef3a43473377c20e3e501ee1d9457293805c0e33ed52123f2fc7b7ea"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T120-RECHECK.md",
+      "bytes": 3845,
+      "sha256": "36d412c845eda9a30e96931e280f2185dae7a692e3192b41d38e6d31633710d3"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T120-RECHECK2.md",
+      "bytes": 2544,
+      "sha256": "dad4f4fab8d1175b19cd24d0e87402d1f8f258c3c8cfbe8ce237e788599c6c7a"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T120.md",
+      "bytes": 7721,
+      "sha256": "70744d5829c2facca35b3fdf2560b293e763f53dd104dcf1d4498af6dc1abdd6"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T130-RECHECK.md",
+      "bytes": 3561,
+      "sha256": "5b337829ed4a1de0472ac1883f2205878441746c0bc18adbd16c96e7cbda17bf"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T130.md",
+      "bytes": 5008,
+      "sha256": "5ddcdcddd720b670efc5036fc5ef36c825a0bbb0c655c91c58e3ac832e228f93"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T140-RECHECK.md",
+      "bytes": 4084,
+      "sha256": "269c2cae89df591b7d826b2a2218424e40c1ad4a76ddf29810ebbb1561e01829"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T140.md",
+      "bytes": 4072,
+      "sha256": "354329f6f6f6374f5a8c7128569761db982d0e06e8c479791a24ed7a2f786b7b"
     },
     {
       "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T22.md",
@@ -3154,14 +3269,34 @@
       "sha256": "d2ce4fb91de449770dfbef92200366e7730734c4a28eb943d4165d59761e9fa4"
     },
     {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T100-bundle/RESULT.md",
+      "bytes": 2874,
+      "sha256": "d8fbdfaf0fe7f0e399ae116f660924d8c9eacfc559f35bdd3d9fd710ce83b279"
+    },
+    {
       "path": "analysis/test-prep/todo-tests-20261103/builds/T11-mic/RESULT.md",
       "bytes": 720,
       "sha256": "4762372f3b56170f66caf0ff895b86714a5e08b360ccc3d7b36b9327f531c361"
     },
     {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T110-bundle/RESULT.md",
+      "bytes": 1436,
+      "sha256": "bc939cfdf80548e94c4f851f90e54be4fad65582684aa5e9bd92c93370bef44e"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T120-bundle/RESULT.md",
+      "bytes": 1237,
+      "sha256": "d9d91f5a7648bb2d79eeb0f22857d5b42d460a7f6ceaeb5672d845cb7e5370ac"
+    },
+    {
       "path": "analysis/test-prep/todo-tests-20261103/builds/T13-day-night/RESULT.md",
       "bytes": 305,
       "sha256": "a5884a2ff7ee55664af652071f952f6e5af2d743da1ee7c24bb9246fe23092b9"
+    },
+    {
+      "path": "analysis/test-prep/todo-tests-20261103/builds/T130-bundle/RESULT.md",
+      "bytes": 946,
+      "sha256": "1780e0cfa2674699310945e1d6c259a31de7a56a5893d2e33d0df9f8743352ed"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/builds/T21-nav-voice/RESULT.md",
@@ -3210,8 +3345,8 @@
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/builds/T90-bundle/RESULT.md",
-      "bytes": 1450,
-      "sha256": "847def90257f36d1232db3f78fe199bf1944d6499f929a507b98a9964b823fa4"
+      "bytes": 1600,
+      "sha256": "320da740eecabb8d592534e718c4ba4b9e637797f79779ea30597d7d7fede3e8"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T01-maps-route.md",
@@ -3439,9 +3574,14 @@
       "sha256": "bef97dab45ec035596574765f162fec0f01d319460b1d821185c01b95f38a925"
     },
     {
+      "path": "analysis/test-prep/todo-tests-20261103/SETTINGS-SPEC.md",
+      "bytes": 1766,
+      "sha256": "1d0beb3ad5a9f46e3e3dacb0e6c792230e3070c24feac55e2a2718e883a6f924"
+    },
+    {
       "path": "analysis/test-prep/todo-tests-20261103/VISIT.md",
-      "bytes": 4417,
-      "sha256": "983d35b1e2a1457566dc7c6ce5b7917583ff093f4dfccebd5a4d92a1f9edb975"
+      "bytes": 3015,
+      "sha256": "3b4402ff1e4f620af2b8480bae7010489e86f8497d1c1bcc5e5fed33cb331ff0"
     },
     {
       "path": "analysis/test-prep/v5-repeatability-20261030/REPORT.md",
@@ -3505,8 +3645,8 @@
     },
     {
       "path": "LATEST-TEST-PLAN.md",
-      "bytes": 13399,
-      "sha256": "1084ce98a53b596721a0c46522d3c5c153de4d130fc507a67699873097bfd032"
+      "bytes": 16091,
+      "sha256": "85572367df3194dc37199a8d36640f5e384c56b855abd728a3aee0b26284aaa1"
     },
     {
       "path": "NOTES.md",
