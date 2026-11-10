@@ -28,3 +28,12 @@ Ranks 4 (channel) and 5 (receive buffer) are deferred.
 - Registration on a non-main thread and protected-broadcast behaviour on API 22 are UNKNOWN. Registration is try/caught, and T290_TIMELINE_ON/FAILED is logged.
 
 Loop stopped.
+
+## Additions: channel 36/149 and audio stutter fix (operator request; CODEX-T290B.md)
+Final build: T290 9FD3E7F680203D0FD17F54ECAF3573CC0A185DBBB6A8DDAE48847E127A382190, PASS 261.
+- Restart race (SHOULD-FIX): removed the automatic restart. The buttons only save, and the operator applies a change with the main Wireless AA switch (off, 5 s, on; car-proven) or a car restart.
+- Stranded variant (SHOULD-FIX): every start now uses DAILY_VARIANT (Quiet + 5 GHz). The Wireless test toggle no longer picks up an old saved variant.
+- Audio overflow with higher max-unacked: ACCEPTED for the A/B test. The 64-frame queue still bounds the backlog (about 2.7 s), drops are counted in AUDIO_SUMMARY, and the default stays Off (16).
+- Channel 149 refusal falls back to the driver default, and P4_5GHZ_REQUEST refused is logged. The laptop capture (wpa_supplicant freq=) verifies the real channel at the Start visit.
+- Two Developer buttons were removed (phone head-unit server, variant selector) to keep 18 items with 24-px text.
+Loop stopped.

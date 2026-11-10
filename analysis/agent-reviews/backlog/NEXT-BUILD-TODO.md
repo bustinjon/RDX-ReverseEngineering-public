@@ -1,11 +1,21 @@
-# Next build to-do (operator requests)
+# To-do (updated 2026-11-10)
 
-- (2026-11-08) Start should stop an untracked Hackura copy left from daily drives by itself, so the operator doesn't have to run the previous bundle's Collect + UNDO first. Hit before T100, T160 and T170: UNTRACKED_HELPER in Prepare-TimedStage.ps1:96.
-- DONE in T190 (2026-11-08): settings are kept across updates (only new switches get defaults).
+## Open
+- Calls ringing on the phone instead of the car (T260, once): likely the car's hands-free link was down. T270_HFP_LOST / T270_CALL_STATE logging and auto-save are in place; analyze if it happens again.
+- Second-phone test: extra allowed phones and per-device wireless modes.
+- Long-run tests: many ignition cycles, multi-hour drive, update install over an existing install.
+- Confirm T300_SCANS_RESTORED when wireless stops (T310 checklist).
 
-## For the final package / installer (with the full uninstall + reinstall test)
-- (2026-11-08) Rename the app from "Hackura" to **FS-AA**, with a new icon. Change the launcher label, the Settings title, the Honda media-source and navigation-provider names, the notification and status texts, and the user guide. Do it together with the installer build and the clean uninstall/reinstall test, not in a test bundle. Honda caches the source and navigation names, so they need a fresh install to update.
-- (2026-11-08) Uninstall / restore-stock goes in the final installer/uninstaller, not a Settings button (operator).
-- (2026-11-08) Operator confirmed from daily use: reverse camera and phone calls work fine with Hackura. No dedicated test needed.
+## Closed 2026-11-10 (operator)
+- Wireless freezes: fixed in T300 (car station scans every 10 s -> 5 min, channel 149). T310 makes it the default.
+- Focus glitch on return to AA (inherited review item): considered fixed.
+- Home + side panel + Back chord pops AA back: accepted (the side panel is mapped to AA).
+- Full-screen Maps/Spotify instead of AA's split screen: dropped (Honda's hard-coded 1280x688).
+- Spotify compact row (reachable with the cursor) and VLC/NewPipe popup video (other AA apps cover it): dropped.
+- Rename to FS-AA: dropped; the app stays **Hackura**.
+- Phone's "Connecting to Android Auto" while wireless is off: no car-side fix. Hackura already closes its Bluetooth listener and does not announce wireless over USB; the phone retries from its own memory of the car. Phone-side workaround only.
 
-- (2026-11-08) DAILY WIRELESS (operator): wireless AA auto-starts with the car, Quiet Wi-Fi ON by default (station Wi-Fi paused). Release notes: owners who need the car on Wi-Fi should turn wireless AA / Quiet off. Overrides CODEX-WIRELESS-DAILY "Quiet off".
+## For the final package (when done)
+- Installer with uninstall / restore-stock (not a Settings button), and a clean-install test.
+- Setup tool (each owner extracts the protocol material from their own car) and a user guide.
+- Release notes: wireless AA starts with the car and pauses the head unit's own Wi-Fi (turn Wireless Android Auto off if the car needs Wi-Fi); the phone hotspot may cause freezes; reverse camera and calls work (operator daily use).

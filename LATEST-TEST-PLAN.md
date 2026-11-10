@@ -1,6 +1,6 @@
-# Current build, results and to-do list — November 4–9, 2026
+# Current build, results and to-do list — November 4–10, 2026
 
-## Wireless Android Auto without a dongle (Nov 8–9)
+## Wireless Android Auto without a dongle (Nov 8–10)
 
 The head unit now hosts wireless Android Auto itself, with no dongle and no root. The receiver is an ordinary user app on the OEM's Android 5.1:
 1. The receiver creates a Wi-Fi Direct group with the head unit as group owner. It asks for 5 GHz channel 36 through a hidden framework call, and the car logs confirm 5180 MHz.
@@ -15,7 +15,7 @@ The head unit now hosts wireless Android Auto itself, with no dongle and no root
 | Per-device modes | PASS. Each phone cycles USB + Wireless / USB only / Wireless only / Off; switching ends a running session immediately |
 | USB still works | PASS. A USB start is refused while a wireless session runs (no tug-of-war) |
 | Fixed along the way | Stuck-screen protection fired falsely over Wi-Fi (the phone sends frames only on change); return to AA looked frozen (a fresh picture is now requested); the Settings page bounced back to AA; the audio queue was too small for Wi-Fi bursts (drops went from 32 to 0) |
-| Freezes over Wi-Fi | OPEN. Every few minutes in some sessions, audio and video stop together for 2–40 s. A built-in freeze recorder shows almost no data reaching the car's Wi-Fi during a freeze (0–4 packets/s instead of 200–700/s) with no errors, while the head unit's CPU is mostly idle. Whether the phone, the air or the car causes it is not yet known. A 1.5-s audio cushion added ~1.5 s of delay without helping and was removed. The next build records socket queues, TCP loss counters and Bluetooth/Wi-Fi events, plus an A/B switch that delays wireless start by 2 min after boot |
+| Freezes over Wi-Fi | FIXED (Nov 10). Audio and video sometimes stopped together for 2–40 s. A built-in freeze recorder showed the data never reached the car (nothing waiting unread in the receiver), and the car's own Wi-Fi client was scanning every 10 s while wireless AA ran (it is disconnected from its saved networks then), each scan taking the radio off the group channel. Raising Android's scan intervals to 5 min while wireless runs (restored when it stops and at every boot) removed the freezes, also with the phone hotspot on, which had caused a freeze every ~2 s before. Channel 149 is now the default. A 1.5-s audio cushion was tried and removed (it only added delay) |
 | "Connecting to Android Auto" on the phone with wireless off | The phone keeps retrying a car it knows as wireless-capable. Harmless; a fix is planned |
 
 Other changes in this period:
@@ -143,15 +143,14 @@ Read-only check of broadcast records, with permissions taken from the records th
 | Steady cursor, auto-dismiss of the OEM warning | Built; car test next |
 | Stuck-screen protection, "Save logs" button | Done (Nov 8); automatic log saves (Nov 9) |
 | Clean-install test (uninstall, reinstall as a new user) | Next |
-| Full-screen Maps and Spotify instead of AA's split screen | Research |
+| Full-screen Maps and Spotify instead of AA's split screen | Dropped (the OEM hard-codes the projection size) |
 | Setup tool (owner extracts the protocol files from their own car), user guide | Final step |
 | Separate volume for navigation/assistant | Done (Nov 6) |
 | Track info and turn-by-turn on the OEM screens | Done (Nov 6) |
-| Wireless Android Auto without a dongle | Done (Nov 8–9). Freezes over Wi-Fi under investigation |
-| Full-screen Maps/Spotify instead of AA's split screen | Open; density change ruled out |
-| Extra allowed phones | Built; needs a second phone |
+| Wireless Android Auto without a dongle | Done (Nov 8–10), including the freeze fix |
+| Extra allowed phones, per-phone wireless modes | Built; needs a second phone |
 | Steering-wheel track buttons | Done, through the OEM audio source |
-| Spotify compact playback row | Parked; also reported in stock AA |
+| Spotify compact playback row | Dropped; reachable with the cursor, also seen in stock AA |
 | Ignition cycle, cold start without laptop, multi-hour drive, update install | Long-run tests still to do |
 
 ## Offline checks anyone can run
