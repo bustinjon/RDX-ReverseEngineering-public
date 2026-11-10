@@ -1,44 +1,32 @@
-# One-visit checklist (T140 feature bundle)
+# One-visit checklist (T290: deeper freeze recorder + boot-delay A/B)
 
-The T130 checklist is in Git history; its results are in `builds/T130-bundle/RESULT.md`.
+T280 results: `builds/T280-bundle/RESULT.md`. T290 adds no visible changes. It records much more about each freeze:
+- whether the data was **sitting in the car unread** (a Hackura problem) or **never arrived** (radio/phone problem)
+- whether the phone had to **re-send** data (lost packets)
+- every **Bluetooth and Wi-Fi event** on the car (calls, contacts, audio connecting, car Wi-Fi scans) on the same timeline
 
-One install, one collection, about 25 minutes, all parked.
+It also adds a test switch: **Settings > Developer > "Wireless: wait 2 min after boot (test)"**, OFF by default.
 
-**What T140 changes:**
-- **Auto-dismiss Honda's warning** (on by default, Developer page): after a power-off Hackura now looks for the warning for 3 minutes and presses **Dismiss** only (before, it gave up after about 5 s, often before the warning appeared).
-- **Steady cursor** (on by default, switch on the main Settings page): a press taps where the cursor was just before you pushed, not where the push rolled your finger; small tremor no longer moves the cursor; while you hold the press, small movement stays a tap (a real move becomes a drag). The ring shows your finger; the tap lands where you aimed.
-
-**Never tap "Remove all"** on Honda's "Non authorized" warning: it uninstalls Hackura. Use Dismiss.
-
-**Tips:** leave Settings with **Back**. Emergency stop: **unplug the phone**. Note the time of every check.
+**Never tap "Remove all"** on Honda's warning. Leave Settings with **Back**. Emergency stop: main Settings > **Wireless Android Auto: off**.
 
 ## 1. Start (once)
-1. Phone and dongle unplugged, Honda on **Home**. In the Diagnostics USB menu, choose **ADB mode** and connect the laptop.
-2. Run **Start-T140-bundle.cmd** and type `START`. Wait for **READY** (the grant runs by itself).
-3. At **TEST NOW**: open Diagnostics, go back to **Home**, then type `PASS`.
-4. Disconnect the laptop. In the Diagnostics USB menu, switch to phone mode. Go back to **Home**.
+1. Phone and dongle unplugged. Diagnostics USB menu: **ADB mode**, connect the laptop.
+2. Run **Start-T290-bundle.cmd**, type `START`. Honda Settings may flash, then Home. Wait for **READY**. At **TEST NOW**: open Diagnostics, back to **Home**, type `PASS`.
+3. Unplug the laptop. Phone hotspot **off**.
 
-## 2. Steady cursor (about 8 min)
-1. **From Home, plug in the phone.** AA starts.
-2. Tap 10 small targets on purpose (AA app icons, list rows, small map buttons such as zoom or recentre). How many land first time? Compare with how it felt before.
-3. Pan the map with a press-and-drag. Does it still drag smoothly?
-4. Settings (hold side panel) > main page > **Steady cursor: off**. Press **Home**, unplug, wait 5 s, plug back in. Repeat step 2 and note the difference. Switch it back **on**, replug.
+## 2. Drive A: normal (boot-delay switch OFF)
+- Start the car normally. Wireless AA connects by itself.
+- Note the time of each freeze or audio drop, and **where** you were: driveway, on the road, parked somewhere else.
+- Note any Bluetooth-only glitches too.
 
-## 3. AA highlight mode, for comparison (about 5 min)
-1. Settings > **Absolute touchpad: off**. Press **Home**, unplug, wait 5 s, plug back in.
-2. AA now shows a highlight that you move with swipes; a press selects it. Try the same targets. Better or worse? Note it.
-3. Switch **Absolute touchpad** back **on**, replug.
+## 3. Drive B: boot delay ON (a later drive, or after a car restart)
+1. Parked: **Settings > Developer > "Wireless: wait 2 min after boot (test)"**, turn it **ON**.
+2. Next car start: wireless AA now waits about 2 minutes before connecting. That's expected.
+3. Note freezes the same way. Are there fewer in the first few minutes than in drive A?
+4. When done, turn the switch back **OFF** (or tell me to keep it).
 
-## 4. "Non authorized" warning after a power-off (about 5 min)
-1. Unplug everything. Car **fully off for 2 minutes**, then on. Do **not** touch the warning.
-2. Does the warning appear? Does it go away **by itself** (Hackura should press **Dismiss**)? Wait up to **3 minutes** before touching it, and note the times.
-3. Only if it is still there after 3 minutes, press **Dismiss** yourself.
+## 4. Collect (whenever convenient; logs survive power-offs)
+1. Diagnostics USB menu: **ADB mode**, laptop connected.
+2. Run **Collect-T290-bundle.cmd**. It shows **CAR LOGS COPIED**, then type `COLLECT`, then **`KEEP`**. Wait for **SAFE TO DISCONNECT**.
 
-## 5. Collect (once)
-1. In the Diagnostics USB menu, switch to **ADB mode** and reconnect the laptop.
-2. Run **After-PowerOff.cmd** (`AFTER`): it saves the log since the power-off.
-3. Run **Collect-T140-bundle.cmd**, type `COLLECT`, then `UNDO`. Wait for **SAFE TO DISCONNECT**.
-
-Do not run another test after Collect.
-
-Tell Claude what you saw and the times you noted.
+Tell Claude your times and locations for each drive.

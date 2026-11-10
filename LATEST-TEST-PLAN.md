@@ -1,4 +1,28 @@
-# Current build, results and to-do list — November 4–8, 2026
+# Current build, results and to-do list — November 4–9, 2026
+
+## Wireless Android Auto without a dongle (Nov 8–9)
+
+The head unit now hosts wireless Android Auto itself, with no dongle and no root. The receiver is an ordinary user app on the OEM's Android 5.1:
+1. The receiver creates a Wi-Fi Direct group with the head unit as group owner. It asks for 5 GHz channel 36 through a hidden framework call, and the car logs confirm 5180 MHz.
+2. It listens on the Android Auto Bluetooth RFCOMM service and sends the phone the start request, the group credentials (WPA2) and port 5288.
+3. The phone joins the group and connects over TCP. The receiver hands that socket to the same Android Auto session it uses over USB.
+
+| Item | Result |
+|---|---|
+| First wireless session | PASS (Nov 8). The phone needed one re-pair while the receiver's RFCOMM listener was running, because it had cached the car's old Bluetooth service list. A phone-hosted "head-unit server" path also worked and proved AA over TCP first |
+| Starts with the car | PASS. Connects by itself about 15 s after start, also after a power-off. On by default, with a Wireless Android Auto switch on the main Settings page |
+| Quiet Wi-Fi | The head unit's own Wi-Fi client is paused while wireless AA runs and restored afterwards. Owners who need the car on Wi-Fi turn wireless AA off |
+| Per-device modes | PASS. Each phone cycles USB + Wireless / USB only / Wireless only / Off; switching ends a running session immediately |
+| USB still works | PASS. A USB start is refused while a wireless session runs (no tug-of-war) |
+| Fixed along the way | Stuck-screen protection fired falsely over Wi-Fi (the phone sends frames only on change); return to AA looked frozen (a fresh picture is now requested); the Settings page bounced back to AA; the audio queue was too small for Wi-Fi bursts (drops went from 32 to 0) |
+| Freezes over Wi-Fi | OPEN. Every few minutes in some sessions, audio and video stop together for 2–40 s. A built-in freeze recorder shows almost no data reaching the car's Wi-Fi during a freeze (0–4 packets/s instead of 200–700/s) with no errors, while the head unit's CPU is mostly idle. Whether the phone, the air or the car causes it is not yet known. A 1.5-s audio cushion added ~1.5 s of delay without helping and was removed. The next build records socket queues, TCP loss counters and Bluetooth/Wi-Fi events, plus an A/B switch that delays wireless start by 2 min after boot |
+| "Connecting to Android Auto" on the phone with wireless off | The phone keeps retrying a car it knows as wireless-capable. Harmless; a fix is planned |
+
+Other changes in this period:
+- **Start AA while driving and Home after a power-off** both work daily now (Nov 7–8), with no laptop.
+- **Settings:** the Developer page now uses three columns of large buttons; "Talk button hold: Gemini" is a normal switch.
+- **Automatic log saves:** after a long freeze, the receiver saves its own log on the head unit, and the logs survive a power-off. The collect step copies them to the laptop.
+- **Test tooling:** Start now stops a copy left running from daily drives and fixes the "Home focus lost" refusal by itself.
 
 ## Feature-bundle visits (Nov 7–8)
 
@@ -117,13 +141,13 @@ Read-only check of broadcast records, with permissions taken from the records th
 | Add allowed devices from the on-car settings screen | Done (Nov 7–8) |
 | Steering-wheel talk button | Done (Nov 8) |
 | Steady cursor, auto-dismiss of the OEM warning | Built; car test next |
-| Stuck-screen protection, "Save logs" button | Next |
+| Stuck-screen protection, "Save logs" button | Done (Nov 8); automatic log saves (Nov 9) |
 | Clean-install test (uninstall, reinstall as a new user) | Next |
 | Full-screen Maps and Spotify instead of AA's split screen | Research |
 | Setup tool (owner extracts the protocol files from their own car), user guide | Final step |
 | Separate volume for navigation/assistant | Done (Nov 6) |
 | Track info and turn-by-turn on the OEM screens | Done (Nov 6) |
-| Wireless Android Auto without a dongle | Announcing support during a wired session had no effect; parked |
+| Wireless Android Auto without a dongle | Done (Nov 8–9). Freezes over Wi-Fi under investigation |
 | Full-screen Maps/Spotify instead of AA's split screen | Open; density change ruled out |
 | Extra allowed phones | Built; needs a second phone |
 | Steering-wheel track buttons | Done, through the OEM audio source |
