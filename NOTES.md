@@ -1,4 +1,6 @@
-# 2021 Acura RDX: consolidated technical state
+# Developer research log — consolidated technical state
+
+> **This is a historical, developer-facing research log, not a guide.** If you're here to understand the project, read the [README](README.md) instead. The notes below capture the technical state and reasoning as of the date shown and are kept for the record; they are not current instructions and do not describe an installable product.
 
 Updated 2026-10-22. Goal: obtain correctly negotiated/rendered1920x720 Android Auto on the exact2021 RDX D.1.6.4, then address input. **Current priority is a disposable independently signed ordinary-UID receiver, keeping factory AndroidAuto.apk and Candidate A/B unchanged.** No stock modification/root route meets the established recovery threshold; those prior conclusions remain. A2022+ reference is optional. Latest reports: [PARALLEL-AA-RECEIVER-FEASIBILITY.md](analysis/PARALLEL-AA-RECEIVER-FEASIBILITY.md), [AA-PRIVILEGE-DEPENDENCY-MATRIX.md](analysis/AA-PRIVILEGE-DEPENDENCY-MATRIX.md), [GAL-TRANSPORT-TRACE.md](analysis/GAL-TRANSPORT-TRACE.md), [CUSTOM-RECEIVER-ARCHITECTURE.md](analysis/CUSTOM-RECEIVER-ARCHITECTURE.md), [PARALLEL-AA-FIRST-LIVE-TEST.md](analysis/PARALLEL-AA-FIRST-LIVE-TEST.md), [offline prototype](analysis/parallel-aa-receiver/README.md). Recovery/root/deployment reports remain historical scoped evidence; they were not repeated in this pass.
 

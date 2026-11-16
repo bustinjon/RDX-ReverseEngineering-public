@@ -1,16 +1,28 @@
-# Applying the findings to another car
+# Using this on another car
 
-Begin with offline comparison, not by installing this project's historical APK or running its live scripts.
+**Short version: you can't install Hackura on another car today, and there's no guarantee it will ever work on a given one.** This page is honest about why, and what adapting it would actually involve.
 
-1. Record the friend's exact car model/year, head-unit hardware, Android/API level, firmware build and display/input hardware. Establish what they actually want to change.
-2. Gather their own authorized offline evidence: package/service layout, UI state behavior, USB accessory handling, display geometry, native ABI and input/audio interfaces. Keep their identifiers and raw captures private.
-3. Compare with the failure layers in CURRENT-FINDINGS.md. The most reusable pieces are the event distinction, PCM/focus accounting, geometry model and independent cleanup approach. Identity strings, binder transaction IDs, package names, service bindings and protocol prerequisites are target-specific.
-4. Qualify any read-only binder getter against that target's own framework/services code before invoking it. Getter 217 was qualified only for the original recorded firmware. Do not reuse a transaction number by analogy.
-5. Build an explicit target configuration and preservation/cleanup plan. The published dummy serials deliberately do not authorize a real target. Do not add a bypass or remove readiness checks to make a script proceed.
-6. Run applicable host tests. Only propose a parked, bounded live test after the owner understands the exact steps and authorizes that specific test. Preserve evidence and verify restoration before further changes.
+## Why it isn't plug-and-play
 
-For the original v5 test procedure, see [NEXT-TEST.md](analysis/test-prep/pad-select-20261030/NEXT-TEST.md). It includes the OnePlus Settings → Bluetooth → car details → Media audio isolation step. This is a historical procedure for the original setup, not a general installation guide.
+Hackura was built and tuned for **one specific head unit** — a particular Honda/Acura wide-screen unit on a particular software version. The parts that make Android Auto go full-screen, authenticate, and route audio depend on details that differ from car to car: the exact screen geometry, the vehicle's own app and service layout, how it handles a USB accessory, and material that lives inside that car. Change the model year or the firmware and those details change too.
 
-Do not substitute a copied platform certificate/private key, factory app replacement, persistent force-stop loop or disabled readiness guard for understanding the target. No receiver credentials, vendor native libraries or authenticated receiver APK are provided. The separate downloadable diagnostic APK tests local hardware only.
+There is also no installer yet (see the [README](README.md)). The long-term plan is a setup tool each owner runs once on their **own** car to build their own copy — because an app that already contained another car's material couldn't be shared. That tool isn't released.
 
-The latest candidate and its remaining hardware questions are described in [LATEST-TEST-PLAN.md](LATEST-TEST-PLAN.md). Its source is available for review; do not mistake an offline test pass for compatibility with another car. Run both portable host-test scripts listed in README.md before adapting it.
+So "porting" here does not mean "download and flash." It means a developer studying their own vehicle and carefully rebuilding the pieces for it.
+
+## If you're a developer adapting the approach
+
+Start with offline study of the target car — not by installing this project's historical APK or running its live scripts.
+
+1. **Record the target precisely:** car model/year, head-unit hardware, Android/API level, firmware build, and display/input hardware. Decide what you actually want to change.
+2. **Gather your own authorized, offline evidence:** package/service layout, UI behavior, USB accessory handling, display geometry, native ABI, and the input/audio interfaces. Keep identifiers and raw captures private.
+3. **Compare against the failure layers** in [CURRENT-FINDINGS.md](CURRENT-FINDINGS.md). The most reusable ideas are the input-event model, the PCM/audio-focus accounting, the screen-geometry model, and the independent cleanup approach. Identity strings, binder transaction IDs, package names, service bindings, and protocol prerequisites are all target-specific.
+4. **Re-qualify every low-level call** against that target's own framework before using it. A read-only system call that worked on the original firmware is not valid by analogy on another — confirm it on the actual target.
+5. **Write an explicit per-car configuration and a cleanup/restore plan.** The published placeholder serials deliberately do not authorize any real car. Don't add a bypass or remove a safety check just to make a script proceed.
+6. **Run the host tests, then stop.** Only consider a parked, bounded live test after the owner understands the exact steps and authorizes that specific test. Preserve evidence and verify the car is restored before doing anything else.
+
+## What you still have to supply yourself
+
+The public repository does **not** include the receiver's protocol credentials or the proprietary native library, and it never will. An offline test passing is not the same as the car working. Do not substitute a copied platform certificate or private key, a factory-app replacement, a force-stop loop, or a disabled safety check for actually understanding the target. Never use another person's private material.
+
+The latest build and its remaining open questions are in [LATEST-TEST-PLAN.md](LATEST-TEST-PLAN.md); its source is available for review. Run both host-test scripts listed in the [README](README.md) before adapting anything.

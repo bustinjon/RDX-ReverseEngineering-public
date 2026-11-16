@@ -6,7 +6,7 @@ DiagnosticActivity.java, AndroidManifest.xml, Build-PublicDiagnostic.ps1, genera
 
 ## 2. Files changed
 
-New standalone diagnostic activity, manifest, build script, instructions, START-HERE Codex handoff, downloadable APK and build report. README and public .gitignore updated to identify the single allowed diagnostic APK. Existing receiver implementation and private APKs unchanged.
+New standalone diagnostic activity, manifest, build script, instructions, START-HERE orientation, downloadable APK and build report. README and public .gitignore updated to identify the single allowed diagnostic APK. Existing receiver implementation and private APKs unchanged.
 
 ## 3. Commands run
 

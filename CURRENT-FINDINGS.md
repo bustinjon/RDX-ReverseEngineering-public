@@ -1,4 +1,8 @@
-# Current findings — November 4–5, 2026
+# What works today — tested results
+
+> **For a plain-language overview, start with the [README](README.md).** This page is the detailed, developer-facing record of what has actually been car-tested, each item with its limits. The dates below are when each observation was made; they are kept for the record. As of 2026-11-16 the project is in compatibility testing with no public installer. Since these notes were written, later builds also fixed an Android-Auto-start restart loop and the audio start-up delay — see the [latest build and test plan](LATEST-TEST-PLAN.md).
+
+## November 4–5, 2026
 
 Current build: the working long-drive build plus seven car-tested changes (Maps focus, navigation voice, microphone, console track buttons, day/night, Home minimize / side-panel return, volume display). A ~25 min continuous drive on it had no drop-out. Details, hashes and limits: [current build, results and to-do](LATEST-TEST-PLAN.md).
 

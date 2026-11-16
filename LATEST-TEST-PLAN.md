@@ -1,6 +1,10 @@
-# Current build, results and to-do list — November 4–10, 2026
+# Build log, results and to-do list
 
-## Wireless Android Auto without a dongle (Nov 8–10)
+> **For a plain-language overview, start with the [README](README.md).** This is the detailed developer build log. As of 2026-11-16 the project is in compatibility testing and there is no public installer. The entries below run from early November; the most recent work (not yet detailed here) kept the Android Auto session alive through transient video-decoder back-pressure — fixing an AA-start restart loop — and removed the ~1–2 s audio start-up delay by flushing the platform audio buffer once per playback period. That newest build is awaiting its next car test.
+
+## November 4–10, 2026
+
+### Wireless Android Auto without a dongle (Nov 8–10)
 
 The head unit now hosts wireless Android Auto itself, with no dongle and no root. The receiver is an ordinary user app on the OEM's Android 5.1:
 1. The receiver creates a Wi-Fi Direct group with the head unit as group owner. It asks for 5 GHz channel 36 through a hidden framework call, and the car logs confirm 5180 MHz.

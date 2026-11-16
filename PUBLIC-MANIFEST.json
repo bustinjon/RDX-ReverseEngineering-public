@@ -4150,8 +4150,8 @@
     },
     {
       "path": "CURRENT-FINDINGS.md",
-      "bytes": 11028,
-      "sha256": "e4d1dedbd809a83cae71d3778a6d0ed174889881e0fd936a3dfc7048e166ab78"
+      "bytes": 11585,
+      "sha256": "3359c5b478ded5d425c89d513b23b143b886b21dad42b458659ba196d7e7fc32"
     },
     {
       "path": "diagnostic-app/AndroidManifest.xml",
@@ -4175,8 +4175,8 @@
     },
     {
       "path": "diagnostic-app/VALIDATION.md",
-      "bytes": 3489,
-      "sha256": "5de925e7d67b692713ccb30b3a6fe69e4e4381fb2920ee74afe17090ca51f777"
+      "bytes": 3487,
+      "sha256": "558af31bf8b428d9b03b8300b2fe8c6bf77d6338ad4c35776a1ab9a35439a460"
     },
     {
       "path": "downloads/headunit-diagnostics-0.1.0-build.json",
@@ -4190,23 +4190,23 @@
     },
     {
       "path": "LATEST-TEST-PLAN.md",
-      "bytes": 19318,
-      "sha256": "91cb75b02b946493324705863c91202f11496c31a8df7015c7c6dfe9d6592f9b"
+      "bytes": 19891,
+      "sha256": "19b57fe13d9ae110de1a120af07d9ac22f20559568f34a6ea00f02f0f5cae554"
     },
     {
       "path": "NOTES.md",
-      "bytes": 145929,
-      "sha256": "afe060e464158df908707d7543f61e6e3a2ca0dd27a9880997622dfc414ece90"
+      "bytes": 146279,
+      "sha256": "3aa4d13cfe82c0711bc2b7f21cb2937859d95aea7dfe1c3961e8eb9490dc9345"
     },
     {
       "path": "PORTING.md",
-      "bytes": 2433,
-      "sha256": "0c5aa63ca360f365258c51e45660ecdb43a70c0cdc26ccc0a73aad65686b7d93"
+      "bytes": 3465,
+      "sha256": "1cd0e1de7e007e270880829b2fcac4d9e0402cda0bc8da94e8ab466a95437049"
     },
     {
       "path": "README.md",
-      "bytes": 4576,
-      "sha256": "4896768ffc534c9373e412d0f25fdb46e35bbd2f5924a2ad34f4355e89a25ade"
+      "bytes": 5953,
+      "sha256": "a031d10f14e566e8891ad8f02b0905a990ca059c75ac917e3c1bf951a09467c0"
     },
     {
       "path": "scripts/Analyze-RdxArchives.ps1",
@@ -4700,8 +4700,8 @@
     },
     {
       "path": "START-HERE.md",
-      "bytes": 3131,
-      "sha256": "b4da78ff02a4e034257f3be7047b18479d6fa0ee21bab317d09ea9f03a82be47"
+      "bytes": 2550,
+      "sha256": "a1f3e07d3104efbf29365e56d9750a3e87452b5439df2385f37b8dbad5c0538f"
     },
     {
       "path": "tools/api22/Compare-Api22TlsResults.ps1",
