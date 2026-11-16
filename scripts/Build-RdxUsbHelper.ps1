@@ -1,7 +1,18 @@
 ## Build USB Helper APK — combines usb-helper/source/ + src/ (helper takes precedence on dupes)
 ## Package: com.rdx.fullscreen.usbhelper
 ## Usage: .\scripts\Build-RdxUsbHelper.ps1 [-Version "v6h"]
-param([string]$Version)
+## Hackura Builder (per-owner) may override the car-derived inputs and the signing key. All of these are OPTIONAL;
+## when none are passed the build is byte-for-byte the existing one (car-bundle builds are unaffected).
+param(
+    [string]$Version,
+    [string]$CredsFile = '',       # a prebuilt platform.creds (from the owner's car) instead of the decompiled source
+    [string]$NativeLibPath = '',   # the owner's libautoreceiver_jni.so instead of the pinned evidence copy (hash check skipped)
+    [string]$Keystore = '',        # a per-owner signing keystore (PKCS12) instead of the shared development key
+    [string]$KeystorePass = '',
+    [string]$KeyAlias = '',
+    [string]$KeyDname = '',
+    [string]$OutApk = ''           # if set, the signed APK is also copied here
+)
 
 $ErrorActionPreference = 'Stop'
 $project = (Resolve-Path './analysis/parallel-aa-receiver').Path
@@ -24,33 +35,49 @@ function Check-Exit([string]$operation) {
 Write-Host "=== USB Helper Build ===" -ForegroundColor Cyan
 
 # --- Credentials (same as receiver build) ---
-$source = './decompiled/AndroidAuto-current/sources/com/honda/androidauto/projection/sink/common/PlatformCertKeysImpl.java'
-$text = Get-Content -LiteralPath $source -Raw
-$creds = @(foreach ($field in 'ROOT_CERTIFICATE', 'CLIENT_CERTIFICATE', 'PRIVATE_KEY') {
-    $match = [regex]::Match($text, '\b' + $field + '\s*=\s*new String\(Base64.decode\("([^"\r\n]+)"\s*,\s*0\)\)')
-    if (-not $match.Success) { throw "Credential field $field not found" }
-    $encoded = $match.Groups[1].Value.Replace('\n', "`n").Replace('\r', "`r")
-    , [Convert]::FromBase64String($encoded)
-})
-$asset = [IO.File]::Create("$project/assets/private-test-material/platform.creds")
-try {
-    foreach ($cred in $creds) {
-        $length = [BitConverter]::GetBytes([int]$cred.Length)
-        [Array]::Reverse($length)
-        $asset.Write($length, 0, 4)
-        $asset.Write($cred, 0, $cred.Length)
-    }
-} finally { $asset.Dispose() }
-Write-Host "  Credentials packed" -ForegroundColor Green
+$credsAsset = "$project/assets/private-test-material/platform.creds"
+if ($CredsFile) {
+    # Per-owner build: use the platform.creds the Hackura Builder already packed from the owner's car.
+    if (-not (Test-Path -LiteralPath $CredsFile)) { throw "CredsFile not found: $CredsFile" }
+    Copy-Item -LiteralPath $CredsFile -Destination $credsAsset -Force
+    Write-Host "  Credentials supplied (per-owner platform.creds)" -ForegroundColor Green
+} else {
+    $source = './decompiled/AndroidAuto-current/sources/com/honda/androidauto/projection/sink/common/PlatformCertKeysImpl.java'
+    $text = Get-Content -LiteralPath $source -Raw
+    $creds = @(foreach ($field in 'ROOT_CERTIFICATE', 'CLIENT_CERTIFICATE', 'PRIVATE_KEY') {
+        $match = [regex]::Match($text, '\b' + $field + '\s*=\s*new String\(Base64.decode\("([^"\r\n]+)"\s*,\s*0\)\)')
+        if (-not $match.Success) { throw "Credential field $field not found" }
+        $encoded = $match.Groups[1].Value.Replace('\n', "`n").Replace('\r', "`r")
+        , [Convert]::FromBase64String($encoded)
+    })
+    $asset = [IO.File]::Create($credsAsset)
+    try {
+        foreach ($cred in $creds) {
+            $length = [BitConverter]::GetBytes([int]$cred.Length)
+            [Array]::Reverse($length)
+            $asset.Write($length, 0, 4)
+            $asset.Write($cred, 0, $cred.Length)
+        }
+    } finally { $asset.Dispose() }
+    Write-Host "  Credentials packed" -ForegroundColor Green
+}
 
 # --- Native library ---
-$native = "$project/evidence/device/libautoreceiver_jni.so"
-$nativeHash = (Get-FileHash -LiteralPath $native).Hash
-if ($nativeHash -ne '031797DD4B0AECCA007A3AD7AF31C365BA3D47BEBDA8C94BFF13C5289F464C50') {
-    throw "Unexpected native library hash: $nativeHash"
+if ($NativeLibPath) {
+    # Per-owner build: the library pulled from the owner's own car (its hash differs from the pinned evidence copy).
+    if (-not (Test-Path -LiteralPath $NativeLibPath)) { throw "NativeLibPath not found: $NativeLibPath" }
+    $native = $NativeLibPath
+    $nativeHash = (Get-FileHash -LiteralPath $native).Hash
+    Write-Host "  Native lib supplied (per-owner)" -ForegroundColor Green
+} else {
+    $native = "$project/evidence/device/libautoreceiver_jni.so"
+    $nativeHash = (Get-FileHash -LiteralPath $native).Hash
+    if ($nativeHash -ne '031797DD4B0AECCA007A3AD7AF31C365BA3D47BEBDA8C94BFF13C5289F464C50') {
+        throw "Unexpected native library hash: $nativeHash"
+    }
+    Write-Host "  Native lib copied" -ForegroundColor Green
 }
-Copy-Item -LiteralPath $native -Destination "$project/libs/armeabi-v7a/libautoreceiver_jni.so"
-Write-Host "  Native lib copied" -ForegroundColor Green
+Copy-Item -LiteralPath $native -Destination "$project/libs/armeabi-v7a/libautoreceiver_jni.so" -Force
 
 # --- Gather sources: usb-helper/source/ takes precedence over src/ ---
 $helperSources = @(Get-ChildItem "$project/usb-helper/source" -Recurse -Filter '*.java' |
@@ -108,13 +135,18 @@ $aligned = "$buildDir/aligned.apk"
 Check-Exit 'zipalign'
 
 # --- Sign ---
-$keystore = "$project/signing/rdx-parallel-development.p12"
-$password = $env:RDX_SIGNING_PASSWORD
-if (-not (Test-Path -LiteralPath $keystore)) {
-    & "$javaHome/bin/keytool.exe" -genkeypair -alias rdx-parallel-development `
+# Per-owner build: a local key made on the owner's laptop; otherwise the shared development key.
+# Note: PowerShell variable names are case-insensitive, so the local must NOT be named $keystore (it would alias the
+# $Keystore parameter and flip the per-owner checks below). $ksFile is a distinct name.
+$ksFile = if ($Keystore) { $Keystore } else { "$project/signing/rdx-parallel-development.p12" }
+$password = if ($Keystore) { $KeystorePass } else { $env:RDX_SIGNING_PASSWORD }
+$alias = if ($Keystore) { $KeyAlias } else { $env:RDX_SIGNING_PASSWORD }
+$dname = if ($KeyDname) { $KeyDname } else { 'CN=RDX Parallel Receiver DEVELOPMENT ONLY, OU=Local research, O=RDX Test' }
+if (-not (Test-Path -LiteralPath $ksFile)) {
+    & "$javaHome/bin/keytool.exe" -genkeypair -alias $alias `
         -keyalg RSA -keysize 2048 -validity 3650 -storetype PKCS12 `
-        -keystore $keystore -storepass $password -keypass $password `
-        -dname 'CN=RDX Parallel Receiver DEVELOPMENT ONLY, OU=Local research, O=RDX Test' `
+        -keystore $ksFile -storepass $password -keypass $password `
+        -dname $dname `
         *> "$buildDir/keytool.log"
     Check-Exit 'keytool'
 }
@@ -124,7 +156,7 @@ $apkName = if ($Version) { "rdx-usb-helper-$Version.apk" } else {
 }
 $signed = "$buildDir/$apkName"
 & "$javaHome/bin/java.exe" -jar "$tools/lib/apksigner.jar" sign `
-    --ks $keystore --ks-key-alias rdx-parallel-development `
+    --ks $ksFile --ks-key-alias $alias `
     --ks-pass "env:RDX_SIGNING_PASSWORD" --min-sdk-version 21 `
     --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled false `
     --out $signed $aligned *> "$buildDir/sign.log"
@@ -166,6 +198,12 @@ foreach ($inputHash in $sourceHashes) {
     provenanceScope = 'Recorded Java inputs, manifest and native library; not a complete reproducible-build audit'
 } | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath "$buildDir/build-report.json" -Encoding utf8
 "$buildDir" | Set-Content "$project/usb-helper/latest-build.txt"
+if ($OutApk) {
+    $outDir = Split-Path -Parent $OutApk
+    if ($outDir -and -not (Test-Path -LiteralPath $outDir)) { New-Item -ItemType Directory -Force -Path $outDir | Out-Null }
+    Copy-Item -LiteralPath $signed -Destination $OutApk -Force
+    Write-Host "  Copied signed APK to $OutApk"
+}
 
 Write-Host "`n=== BUILD COMPLETE ===" -ForegroundColor Green
 Write-Host "  APK: $signed"

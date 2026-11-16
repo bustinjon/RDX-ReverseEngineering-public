@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-11-06",
+  "snapshotDate": "2026-11-16",
   "privateHistoryIncluded": false,
   "sanitized": true,
   "files": [
@@ -439,6 +439,11 @@
       "sha256": "fdcea9e8e0517bb97514f109a777f2ee40fd10d2f95a9a639076e27d0b38ceff"
     },
     {
+      "path": "analysis/agent-reviews/fable-review-20261111/REPORT.md",
+      "bytes": 11439,
+      "sha256": "4fecef648dd241bdbd6edcedd4f0f0a2289d4ba49f5cd3219106424d90de9985"
+    },
+    {
       "path": "analysis/agent-reviews/friend-pdf-20261030/REVIEW.md",
       "bytes": 13373,
       "sha256": "c71d0c3400b51e6016a0c6d73434b8acf2ca557a0cff029bf034b50626ee5886"
@@ -614,6 +619,156 @@
       "sha256": "74f457d34c4656ce75e704dd36baee65b0ee400d4ab14a94bc493c71009f69c6"
     },
     {
+      "path": "analysis/agent-reviews/t340-phone-on-car/CLAUDE-T340-RECONCILE.md",
+      "bytes": 3624,
+      "sha256": "42abf27df30ef220066f34a8d1f768518f3d7d6c8a320d0df5ad2dfd33f0b0a8"
+    },
+    {
+      "path": "analysis/agent-reviews/t340-phone-on-car/CODEX-T340.md",
+      "bytes": 13752,
+      "sha256": "5c1e537422e34a7c8c4ac2d0445b2f49dcad5c8e598a230146d096b3ffcfe35c"
+    },
+    {
+      "path": "analysis/agent-reviews/t340-phone-on-car/PROMPT.md",
+      "bytes": 4990,
+      "sha256": "2d54082b3cce714b5805726119d31f0ae6e8b01472ac8af8ec2b48010275b731"
+    },
+    {
+      "path": "analysis/agent-reviews/t350-wifi-disconnect/CLAUDE-T350-RECONCILE.md",
+      "bytes": 7033,
+      "sha256": "64f64320cfc6d333d1be685a1caac2b11ff1391ed516d471a1b893a033349377"
+    },
+    {
+      "path": "analysis/agent-reviews/t350-wifi-disconnect/CODEX-T350-round2.md",
+      "bytes": 13658,
+      "sha256": "a230e3d3b58239cff5da39d81aad4757e1c75eebdf942eba01687d76e61b294c"
+    },
+    {
+      "path": "analysis/agent-reviews/t350-wifi-disconnect/CODEX-T350.md",
+      "bytes": 10365,
+      "sha256": "3772d60f2c38c30e6e9efacd649c41384ee61ee96b62ff961a30e80bcfa95cf0"
+    },
+    {
+      "path": "analysis/agent-reviews/t350-wifi-disconnect/PROMPT.md",
+      "bytes": 3562,
+      "sha256": "651cc99efee19b4cce563c629e018dc5a654c9650dc49fcaff1e65eb025c85f7"
+    },
+    {
+      "path": "analysis/agent-reviews/t350-wifi-disconnect/PROMPT2.md",
+      "bytes": 4370,
+      "sha256": "61b34d6807148d4b897ddb50f8e02c585abbc7e159a3e7c64517ec101d8a6b97"
+    },
+    {
+      "path": "analysis/agent-reviews/t360-reboot-loop/CLAUDE-T360-RECONCILE.md",
+      "bytes": 7721,
+      "sha256": "cd50ee403fa645369ffffba7c150b078b1ef241f73eadd5c7159a4aa80d2c92f"
+    },
+    {
+      "path": "analysis/agent-reviews/t360-reboot-loop/CODEX-T360-round2.md",
+      "bytes": 11347,
+      "sha256": "a5ad7e2039192d162551fd425979b97b3ee0d8b482a2a3c940fa176446f79b3c"
+    },
+    {
+      "path": "analysis/agent-reviews/t360-reboot-loop/CODEX-T360.md",
+      "bytes": 11770,
+      "sha256": "d7b54c6973f9edae22a080e20e7d31098547fbd06b4833a85618dc87710cbad1"
+    },
+    {
+      "path": "analysis/agent-reviews/t360-reboot-loop/PROMPT.md",
+      "bytes": 5703,
+      "sha256": "185954b94484d7fbdab32291bcb8e4d7ea203eda714da9b28cb6757580a6ceb1"
+    },
+    {
+      "path": "analysis/agent-reviews/t360-reboot-loop/PROMPT2.md",
+      "bytes": 4770,
+      "sha256": "983f90f96eba24f0a7a60adc87b5001cdb3ce30a273d1b4ca6fcc50733b1e9ed"
+    },
+    {
+      "path": "analysis/agent-reviews/t360-reboot-loop/ROOT-CAUSE.md",
+      "bytes": 5507,
+      "sha256": "4fa5d0660b8e6f27b44ec1e723b5f15f74bd82b00e0ec91e6f04be01f0ea86a6"
+    },
+    {
+      "path": "analysis/agent-reviews/t370-audio-startup/CLAUDE-T370-RECONCILE.md",
+      "bytes": 7307,
+      "sha256": "254a6c183eed1dd9db29f0d932251a7d5f7f9e21b0ee7ec1fb670179613f53bd"
+    },
+    {
+      "path": "analysis/agent-reviews/t370-audio-startup/CODEX-T370-round2.md",
+      "bytes": 10948,
+      "sha256": "8a6f4a26489ebcf40f62aa67805ef103c797c8c7ce62f7267c4e945b57f6886e"
+    },
+    {
+      "path": "analysis/agent-reviews/t370-audio-startup/CODEX-T370-round3.md",
+      "bytes": 8836,
+      "sha256": "e48a9a164f26f46374426719486e71b9124b6a5d7ebe530b73a3695f3715cc62"
+    },
+    {
+      "path": "analysis/agent-reviews/t370-audio-startup/CODEX-T370.md",
+      "bytes": 10829,
+      "sha256": "2adefc85befbf8520fa8df4c909e2970caafbfd4548ac59eb3985e8272a9b521"
+    },
+    {
+      "path": "analysis/agent-reviews/t370-audio-startup/PROMPT.md",
+      "bytes": 4039,
+      "sha256": "26c174de5a0675b0f959b8da810565345bf4d2452047452a31e368006bcb64ae"
+    },
+    {
+      "path": "analysis/agent-reviews/t370-audio-startup/PROMPT2.md",
+      "bytes": 3743,
+      "sha256": "3cc09f8185f6b7c3d65e11ed1100d7b8ee297fa3fa678b61f950133ae41b5744"
+    },
+    {
+      "path": "analysis/agent-reviews/t370-audio-startup/PROMPT3.md",
+      "bytes": 2572,
+      "sha256": "e4878fd720752652b8b00c3ed16e7fd21bd1ca32eeb5ccd0ae889b3dce826afe"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/CLAUDE-T380-RECONCILE.md",
+      "bytes": 8223,
+      "sha256": "283ef1d35900e1a23afbd26fb946b569cecc742e70ecfd2fcffca7507bbdea19"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/CODEX-T380-round2.md",
+      "bytes": 11044,
+      "sha256": "caf6a57cb89f64f3eb64a3552b676344ea5527860c090fb79a2f488533649a23"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/CODEX-T380-round3.md",
+      "bytes": 8745,
+      "sha256": "ef4dfd6c62868f9404f1e4610a5b0b008ae4033f3f32499158609270204fa8cc"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/CODEX-T380-round4.md",
+      "bytes": 5625,
+      "sha256": "f8f97d4e6a7a5747f2dd5334c17073f5d1ba2032f77c3ace208ea94ed8cce1df"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/CODEX-T380.md",
+      "bytes": 10574,
+      "sha256": "9761fe1948aaf9d8be72ef756160e8c4d32fce6331dfd79ca69d1ab3432f0e26"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/PROMPT.md",
+      "bytes": 4642,
+      "sha256": "518e351abbc7d1369c626976ef4087496427dc8a25f6da018018afbfe86eb188"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/PROMPT2.md",
+      "bytes": 2972,
+      "sha256": "d630cf56093e5594aa78548efc5674114c26c84e650f41b10125db0ebc07bf9e"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/PROMPT3.md",
+      "bytes": 3177,
+      "sha256": "6307c02999d40e4b6380bb70ee6677977229f14e127bb99424ed59cab813b3ec"
+    },
+    {
+      "path": "analysis/agent-reviews/t380-audio-latency/PROMPT4.md",
+      "bytes": 2899,
+      "sha256": "2ae79642bac4ad9102d5bbd5864e66126fc7b3c4e091e72830d889486d7b240c"
+    },
+    {
       "path": "analysis/agent-reviews/todo-plan-20261102/CODEX-ATTACK.md",
       "bytes": 18931,
       "sha256": "3a9b2eaa5306cb7a3ae79592d38300f21d49fe01c2e4d0a69120fed2ad8d6eb9"
@@ -722,6 +877,11 @@
       "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T300-RECONCILE.md",
       "bytes": 1306,
       "sha256": "804c59580ca11d4f085a00ea79bad265d7b59962dff1fa48f2fdf1fa7a0d4031"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T320-RECONCILE.md",
+      "bytes": 1313,
+      "sha256": "abe3bd34380bd308209033b0e3f08590d171c6fc53d6aaa4c504628eafdf6aa0"
     },
     {
       "path": "analysis/agent-reviews/todo-tests-20261103/CLAUDE-T70-RECHECK.md",
@@ -1032,6 +1192,11 @@
       "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T300.md",
       "bytes": 4017,
       "sha256": "4a6ac3352730336cc57397133b45fa541349c2fda1dda241bb34a9199eb0340d"
+    },
+    {
+      "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T320.md",
+      "bytes": 4532,
+      "sha256": "91696af2f1b0621a1d134f0aca35111ba6a4cdca471de73833dd13b2b152b255"
     },
     {
       "path": "analysis/agent-reviews/todo-tests-20261103/CODEX-T60-RECHECK.md",
@@ -3634,6 +3799,11 @@
       "sha256": "149507349a2a88884e22a87216f7be840ef6b8b1eeea138549f55b5c9bfb7837"
     },
     {
+      "path": "analysis/test-prep/todo-tests-20261103/archive/builds/T24-volume-android/RESULT.md",
+      "bytes": 311,
+      "sha256": "ddec8b64e8111915141d02d705857a4f607d048a7b7c19451ca76f45add72026"
+    },
+    {
       "path": "analysis/test-prep/todo-tests-20261103/archive/builds/T240-bundle/REPORT.md",
       "bytes": 12189,
       "sha256": "920c58ee93652a0686440b6f1f5ee931f1eb5df67665223ff2acc7581d93646e"
@@ -3679,6 +3849,11 @@
       "sha256": "ce5ac9945c1d3fe8387f35b290bf8e3a88cc3c0c8a9280cb00040e55515f1a71"
     },
     {
+      "path": "analysis/test-prep/todo-tests-20261103/archive/builds/T300-bundle/RESULT.md",
+      "bytes": 1883,
+      "sha256": "ff15483338cd9045f916eaf6a05016f86da897d2d18c712c3109756e595ba445"
+    },
+    {
       "path": "analysis/test-prep/todo-tests-20261103/archive/builds/T50-bundle/RESULT.md",
       "bytes": 4000,
       "sha256": "ee9a92e465f5a5b7f2660713272c28b4f14b75bde54ee1cb26a43e7e38cb402c"
@@ -3710,23 +3885,13 @@
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/archive/README.md",
-      "bytes": 863,
-      "sha256": "f902f39d408b5bc937ea7eab43b3081e533c1bbc12bb1ce27bc952fceba5b62f"
+      "bytes": 1227,
+      "sha256": "b06e43cf913fd8dab4aac8226ee9b041e2fa0de1ea76f4de12950bab11f65a38"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/builds/B-current-baseline/RESULT.md",
       "bytes": 1657,
       "sha256": "543e15d3b5420fd3162ec320e084b19a7f43949f57d99958fb2b30408f7c5f84"
-    },
-    {
-      "path": "analysis/test-prep/todo-tests-20261103/builds/T24-volume-android/RESULT.md",
-      "bytes": 311,
-      "sha256": "ddec8b64e8111915141d02d705857a4f607d048a7b7c19451ca76f45add72026"
-    },
-    {
-      "path": "analysis/test-prep/todo-tests-20261103/builds/T300-bundle/RESULT.md",
-      "bytes": 1883,
-      "sha256": "ff15483338cd9045f916eaf6a05016f86da897d2d18c712c3109756e595ba445"
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/cards/T01-maps-route.md",
@@ -3960,8 +4125,8 @@
     },
     {
       "path": "analysis/test-prep/todo-tests-20261103/VISIT.md",
-      "bytes": 1158,
-      "sha256": "517125bf9a7f27d91ba334560c328b50cbe06358f2885858890e4f37d8db6f44"
+      "bytes": 1752,
+      "sha256": "78121387306759dbe105339495994ebbc3da8a5e0cead933d6d368ffe57a0150"
     },
     {
       "path": "analysis/test-prep/v5-repeatability-20261030/REPORT.md",
@@ -4130,8 +4295,8 @@
     },
     {
       "path": "scripts/Build-RdxUsbHelper.ps1",
-      "bytes": 7830,
-      "sha256": "858dd82e9c1a5868653a6ee4f83313350c245face6a6fed63bc0c236963dd38a"
+      "bytes": 10277,
+      "sha256": "b060c4d0a5b7493d9fa3a6636c43e7749509066a4a00469006789cb022c67f4d"
     },
     {
       "path": "scripts/Capture-RdxBoundedBaseline.ps1",
