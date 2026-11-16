@@ -4150,8 +4150,8 @@
     },
     {
       "path": "CURRENT-FINDINGS.md",
-      "bytes": 11585,
-      "sha256": "3359c5b478ded5d425c89d513b23b143b886b21dad42b458659ba196d7e7fc32"
+      "bytes": 11707,
+      "sha256": "b0156b43eec565801aeed433625e05f5101a1ea25c1d709cff3a91eab90716e0"
     },
     {
       "path": "diagnostic-app/AndroidManifest.xml",
@@ -4205,8 +4205,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5953,
-      "sha256": "a031d10f14e566e8891ad8f02b0905a990ca059c75ac917e3c1bf951a09467c0"
+      "bytes": 7476,
+      "sha256": "15415c00bf19f63ed29ddae7895696c8320ff17c5d257bf456de459a529f0d64"
     },
     {
       "path": "scripts/Analyze-RdxArchives.ps1",

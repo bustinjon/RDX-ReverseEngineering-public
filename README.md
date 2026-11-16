@@ -12,7 +12,9 @@ Many Honda and Acura vehicles (roughly 2019–2021, Android 5.1 head units) show
 - **Run Android Auto wirelessly.** The head unit hosts the connection over Wi-Fi, so your phone can stay in your pocket. (Wired over USB works too.)
 - **Play audio in sync.** Media starts aligned with the screen — no lingering delay — and keeps playing cleanly.
 - **Stay up reliably.** Recent fixes stopped a start-up restart loop, so the session holds steady.
-- **Use the car's controls.** The touchpad moves the cursor and the physical selector and Back button work.
+- **Use the car's controls.** The touchpad, the physical selector, and the Back button all work.
+- **Point with a finger-tracking cursor (optional).** Normally the touchpad just nudges a highlight around the screen like arrow keys. Hackura can instead show an on-screen cursor that follows your **actual finger position** on the touchpad — so you point straight at what you want instead of stepping to it. It's optional; turn it off to keep the stock arrow-key behavior.
+- **Map the buttons you want.** Physical controls — **including the steering-wheel buttons** — can be mapped to the actions you choose.
 - **Follow day/night.** The map switches with the car's day/night mode.
 - **Reconnect on its own.** Unplug and replug (or reconnect wirelessly) and it comes back — no laptop needed.
 - **Show the volume level** on screen as you adjust it.
@@ -32,11 +34,14 @@ Turning on Hackura doesn't take over the car. These keep working normally:
 
 Some things are reserved by the vehicle's own software and need system-level permissions a normal app isn't allowed to have. Hackura **cannot**:
 
-- Use the **steering-wheel** Next/Previous or talk button
 - Send the phone **vehicle speed or gear** information
 - Switch the car's built-in microphone mode
 
 These aren't bugs — they're boundaries the car enforces, and Hackura deliberately stays inside them.
+
+## It runs on top, not inside
+
+Hackura does **not** replace or modify your car's built-in Android Auto app, or any factory software. It runs as an ordinary app that draws its screen as an **overlay on top** and talks to your phone itself. Nothing in the car's system is patched, and it isn't rooted — so turning Hackura off, or removing it, leaves the car exactly as it was.
 
 ---
 
@@ -51,7 +56,15 @@ When something is ready for wider testing, it will be announced here.
 
 ## Can I try it on my car?
 
-Not yet, and maybe not ever on your exact car — that's what the current compatibility-testing phase is figuring out. It targets Honda/Acura units with a particular wide screen and software generation, and even within that group small differences between model years can change the result. There's nothing to install today. See [Using this on another car](PORTING.md) for an honest rundown of what's realistic.
+Not yet — there's nothing to install today, and whether it will work on your exact car is the whole point of the current compatibility-testing phase.
+
+Hackura has been built and tested on a single **Acura RDX** so far. The most likely candidates to also work are other Acura models that share the same wide screen and touchpad from that era — notably the **Acura RDX** and **Acura TLX** of roughly 2019–2021 — because they use closely related head units. But "closely related" isn't "identical": small differences between models, model years, and firmware versions can change the result, and none of those other cars has been tested yet. That's exactly why compatibility testing exists, and why there's no one-size-fits-all installer.
+
+See [Using this on another car](PORTING.md) for an honest rundown of what's realistic.
+
+## Want to help test?
+
+Hackura needs trying on more cars to find out where it works. If you have an Acura RDX or TLX (or a related Honda/Acura unit with this kind of wide touchpad screen) and want to help test — or just follow along — reach out on **Discord: `bustinjon`**.
 
 ---
 
